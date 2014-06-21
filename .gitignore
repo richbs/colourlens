@@ -1,0 +1,12 @@
+.DS_Store
+*.lnk
+*.db
+*.pyc
+.*project
+.settings
+.buildpath
+.coverage
+/venv
+/htmlcov
+src
+
