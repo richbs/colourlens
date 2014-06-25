@@ -71,7 +71,8 @@ class Command(BaseCommand):
                     full_im = os.path.join(dirpath, im)
 
                     if full_im.endswith('.jpg'):
-                        print get_colours(full_im)
+                        aw = Artwork.from_file(full_im)
+                        print aw
                     elif full_im.endswith('.json'):
                         f = open(full_im)
                         json_data = f.read()

@@ -19,8 +19,8 @@
   {% for a in artworks  %}
   <li class="grid-work">
     <div class="grid-work-image">
-      <a href="work/{{ a.accession_number }}">
-        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image }}"
+      <a href="{{ a.url }}">
+        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
         />
       </a>
     </div>

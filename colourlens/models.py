@@ -3,9 +3,12 @@ from django.db.models.signals import pre_save
 from decimal import Decimal
 import math
 import urllib
+import urlparse
 import io
 from roygbiv import Roygbiv
 from colourlens.utils import ArtColour
+
+TWOPLACES = Decimal(10) ** -2
 
 class Colour(models.Model):
     """
@@ -27,7 +30,7 @@ class Artwork(models.Model):
     An image of an artwork number with an accession (reference) number
     """
 
-    accession_number = models.CharField(null=False, unique=True, max_length=10)
+    accession_number = models.CharField(unique=True, max_length=100)
     title = models.CharField(blank=True, max_length=100)
     artist = models.CharField(blank=True, max_length=100)
     year = models.IntegerField(blank=True, null=True)
@@ -42,11 +45,16 @@ class Artwork(models.Model):
         im_bytes = response.read()
         aw = Artwork.from_file(io.BytesIO(im_bytes))
         aw.image_url = image_url
+        aw.accession_number = image_url
         aw.save()
         return aw
                    
     @classmethod
     def from_file(cls, filename):
+        aw = Artwork()
+        aw.accession_number = filename
+        aw.title = filename
+        aw.image_url = "file://%s" % filename
         
         roy_im = Roygbiv(filename)
         p = roy_im.get_palette()
@@ -54,8 +62,28 @@ class Artwork(models.Model):
         preselected = []
         for palette_colour in p.colors:
             c = ArtColour(*palette_colour.value)
+            if c.color:
+                cc, cr = Colour.objects.get_or_create(name=c.color)
+                aw.save()
+
+                dist = Decimal(c.distance).quantize(TWOPLACES)
+                prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
+
+                cd, cr = ColourDistance.objects.get_or_create(colour=cc,
+                                                              artwork=aw)
+                if cr:
+                    cd.distance = dist
+                    cd.prominence = prom
+                else:
+                    if cd.prominence:
+                        total_area = cd.prominence + prom
+                        d1 = cd.distance * (cd.prominence / total_area)
+                        d2 = dist * (prom / total_area)
+                        cd.distance = d1 + d2
+                        cd.prominence = total_area
+                cd.save()        
+        aw.save()
         
-        aw = Artwork()
         return aw
         
     def __unicode__(self):
