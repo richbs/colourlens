@@ -39,6 +39,7 @@ class ArtColour:
 
     hsv = ()
     rgb = ()
+    css = ()
     ansi = ()
     ansi_rgb = ()
     ansi_hsv = ()
@@ -147,20 +148,74 @@ class ArtColour:
             colour = sum([16] + [int((6 * float(val) / 256)) * mod
                          for val, mod in ((r, 36), (g, 6), (b, 1))])
         return colour
+    
+    def hex_me_up(self):
         
+        h = webcolors.rgb_to_hex(self.rgb)
+        snapped, colour_name = swatchbook.closest('css3', h)
+        snapped_rgb = webcolors.hex_to_rgb(snapped)
+        target = RGBColor(*snapped_rgb)
+        original = RGBColor(*self.rgb)
+        cdist = target.delta_e(original, method="cmc")
+        prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
+        dist = Decimal(cdist).quantize(TWOPLACES)
+        distsqrt = math.sqrt(dist)
+        presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)
+        ELITE = False
+
+        self.css = {
+            'r': self.rgb[0],
+            'g': self.rgb[1],
+            'b': self.rgb[2],
+            'hex': snapped,
+            'name': colour_name,
+            'distance': float(dist),
+            'prominence': float(prom),
+            'presence': float(presence),
+            'elite': False,
+        }
+        return self.css
+        
+def get_colours(image):
+
+    roy_im = Roygbiv(image)
+    p = roy_im.get_palette()
+    rgbs = []
+    preselected = []
+    for palette_colour in p.colors:
+        c = ArtColour(*palette_colour.value)
+
+        if self.color:
+            distsqrt = math.sqrt(self.distance)
+            presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)
+            rgbs.append({
+                'r': self.rgb[0],
+                'g': self.rgb[1],
+                'b': self.rgb[2],
+                'hex': snapped,
+                'name': self.color.lower(),
+                'distance': float(self.distance),
+                'prominence': float(prom),
+                'presence': float(presence),
+                'elite': True,
+            })
+
+        print snapped, cdist, self.color, self.distance
+    return rgbs
+
 def roygbiv(image, acno, url=None):
     roy_im = Roygbiv(image)
     p = roy_im.get_palette()
     print acno
     for palette_colour in p.colors:
         c = ArtColour(*palette_colour.value)
-        if c.color:
-            cc, cr = Colour.objects.get_or_create(name=c.color)
+        if self.color:
+            cc, cr = Colour.objects.get_or_create(name=self.color)
             aw, cr = Artwork.objects.get_or_create(accession_number=acno)
             aw.image = url
             aw.save()
 
-            dist = Decimal(c.distance).quantize(TWOPLACES)
+            dist = Decimal(self.distance).quantize(TWOPLACES)
             prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
 
             cd, cr = ColourDistance.objects.get_or_create(colour=cc,
@@ -176,81 +231,5 @@ def roygbiv(image, acno, url=None):
                     cd.distance = d1 + d2
                     cd.prominence = total_area
             cd.save()
-
         print '\x1b[48;5;%dm     \x1b[0m %s %.2f NEAREST %s %.2f' % (
-            c.ansi, c.color, c.distance, c.nearest, c.shortest_distance)
-
-def closest(r, g, b):
-
-        # http://stackoverflow.com/questions/9694165/convert-rgb-color-to-english-color-name-like-green
-
-        min_colours = {}
-
-        for key, details in self.colours().items():
-
-            r_c, g_c, b_c = webcolors.hex_to_rgb(key)
-            rd = (r_c - r) ** 2
-            gd = (g_c - g) ** 2
-            bd = (b_c - b) ** 2
-            min_colours[(rd + gd + bd)] = details
-
-        idx = min(min_colours.keys())
-
-        details = min_colours[idx]
-        name = details['name']
-
-        hex = self.hex(name)
-        return hex, name
-
-def get_colours(image):
-
-    roy_im = Roygbiv(image)
-    p = roy_im.get_palette()
-    rgbs = []
-    preselected = []
-    for palette_colour in p.colors:
-        c = ArtColour(*palette_colour.value)
-        h = webcolors.rgb_to_hex(c.rgb)
-        snapped, colour_name = swatchbook.closest('css3', h)
-        snapped_rgb = webcolors.hex_to_rgb(snapped)
-        target = RGBColor(*snapped_rgb)
-        original = RGBColor(*c.rgb)
-        cdist = target.delta_e(original, method="cmc")
-        prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
-        dist = Decimal(cdist).quantize(TWOPLACES)
-        distsqrt = math.sqrt(dist)
-        presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)
-        ELITE = False
-        if c.color:
-            if colour_name.lower() == c.color.lower():
-                ELITE = True
-                    
-        rgbs.append({
-            'r': c.rgb[0],
-            'g': c.rgb[1],
-            'b': c.rgb[2],
-            'name': colour_name,
-            'distance': float(dist),
-            'prominence': float(prom),
-            'presence': float(presence),
-            'elite': ELITE,
-        })
-         
-        if not ELITE and c.color:
-            distsqrt = math.sqrt(c.distance)
-            presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)             
-            rgbs.append({
-                'r': c.rgb[0],
-                'g': c.rgb[1],
-                'b': c.rgb[2],
-                'name': c.color.lower(),
-                'distance': float(c.distance),
-                'prominence': float(prom),
-                'presence': float(presence),
-                'elite': True,
-            })
-
-
-
-        print snapped, cdist, c.color, c.distance
-    return rgbs
+            self.ansi, self.color, self.distance, self.nearest, self.shortest_distance)

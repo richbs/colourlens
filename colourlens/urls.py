@@ -5,5 +5,5 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'^$', 'artcolours.views.index', name="colour_index"),   
+    url(r'^$', 'colourlens.views.index', name="colour_index"),   
 )

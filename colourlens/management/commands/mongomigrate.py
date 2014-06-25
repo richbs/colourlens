@@ -1,7 +1,7 @@
 import pymongo
 import urllib
-from artcolours.models import Artwork, Colour, ColourDistance
-from artcolours.utils import ArtColour, get_colours
+from colourlens.models import Artwork, Colour, ColourDistance
+from colourlens.utils import ArtColour, get_colours
 from django.core.management.base import BaseCommand
 from StringIO import StringIO
 

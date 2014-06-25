@@ -3,7 +3,7 @@ from django import forms
 from django.forms.widgets import Input
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from artcolours.models import Artwork
+from colourlens.models import Artwork
 
 
 PROM_ATTRS = {'min': '0', 'max': '100', 'step': '5'}
