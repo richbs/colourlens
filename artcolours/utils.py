@@ -1,18 +1,10 @@
-import csv
-import os
-import re
-import time
-import urllib
-from decimal import Decimal
-from django.core.management.base import BaseCommand
-from django.conf import settings
-from artcolours.models import Artwork, Colour, ColourDistance
-from roygbiv import Roygbiv
 import colorsys
+import math
+import webcolors
+from cooperhewitt import swatchbook
 from colormath.color_objects import RGBColor
-from optparse import make_option
-from StringIO import StringIO
-
+from decimal import Decimal
+from roygbiv import Roygbiv
 
 COLOURS = {
     'RED': ((255, 0, 0), (340, 17), (10, 100), (66, 100)),
@@ -39,6 +31,8 @@ GREYSCALE = {
 
 DEFAULT_SAT = (25, 100)
 DEFAUL_VAL = (50, 100)
+
+TWOPLACES = Decimal(10) ** -2
 
 
 class ArtColour:
@@ -153,99 +147,110 @@ class ArtColour:
             colour = sum([16] + [int((6 * float(val) / 256)) * mod
                          for val, mod in ((r, 36), (g, 6), (b, 1))])
         return colour
+        
+def roygbiv(image, acno, url=None):
+    roy_im = Roygbiv(image)
+    p = roy_im.get_palette()
+    print acno
+    for palette_colour in p.colors:
+        c = ArtColour(*palette_colour.value)
+        if c.color:
+            cc, cr = Colour.objects.get_or_create(name=c.color)
+            aw, cr = Artwork.objects.get_or_create(accession_number=acno)
+            aw.image = url
+            aw.save()
+
+            dist = Decimal(c.distance).quantize(TWOPLACES)
+            prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
+
+            cd, cr = ColourDistance.objects.get_or_create(colour=cc,
+                                                          artwork=aw)
+            if cr:
+                cd.distance = dist
+                cd.prominence = prom
+            else:
+                if cd.prominence:
+                    total_area = cd.prominence + prom
+                    d1 = cd.distance * (cd.prominence / total_area)
+                    d2 = dist * (prom / total_area)
+                    cd.distance = d1 + d2
+                    cd.prominence = total_area
+            cd.save()
+
+        print '\x1b[48;5;%dm     \x1b[0m %s %.2f NEAREST %s %.2f' % (
+            c.ansi, c.color, c.distance, c.nearest, c.shortest_distance)
+
+def closest(r, g, b):
+
+        # http://stackoverflow.com/questions/9694165/convert-rgb-color-to-english-color-name-like-green
+
+        min_colours = {}
+
+        for key, details in self.colours().items():
+
+            r_c, g_c, b_c = webcolors.hex_to_rgb(key)
+            rd = (r_c - r) ** 2
+            gd = (g_c - g) ** 2
+            bd = (b_c - b) ** 2
+            min_colours[(rd + gd + bd)] = details
+
+        idx = min(min_colours.keys())
+
+        details = min_colours[idx]
+        name = details['name']
+
+        hex = self.hex(name)
+        return hex, name
+
+def get_colours(image):
+
+    roy_im = Roygbiv(image)
+    p = roy_im.get_palette()
+    rgbs = []
+    preselected = []
+    for palette_colour in p.colors:
+        c = ArtColour(*palette_colour.value)
+        h = webcolors.rgb_to_hex(c.rgb)
+        snapped, colour_name = swatchbook.closest('css3', h)
+        snapped_rgb = webcolors.hex_to_rgb(snapped)
+        target = RGBColor(*snapped_rgb)
+        original = RGBColor(*c.rgb)
+        cdist = target.delta_e(original, method="cmc")
+        prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
+        dist = Decimal(cdist).quantize(TWOPLACES)
+        distsqrt = math.sqrt(dist)
+        presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)
+        ELITE = False
+        if c.color:
+            if colour_name.lower() == c.color.lower():
+                ELITE = True
+                    
+        rgbs.append({
+            'r': c.rgb[0],
+            'g': c.rgb[1],
+            'b': c.rgb[2],
+            'name': colour_name,
+            'distance': float(dist),
+            'prominence': float(prom),
+            'presence': float(presence),
+            'elite': ELITE,
+        })
+         
+        if not ELITE and c.color:
+            distsqrt = math.sqrt(c.distance)
+            presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)             
+            rgbs.append({
+                'r': c.rgb[0],
+                'g': c.rgb[1],
+                'b': c.rgb[2],
+                'name': c.color.lower(),
+                'distance': float(c.distance),
+                'prominence': float(prom),
+                'presence': float(presence),
+                'elite': True,
+            })
 
 
-class Command(BaseCommand):
-    help = "Image colour palettes from open data CSV or directory of files"
 
-    option_list = BaseCommand.option_list + (
-        make_option("-c", "--csv",
-                    dest="csv_file",
-                    type="string",
-                    action="store",
-                    help="Image data csv"
-                    ),
-        make_option("-d", "--dir",
-                    dest="input_dir",
-                    type="string",
-                    action="store",
-                    default=None,
-                    help="Directory brimful of images"
-                    ),
-    )
-
-    def roygbiv(self, image, acno, url=None):
-        roy_im = Roygbiv(image)
-        p = roy_im.get_palette()
-        print acno
-        for palette_colour in p.colors:
-            c = ArtColour(*palette_colour.value)
-            if c.color:
-                cc, cr = Colour.objects.get_or_create(name=c.color)
-                aw, cr = Artwork.objects.get_or_create(accession_number=acno)
-                aw.image = url
-                aw.save()
-
-                TWOPLACES = Decimal(10) ** -2
-                dist = Decimal(c.distance).quantize(TWOPLACES)
-                prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
-
-                cd, cr = ColourDistance.objects.get_or_create(colour=cc,
-                                                              artwork=aw)
-                if cr:
-                    cd.distance = dist
-                    cd.prominence = prom
-                else:
-                    if cd.prominence:
-                        total_area = cd.prominence + prom
-                        d1 = cd.distance * (cd.prominence / total_area)
-                        d2 = dist * (prom / total_area)
-                        cd.distance = d1 + d2
-                        cd.prominence = total_area
-                cd.save()
-
-            print '\x1b[48;5;%dm     \x1b[0m %s %.2f NEAREST %s %.2f' % (
-                c.ansi, c.color, c.distance, c.nearest, c.shortest_distance)
-
-    def get_acno(self, filename):
-        urlre = re.compile(r'^.*?([A-z0-9]+?)(?:_[0-9]+)?.jpg$')
-        match = urlre.match(filename)
-        if match:
-            return match.group(1)
-        else:
-            return "Foo"
-
-    def handle(self, *args, **options):
-        print 'Images'
-        input_dir = options['input_dir']
-
-        start = time.time()
-        if options['csv_file']:
-            csv_file = csv.DictReader(open(options['csv_file']))
-            for count, row in enumerate(csv_file):
-                im = row['thumbnail_url']
-                #if row['medium'].find('paint') > -1 and row['thumbnail_url']:
-                if row['thumbnail_url']:
-                    image_url = row['thumbnail_url']
-                    response = urllib.urlopen(image_url)
-                    im_bytes = response.read()
-                    if len(im_bytes) == 0:
-                        continue
-                    ips = (time.time() - start) / (count+1)
-                    print "%.2f images per second" % (ips)
-                    self.roygbiv(StringIO(im_bytes), self.get_acno(image_url),
-                                 row['thumbnail_url'])
-        else:
-            promo_ims = os.path.join(settings.BASE_DIR,
-                                     '../artartists/static/images/promos')
-
-            im_dir = input_dir or promo_ims
-
-            for count, im in enumerate(os.listdir(im_dir)):
-                full_im = os.path.join(im_dir, im)
-                if not full_im.endswith('.jpg'):
-                    print full_im
-                    continue
-                ips = (time.time() - start) / (count+1)
-                print "%.2f images per second" % (ips)
-                self.roygbiv(full_im, self.get_acno(full_im))
+        print snapped, cdist, c.color, c.distance
+    return rgbs

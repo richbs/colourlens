@@ -1,2 +1,6 @@
 Django<=1.7
 -e git://github.com/richbs/RoyGBiv.git#egg=roygbiv
+-e git://github.com/cooperhewitt/py-cooperhewitt-swatchbook.git#egg=cooperhewitt
+colormath<2
+pymongo
+webcolors
