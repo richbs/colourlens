@@ -17,11 +17,11 @@ class Command(BaseCommand):
     help = "Image colour palettes from open data CSV or directory of files"
 
     option_list = BaseCommand.option_list + (
-        make_option("-c", "--csv",
-                    dest="csv_file",
+        make_option("-f", "--filename",
+                    dest="filedata",
                     type="string",
                     action="store",
-                    help="Image data csv"
+                    help="Image data file"
                     ),
         make_option("-d", "--dir",
                     dest="input_dir",
@@ -34,7 +34,7 @@ class Command(BaseCommand):
                     dest="institution",
                     type="string",
                     action="store",
-                    default=None,
+                    default="TATE",
                     help="Institution"
                     ),
     )
@@ -50,35 +50,109 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print 'Images'
         input_dir = options['input_dir']
-
+        institution = options['institution']
         start = time.time()
-        if options['csv_file']:
-            csv_file = csv.DictReader(open(options['csv_file']))
-            for count, row in enumerate(csv_file):
-                im = row['thumbnailUrl']
-                #if row['medium'].find('paint') > -1 and row['thumbnailUrl']:
-                if row['thumbnailUrl']:
-                    image_url = row['thumbnailUrl']                    
-                    aw = Artwork.from_url(image_url)
-
+        if options['filedata']:
+            if institution == "TATE":
+                csv_file = csv.DictReader(open(options['filedata']))
+                for count, row in enumerate(csv_file):
+                    im = row['thumbnailUrl']
+                    if row['thumbnailUrl']:
+                        image_url = row['thumbnailUrl']                    
+                        aw = Artwork.from_url(
+                            row['accession_number'],
+                            institution,
+                            image_url.replace('_8', '_7')
+                        )
+                        aw.title = row['title']
+                        aw.artist = row['artist']
+                        aw.url = row['url']
+                        aw.image_url = image_url
+                        if row['year']:
+                            aw.year = row['year']
+                        aw.save()
+            elif institution == "MAM":
+                f = open(options['filedata'])
+                for count, l in enumerate(f.readlines()):
+                    fields = l.split('^')
+                    if len(fields) == 30 and count > 0:
+                        title = fields[6]
+                        year = fields[3]
+                        acno =  fields[0]
+                        url = "http://collection.mam.org/details.php?id=%s" % (acno)
+                        jpg = fields[25]
+                        image_url = "http://collection.mam.org/vmedia/thumbnails/%s" % (jpg)
+                        print image_url
+                        aw = Artwork.from_url(
+                            acno,
+                            institution,
+                            image_url
+                        )
+                        if not aw:
+                            continue
+                        aw.year = year
+                        aw.title = title 
+                        aw.artist = "%s, %s" % (fields[27], fields[26])
+                        aw.url = url
+                        aw.save()
+            elif institution == "WOLF":
+                 f = open(options['filedata'])
+                 for count, l in enumerate(f.readlines()):
+                     fields = l.split('\t')
+                     print fields
+                     if len(fields) == 3:
+                         title = fields[0]
+                         acno =  fields[1]
+                         url = "http://%s" % (fields[2].rstrip())
+                         image_url = "http://%s" % (fields[1])
+                         print image_url
+                         aw = Artwork.from_url(
+                             acno,
+                             institution,
+                             image_url
+                         )
+                         if not aw:
+                             continue
+                         aw.title = title 
+                         aw.url = url
+                         aw.save()
         else:
-            promo_ims = os.path.join(settings.BASE_DIR,
-                                     '../artartists/static/images/promos')
-
-            im_dir = input_dir or promo_ims
-            for (dirpath, dirnames, filenames) in os.walk(im_dir):
+            for (dirpath, dirnames, filenames) in os.walk(input_dir):
                 for im in filenames:
                     full_im = os.path.join(dirpath, im)
-
+                    acno = full_im.split('/')[-1].split('.')[0]
                     if full_im.endswith('.jpg'):
-                        aw = Artwork.from_file(full_im)
-                        print aw
+                        aw = Artwork.from_file(acno, institution, full_im)
                     elif full_im.endswith('.json'):
                         f = open(full_im)
                         json_data = f.read()
                         pdata = json.loads(json_data)
-                        
-
+                        if institution == "VA":
+                            im_id = pdata[0]['fields']['primary_image_id']
+                            if not im_id:
+                                continue
+                            image_url = "http://media.vam.ac.uk/media/thira/collection_images/%s/%s_jpg_w.jpg" % (
+                                im_id[0:6], im_id
+                            )                  
+                            acno = pdata[0]['fields']['object_number']
+                            title = pdata[0]['fields']['title'] or \
+                                        pdata[0]['fields']['object']
+                            year = pdata[0]['fields']['year_start']
+                            aw = Artwork.from_url(
+                                acno,
+                                institution,
+                                image_url.replace('_w.', '_s.')
+                            )     
+                            aw.title = title
+                            aw.image_url = image_url     
+                            aw.year = year
+                            print title, acno, year
+                            aw.url = 'http://collections.vam.ac.uk/item/%s' % (
+                                acno
+                            )
+                            aw.save()
+                                
+                            
 def url_to_imagefile(url):
     
     response = urllib.urlopen(url)

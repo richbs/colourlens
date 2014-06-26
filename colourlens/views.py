@@ -1,9 +1,9 @@
-from django.db.models import Avg, Sum
+from django.db.models import Avg, Sum, Count
 from django import forms
 from django.forms.widgets import Input
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from colourlens.models import Artwork
+from colourlens.models import Artwork, Colour
 
 
 PROM_ATTRS = {'min': '0', 'max': '100', 'step': '5'}
@@ -51,15 +51,16 @@ class ColourForm(forms.Form):
     distance = forms.IntegerField(label="Broaden palette",
                                   widget=RangeInput(attrs=DIST_ATTRS))
     submitted = forms.CharField(widget=forms.HiddenInput())
+        
 
-
-def index(request):
+def index(request, institution=False):
     """
     Search and browse colours
     """
-
+    print institution
     FORM_INITIAL = {'prominence': 5, 'distance': 25, 'submitted': 'submitted'}
     artworks = Artwork.objects.all()
+    colours = Colour.objects.all()
     form = ColourForm(request.GET)
     if 'submitted' in request.GET:
         if form.is_valid():
@@ -71,7 +72,8 @@ def index(request):
                         colours__name=cname.upper(),
                         colourdistance__prominence__gte=prom,
                         colourdistance__distance__lte=dist,
-                        )
+                    )
+
 
     else:
         form = ColourForm(initial=FORM_INITIAL)
@@ -81,13 +83,27 @@ def index(request):
         tot_prominence=Sum("colourdistance__prominence"),
         ave_presence=Avg("colourdistance__presence")
         )
+    if institution:
+        artworks = artworks.filter(institution=institution)
+
+    if 'submitted' in request.GET or institution:
+        colours = colours.filter(
+                                artwork__id__in=[a.id for a in artworks]
+                            )
+        
     found_works = artworks.count()
-    artworks = artworks.order_by('-ave_presence', 'ave_distance')[:50]
+    artworks = artworks.order_by('-ave_presence')[:100]
+    colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue').distinct()
+    colour_count = colours.count()
+    
     t = loader.get_template("colour.html")
     context_data = {
         'artworks': artworks,
+        'colours': colours,
+        'colour_count': colour_count,
         'form': form,
         'found': found_works,
+        'institution': institution,
     }
     c = RequestContext(request, context_data)
 

@@ -4,7 +4,8 @@
 {% endblock title %}
 {% block content %}
 <h1 id="colour_me_bad">Colour Search <em>{{found}} results</em></h1>
-<form action="{% url 'colour_index' %}" method="get" accept-charset="utf-8" id="colourpick">
+<h2>{{ colour_count }} colours in this set</h2>
+<form action="{% url 'colour_index' %}{% if institution %}{{ institution }}{% endif %}" method="get" accept-charset="utf-8" id="colourpick">
   <ul>
     {% for field in form %}
         <li title="{{field.name|capfirst}}" class="fieldWrapper {{field.field.widget.attrs.class}}">
@@ -15,15 +16,22 @@
   </ul>
   <input type="submit" value="Go">
 </form>
+<div id="colours">
+{% for c in colours %}<div style="width: {{c.artworK__count}}px; height:44px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">{{ c.artwork__count }}</div>{% endfor %}
+</div>
+
 <ul class="explorerWorks explorerGrid">
   {% for a in artworks  %}
   <li class="grid-work">
+		<span>{{ a.institution }}</span>
     <div class="grid-work-image">
       <a href="{{ a.url }}">
         <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
         />
       </a>
     </div>
+		<h3>{{ a.title|truncatechars:20 }}</h3>
+		<p><em>{{ a.artist|truncatechars:20 }}</em></p>
   </li>
   {% endfor %}
 </ul>

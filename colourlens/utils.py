@@ -7,7 +7,7 @@ from decimal import Decimal
 from roygbiv import Roygbiv
 
 COLOURS = {
-    'RED': ((255, 0, 0), (340, 17), (10, 100), (66, 100)),
+    'RED': ((255, 0, 0), (340, 17), (10, 100), (40, 100)),
     'ORANGE': ((252, 106, 8), (18, 45), None, (66, 100)),
     'YELLOW': ((255, 255, 0), (46, 66), None, (76, 100)),
     'LIME': ((0, 255, 0), (67, 165), (15, 100), (66, 100)),
@@ -39,6 +39,7 @@ class ArtColour:
 
     hsv = ()
     rgb = ()
+    hex_value = ()
     css = ()
     ansi = ()
     ansi_rgb = ()
@@ -46,16 +47,21 @@ class ArtColour:
     _color = None
     GREY = False
     distance = None
+    prominence = None
 
-    def __init__(self, r, g, b):
+
+    def __init__(self, r, g, b, prominence):
 
         self.rgb = (r, g, b)
+        self.prominence = prominence
         (self.red, self.blue, self.green) = (r, g, b)
         self.hsv = self.rgb_to_hsv(r, g, b)
         (self.hue, self.sat, self.val) = (self.hsv[0], self.hsv[1], self.hsv[2])
         self.ansi = self.ansi_number(r, g, b)
         self.ansi_rgb = self.rgb_reduce(r, g, b)
         self.ansi_hsv = self.rgb_to_hsv(*self.ansi_rgb)
+        self.hex_value = None
+        self.nearest_hex = None
 
     def rgb_to_hsv(self, r, g, b):
 
@@ -101,6 +107,8 @@ class ArtColour:
 
                 if self.nearest is None or cdist < self.shortest_distance:
                     self.nearest = name
+                    self.nearest_rgb = desired_rgb
+                    
                     self.shortest_distance = cdist
                     self.distance = cdist
 
@@ -123,7 +131,9 @@ class ArtColour:
                     target = RGBColor(*desired_rgb)
                     self.distance = cdist
                     chosen_name = name
+                    self.nearest_hex = webcolors.rgb_to_hex(self.nearest_rgb)
                     return chosen_name
+                    
 
         return None
 
@@ -151,27 +161,26 @@ class ArtColour:
     
     def hex_me_up(self):
         
-        h = webcolors.rgb_to_hex(self.rgb)
-        snapped, colour_name = swatchbook.closest('css3', h)
+        self.hex_value = webcolors.rgb_to_hex(self.rgb)
+        snapped, colour_name = swatchbook.closest('css3', self.hex_value)
         snapped_rgb = webcolors.hex_to_rgb(snapped)
+        hsv = self.rgb_to_hsv(*snapped_rgb)
         target = RGBColor(*snapped_rgb)
         original = RGBColor(*self.rgb)
         cdist = target.delta_e(original, method="cmc")
-        prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
+        prom = Decimal(self.prominence).quantize(TWOPLACES)
         dist = Decimal(cdist).quantize(TWOPLACES)
-        distsqrt = math.sqrt(dist)
-        presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)
         ELITE = False
 
         self.css = {
             'r': self.rgb[0],
             'g': self.rgb[1],
             'b': self.rgb[2],
+            'hue': hsv[0],
             'hex': snapped,
             'name': colour_name,
             'distance': float(dist),
             'prominence': float(prom),
-            'presence': float(presence),
             'elite': False,
         }
         return self.css

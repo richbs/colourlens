@@ -15,10 +15,11 @@ class Colour(models.Model):
     A named-colour from a select palette with defined RGB colours
     """
     name = models.CharField(blank=False, max_length=20, db_index=True)
-    hex_value = models.CharField(blank=True, max_length=10, db_index=True)
+    hex_value = models.CharField(blank=True, max_length=10, unique=True)
     red = models.IntegerField(blank=False, null=True)
     green = models.IntegerField(blank=False, null=True)
     blue = models.IntegerField(blank=False, null=True)
+    hue = models.IntegerField(blank=True, null=True, db_index=True)
     elite = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -40,34 +41,57 @@ class Artwork(models.Model):
     colours = models.ManyToManyField(Colour, through="ColourDistance")
 
     @classmethod
-    def from_url(cls, image_url):
+    def from_url(cls, accession_number, institution, image_url):
         response = urllib.urlopen(image_url)
         im_bytes = response.read()
-        aw = Artwork.from_file(io.BytesIO(im_bytes))
+        aw = Artwork.from_file(
+            accession_number,
+            institution,
+            io.BytesIO(im_bytes)
+        )
+        if not aw:
+            return None
         aw.image_url = image_url
-        aw.accession_number = image_url
         aw.save()
         return aw
                    
     @classmethod
-    def from_file(cls, filename):
-        aw = Artwork()
-        aw.accession_number = filename
-        aw.title = filename
+    def from_file(cls, accession_number, institution, filename):
+        aw, cr = Artwork.objects.get_or_create(
+            institution=institution,
+            accession_number=accession_number
+        )
+        aw.colourdistance_set.all().delete()
+        aw.title = institution + accession_number
         aw.image_url = "file://%s" % filename
-        
-        roy_im = Roygbiv(filename)
+        try:
+            roy_im = Roygbiv(filename)
+        except IOError, e:
+            return None
         p = roy_im.get_palette()
         rgbs = []
         preselected = []
         for palette_colour in p.colors:
-            c = ArtColour(*palette_colour.value)
-            if c.color:
-                cc, cr = Colour.objects.get_or_create(name=c.color)
-                aw.save()
+            c = ArtColour(*palette_colour.value, prominence=palette_colour.prominence)
+            c.hex_me_up()
+            css, cr = Colour.objects.get_or_create(hex_value=c.css['hex'])
+            css.name = c.css['name']
+            css.hue = c.css['hue']
+            dist = Decimal(c.css['distance']).quantize(TWOPLACES)
+            prom = Decimal(c.css['prominence']).quantize(TWOPLACES)
 
+            cd, cr = ColourDistance.objects.get_or_create(colour=css,
+                                                          artwork=aw)
+            cd.distance = dist
+            cd.prominence = prom
+            cd.save()
+            css.save()   
+            if c.color:
+                cc, cr = Colour.objects.get_or_create(hex_value=c.nearest_hex)
+                cc.name = c.color
+                cc.elite = True
                 dist = Decimal(c.distance).quantize(TWOPLACES)
-                prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
+                prom = Decimal(c.prominence).quantize(TWOPLACES)
 
                 cd, cr = ColourDistance.objects.get_or_create(colour=cc,
                                                               artwork=aw)
@@ -81,9 +105,9 @@ class Artwork(models.Model):
                         d2 = dist * (prom / total_area)
                         cd.distance = d1 + d2
                         cd.prominence = total_area
-                cd.save()        
+                cd.save()
+                cc.save()  
         aw.save()
-        
         return aw
         
     def __unicode__(self):
