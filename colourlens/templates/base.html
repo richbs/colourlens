@@ -6,7 +6,8 @@
 		{% block extrahead %}{% endblock %}
 	</head>
 	<body id="{% block body_id %}{% endblock body_id %}" class="{% block body_class %}{% endblock  %}">
-		{% block content %}{% endblock %}
+		<div id="content">{% block content %}{% endblock %}</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		{% block extrascript %}{% endblock %}
 	</body>
 </html>

@@ -52,13 +52,60 @@ class Command(BaseCommand):
         input_dir = options['input_dir']
         institution = options['institution']
         start = time.time()
+        if institution == "HARVARD":
+            
+            offset = 0
+            
+            params = {
+                'apikey': '11915c50-f65c-11e3-9cde-d1a4455847d9',
+                'q': 'ukiyo',
+                'size': 100,
+            }
+            api_url = "http://api.harvardartmuseums.org/object"
+
+            while offset < 3100:                
+                params['from'] = offset
+                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
+                print req_url
+                req = urllib.urlopen(req_url)
+                response = json.load(req)
+                for rec in response['records']:
+                    if 'primaryimageurl' not in rec:
+                        continue
+                    if not rec['primaryimageurl']:
+                        continue
+                    image_url = rec['primaryimageurl'].split('?')[0] + "?width=255&height=255"
+                    print image_url
+                    object_number = rec['objectnumber']
+                    aw = Artwork.from_url(
+                        object_number,
+                        institution,
+                        image_url
+                    )
+                    if 'title' in rec:
+                        aw.title = rec['title']
+                    aw.url = rec['url']
+                    if 'people' in rec:
+                        aw.artist = rec['people'][0]['name']
+                    if rec['datebegin']:
+                        aw.year = rec['datebegin']
+                    aw.save()
+                offset += 100
+        
+        exit()    
+            
+            
         if options['filedata']:
             if institution == "TATE":
                 csv_file = csv.DictReader(open(options['filedata']))
                 for count, row in enumerate(csv_file):
                     im = row['thumbnailUrl']
+                    if not row['accession_number'].startswith("N"):
+                        continue
+                    
                     if row['thumbnailUrl']:
-                        image_url = row['thumbnailUrl']                    
+                        image_url = row['thumbnailUrl']
+                        print image_url                    
                         aw = Artwork.from_url(
                             row['accession_number'],
                             institution,
@@ -82,7 +129,7 @@ class Command(BaseCommand):
                         url = "http://collection.mam.org/details.php?id=%s" % (acno)
                         jpg = fields[25]
                         image_url = "http://collection.mam.org/vmedia/thumbnails/%s" % (jpg)
-                        print image_url
+                        print acno, image_url
                         aw = Artwork.from_url(
                             acno,
                             institution,
@@ -99,7 +146,6 @@ class Command(BaseCommand):
                  f = open(options['filedata'])
                  for count, l in enumerate(f.readlines()):
                      fields = l.split('\t')
-                     print fields
                      if len(fields) == 3:
                          title = fields[0]
                          acno =  fields[1]

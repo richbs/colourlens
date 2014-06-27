@@ -57,26 +57,16 @@ def index(request, institution=False):
     """
     Search and browse colours
     """
-    print institution
-    FORM_INITIAL = {'prominence': 5, 'distance': 25, 'submitted': 'submitted'}
-    artworks = Artwork.objects.all()
+    DISTANCE = 25
+    artworks = Artwork.objects.select_related().all()
     colours = Colour.objects.all()
-    form = ColourForm(request.GET)
-    if 'submitted' in request.GET:
-        if form.is_valid():
-            prom = form.cleaned_data['prominence'] / 100.0
-            dist = form.cleaned_data['distance']
-            for cname, value in form.cleaned_data.iteritems():
-                if value is True:
-                    artworks = artworks.filter(
-                        colours__name=cname.upper(),
-                        colourdistance__prominence__gte=prom,
-                        colourdistance__distance__lte=dist,
-                    )
+    req_colours = request.GET.getlist('colour', [])
+    for hex_value in req_colours:
+        artworks = artworks.filter(
+            colours__hex_value=hex_value,
+            colourdistance__distance__lte=DISTANCE,
+        )
 
-
-    else:
-        form = ColourForm(initial=FORM_INITIAL)
 
     artworks = artworks.annotate(
         ave_distance=Avg("colourdistance__distance"),
@@ -86,24 +76,31 @@ def index(request, institution=False):
     if institution:
         artworks = artworks.filter(institution=institution)
 
-    if 'submitted' in request.GET or institution:
+    if req_colours or institution:
         colours = colours.filter(
+                                colourdistance__distance__lte=DISTANCE,
                                 artwork__id__in=[a.id for a in artworks]
                             )
         
+    artworks = artworks.order_by('-ave_presence').distinct()
     found_works = artworks.count()
-    artworks = artworks.order_by('-ave_presence')[:100]
-    colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue').distinct()
+    colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
+    tot = 0
+    total_palette = reduce(lambda x,y: x+y, [c.artwork__count for c in colours])
     colour_count = colours.count()
-    
+    colour_width = 99.0 / colour_count
+    institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {
-        'artworks': artworks,
+        'artworks': artworks[:100],
         'colours': colours,
         'colour_count': colour_count,
-        'form': form,
+        'colour_width': colour_width,
+        'total_palette': total_palette,
         'found': found_works,
         'institution': institution,
+        'institutions': institutions,
+        'req_colours': req_colours,
     }
     c = RequestContext(request, context_data)
 

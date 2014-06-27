@@ -5,6 +5,7 @@ import math
 import urllib
 import urlparse
 import io
+import json
 from roygbiv import Roygbiv
 from colourlens.utils import ArtColour
 
@@ -38,12 +39,23 @@ class Artwork(models.Model):
     url = models.URLField(blank=True)
     image_url = models.URLField(blank=True)
     institution = models.CharField(blank=True, max_length=10, db_index=True)
+    proportions = models.TextField(blank=True)    
     colours = models.ManyToManyField(Colour, through="ColourDistance")
+
+    def colour_parts(self):
+        
+        if self.proportions:
+            return json.loads(self.proportions)
+        else:
+            return []
 
     @classmethod
     def from_url(cls, accession_number, institution, image_url):
-        response = urllib.urlopen(image_url)
-        im_bytes = response.read()
+        try:
+            response = urllib.urlopen(image_url)
+            im_bytes = response.read()
+        except IOError, e:
+            return None
         aw = Artwork.from_file(
             accession_number,
             institution,
@@ -72,41 +84,28 @@ class Artwork(models.Model):
         rgbs = []
         preselected = []
         for palette_colour in p.colors:
-            c = ArtColour(*palette_colour.value, prominence=palette_colour.prominence)
+            prominence = round(palette_colour.prominence, 3)
+            c = ArtColour(*palette_colour.value, prominence=prominence)
             c.hex_me_up()
             css, cr = Colour.objects.get_or_create(hex_value=c.css['hex'])
             css.name = c.css['name']
             css.hue = c.css['hue']
             dist = Decimal(c.css['distance']).quantize(TWOPLACES)
             prom = Decimal(c.css['prominence']).quantize(TWOPLACES)
-
             cd, cr = ColourDistance.objects.get_or_create(colour=css,
                                                           artwork=aw)
-            cd.distance = dist
-            cd.prominence = prom
+            if cr:
+                cd.distance = dist
+                cd.prominence = prom
+            else:
+                if cd.prominence:
+                    total_area = cd.prominence + prom
+                    d1 = cd.distance * (cd.prominence / total_area)
+                    d2 = dist * (prom / total_area)
+                    cd.distance = d1 + d2
+                    cd.prominence = total_area
             cd.save()
-            css.save()   
-            if c.color:
-                cc, cr = Colour.objects.get_or_create(hex_value=c.nearest_hex)
-                cc.name = c.color
-                cc.elite = True
-                dist = Decimal(c.distance).quantize(TWOPLACES)
-                prom = Decimal(c.prominence).quantize(TWOPLACES)
-
-                cd, cr = ColourDistance.objects.get_or_create(colour=cc,
-                                                              artwork=aw)
-                if cr:
-                    cd.distance = dist
-                    cd.prominence = prom
-                else:
-                    if cd.prominence:
-                        total_area = cd.prominence + prom
-                        d1 = cd.distance * (cd.prominence / total_area)
-                        d2 = dist * (prom / total_area)
-                        cd.distance = d1 + d2
-                        cd.prominence = total_area
-                cd.save()
-                cc.save()  
+            css.save()
         aw.save()
         return aw
         
@@ -137,16 +136,31 @@ class ColourDistance(models.Model):
         return u"s%s %s d:%s p:%s" % (self.artwork, self.colour,
                                       self.distance, self.prominence)
 
+def artwork_proportions(sender, instance, **kwargs):
+    if instance.colourdistance_set.count() > 0:
+        total_area = reduce(lambda x,y: x+y, [cd.prominence for cd in instance.colourdistance_set.all()])
+        colour_list = [
+            (cd.colour.hex_value, float(cd.prominence * (100/total_area))) 
+            for cd in instance.colourdistance_set.all()
+        ]
+        instance.proportions = json.dumps(colour_list)
+    else:
+        instance.proportions = json.dumps([])
 
 def calculate_colour_presence(sender, instance, **kwargs):
     """
     Calculates colour "presence" in image. This is distance as
     a factor of colour area
     """
+    if instance.prominence < 0.01:
+        instance.prominence = 0.01
     if instance.distance and instance.prominence:
+
         dist = Decimal(instance.distance)
         prom = Decimal(instance.prominence)
         distsqrt = math.sqrt(dist)
-        instance.presence = prom * 100 / Decimal(distsqrt)
+        presence = prom * 100 / 4 / Decimal(distsqrt)
+        instance.presence = Decimal(presence).quantize(TWOPLACES)
 
 pre_save.connect(calculate_colour_presence, sender=ColourDistance)
+pre_save.connect(artwork_proportions, sender=Artwork)
