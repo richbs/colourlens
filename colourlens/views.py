@@ -96,11 +96,11 @@ def index(request, institution=False):
     tot = 0
     total_palette = reduce(lambda x,y: x+y, [c.artwork__count for c in colours])
     colour_count = colours.count()
-    colour_width = 100.0 / colour_count
+    colour_width = 99.9 / colour_count
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {
-        'artworks': artworks[:100],
+        'artworks': artworks[:32],
         'colours': colours,
         'colour_count': colour_count,
         'colour_width': colour_width,

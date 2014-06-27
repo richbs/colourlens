@@ -1,54 +1,79 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
 {% block title %}
 {% endblock title %}
 {% block content %}
-<div id="colour-list">
-{% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:{{ c.artwork__count }}px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
-	<a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
-	{% if c.hex_value in req_colours %}<span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:{{ c.hex_value }};"></span>{% else %}{% endif %}	
-</div>{% endfor %}
+<div id="fullpage">
+	<div class="section">
+		<div id="colour-page">
+		{% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:{{ c.artwork__count }}px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
+			<a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
+		</div>{% endfor %}
+	  </div>
+	</div>
+	<div class="section active">
+		<div id="colour-list">
+		{% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:{{ c.artwork__count }}px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
+			<a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
+			{% if c.hex_value in req_colours %}<span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:{{ c.hex_value }};"></span>{% else %}{% endif %}	
+		</div>{% endfor %}
+		</div>
+		<div id="header">
+		<h1 id="colour_me_bad">Colour Lens</h1><em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
+		<p id="institution-nav">
+			<a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
+			{% for i in institutions %}
+			<a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
+		{% endfor %}</p>
+		</div>
+		<ul class="explorerWorks explorerGrid">
+		  {% for a in artworks  %}
+		  <li class="grid-work">
+		    <div class="grid-work-image">
+		      <a href="{{ a.url }}">
+		        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
+		        />
+		      </a>
+		    </div>
+				<h3>{{ a.title|truncatechars:25 }}</h3>
+				<span class="institution">{{ a.institution }}</span>		
+				<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
+				<p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
+		  </li>
+		  {% endfor %}
+		</ul>
+	</div>
 </div>
-<div id="header">
-<h1 id="colour_me_bad">Colour Lens</h1><em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
-<p>
-	<a href="{% url 'colour_index' %}">ALL</a>
-	{% for i in institutions %}
-	<a href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
-{% endfor %}</p>
-</div>
-<ul class="explorerWorks explorerGrid">
-  {% for a in artworks  %}
-  <li class="grid-work">
-		<span>{{ a.institution }}</span>
-    <div class="grid-work-image">
-      <a href="{{ a.url }}">
-        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
-        />
-      </a>
-    </div>
-		<h3>{{ a.title|truncatechars:25 }}</h3>
-		<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
-		<p class="signature">{% for h, pc in a.colour_parts %}<span style="display:inline-block; width: {{ pc|floatformat:2 }}%; height:15px; background-color:{{ h }};"></span>{% endfor %}</p>
-  </li>
-  {% endfor %}
-</ul>
 {% endblock %}
 {% block extrascript %}
+<script src="{% static 'vendors/jquery.easings.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery.fullPage.min.js' %}"></script>
 <script type="text/javascript">
-var total_palette = {{ total_palette }};
-$('#colour-list div a').each(function(i, ele){
- 	var h = $(ele).height();
-	var sqrt = Math.log(h) * 10;
-	$(ele).parent().css('height', sqrt + 24 + 'px');
-	ele.innerHTML = '';	
-})
 
-$('.explorerGrid h3, .explorerGrid p.artist').hide()
-
+$(document).ready(function() {
+		var total_palette = {{ total_palette }};
+		$('#colour-list div a').each(function(i, ele){
+		 	var h = $(ele).height();
+			var sqrt = Math.log(h) * 10;
+			$(ele).parent().css('height', sqrt + 24 + 'px');
+			ele.innerHTML = '';	
+		})
+		// /$('.section').css('height', $( window ).height())
+		$('#colour-page div a').each(function(i, ele){
+			var h = $(ele).height();
+			var sqrt = Math.log(h) * 10;
+			$(ele).parent().css('height', $( window ).height());
+			ele.innerHTML = '';	
+		})
+		$('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide()
+    $('#fullpage').fullpage();
+});
 </script>
 {% endblock %}
 {% block extrahead %}
+<link rel="stylesheet" href="{% static 'jquery.fullPage.css' %}" type="text/css" media="screen" title="no title" charset="utf-8">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
 <style type="text/css">
 * {
@@ -61,6 +86,7 @@ $('.explorerGrid h3, .explorerGrid p.artist').hide()
 body {
 	margin:0;
 }
+
 
 #content {
 	max-width:1228px;
@@ -97,10 +123,16 @@ body {
 }
 
 #header a {
-	color:black;
+	color:#666;
+	font-weight:800;
 	text-decoration:none;
 	padding-bottom:6px;
 	border-bottom:3px solid #666;
+}
+
+#institution-nav .selected {
+	color:#444;
+	border-bottom:3px solid #F00;
 }
 
 .explorerGrid ul {
@@ -112,10 +144,11 @@ body {
 	height: inherit;
 	min-height: 100px;
 	max-width: 133px;
+	width:133px;
 	display: inline-block;
 	vertical-align: bottom;
 	font-size:0.66em;
-	margin-right:15px;
+	margin:0 15px 15px 0;
 }
 .explorerGrid li span {
 	font-size:1em;
@@ -134,12 +167,24 @@ body {
 	height:12px;
 }
 
+.explorerGrid span {
+	height:12px;
+}
+
 .explorerWorks {
 	padding:0;
 }
 
 .grid-work-image {
 	padding: 0;
+}
+
+p.signature span {
+	height: 15px;
+	display:inline-block;
+}
+.tableCell {
+	vertical-align:top;
 }
 </style>
 {% endblock extrahead %}
