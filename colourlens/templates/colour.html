@@ -38,13 +38,9 @@
 <script type="text/javascript">
 var total_palette = {{ total_palette }};
 $('#colour-list div a').each(function(i, ele){
-	var widthpc = $(ele)[0].textContent/total_palette*100;
-	if (widthpc < 1) {
-	 	widthpc = 1;
-	}
  	var h = $(ele).height();
 	var sqrt = Math.log(h) * 10;
-	$(ele).parent().css('height', sqrt + 10 + 'px');
+	$(ele).parent().css('height', sqrt + 24 + 'px');
 	ele.innerHTML = '';	
 })
 
@@ -67,7 +63,7 @@ body {
 }
 
 #content {
-	max-width:1320px;
+	max-width:1228px;
 	margin: 0px auto;
 }
 
@@ -119,7 +115,7 @@ body {
 	display: inline-block;
 	vertical-align: bottom;
 	font-size:0.66em;
-	margin-right:9px;
+	margin-right:15px;
 }
 .explorerGrid li span {
 	font-size:1em;

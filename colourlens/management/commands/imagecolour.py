@@ -58,12 +58,12 @@ class Command(BaseCommand):
             
             params = {
                 'apikey': '11915c50-f65c-11e3-9cde-d1a4455847d9',
-                'q': 'ukiyo',
+                'q': 'poster',
                 'size': 100,
             }
             api_url = "http://api.harvardartmuseums.org/object"
 
-            while offset < 3100:                
+            while offset < 400:                
                 params['from'] = offset
                 req_url = "%s?%s" % (api_url, urllib.urlencode(params))
                 print req_url
@@ -99,7 +99,7 @@ class Command(BaseCommand):
                 csv_file = csv.DictReader(open(options['filedata']))
                 for count, row in enumerate(csv_file):
                     im = row['thumbnailUrl']
-                    if not row['accession_number'].startswith("N"):
+                    if not row['accession_number'].startswith("P"):
                         continue
                     
                     if row['thumbnailUrl']:
