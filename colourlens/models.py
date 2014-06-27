@@ -55,6 +55,7 @@ class Artwork(models.Model):
             response = urllib.urlopen(image_url)
             im_bytes = response.read()
         except IOError, e:
+            print e
             return None
         aw = Artwork.from_file(
             accession_number,
@@ -79,6 +80,7 @@ class Artwork(models.Model):
         try:
             roy_im = Roygbiv(filename)
         except IOError, e:
+            print e
             return None
         p = roy_im.get_palette()
         rgbs = []
