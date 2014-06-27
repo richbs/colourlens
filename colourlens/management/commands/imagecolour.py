@@ -91,8 +91,7 @@ class Command(BaseCommand):
                         aw.year = rec['datebegin']
                     aw.save()
                 offset += 100
-        
-        exit()    
+            exit()    
             
             
         if options['filedata']:

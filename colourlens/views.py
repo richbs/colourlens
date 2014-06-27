@@ -61,6 +61,14 @@ def index(request, institution=False):
     artworks = Artwork.objects.select_related().all()
     colours = Colour.objects.all()
     req_colours = request.GET.getlist('colour', [])
+    startyear = request.GET.get('startyear', None)
+    endyear = request.GET.get('endyear', None)
+
+    if startyear:
+        artworks = artworks.filter(year__gte=startyear)
+    if endyear:
+        artworks = artworks.filter(year__lte=endyear)
+        
     for hex_value in req_colours:
         artworks = artworks.filter(
             colours__hex_value=hex_value,
@@ -70,19 +78,19 @@ def index(request, institution=False):
 
     artworks = artworks.annotate(
         ave_distance=Avg("colourdistance__distance"),
-        tot_prominence=Sum("colourdistance__prominence"),
-        ave_presence=Avg("colourdistance__presence")
+        ave_presence=Avg("colourdistance__presence"),
+        tot_presence=Sum("colourdistance__presence")        
         )
     if institution:
         artworks = artworks.filter(institution=institution)
 
-    if req_colours or institution:
+    if req_colours or institution or startyear or endyear:
         colours = colours.filter(
-                                colourdistance__distance__lte=DISTANCE,
-                                artwork__id__in=[a.id for a in artworks]
+                        colourdistance__distance__lte=DISTANCE,
+                        artwork__id__in=[a.id for a in artworks]
                             )
         
-    artworks = artworks.order_by('-ave_presence').distinct()
+    artworks = artworks.order_by('-tot_presence').distinct()
     found_works = artworks.count()
     colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
     tot = 0
