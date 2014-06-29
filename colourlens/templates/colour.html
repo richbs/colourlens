@@ -2,8 +2,11 @@
 
 {% load staticfiles %}
 
-{% block title %}
-{% endblock title %}
+{% block title %}Colour Lens{% endblock title %}
+
+{% block body_id %}colour-browse{% endblock %}
+{% block body_class %}full-page-colour{% endblock  %}
+
 {% block content %}
 <div id="fullpage">
 	<div class="section">
@@ -28,22 +31,43 @@
 			<a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
 		{% endfor %}</p>
 		</div>
-		<ul class="explorerWorks explorerGrid">
-		  {% for a in artworks  %}
-		  <li class="grid-work">
-		    <div class="grid-work-image">
-		      <a href="{{ a.url }}">
-		        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
-		        />
-		      </a>
-		    </div>
-				<h3>{{ a.title|truncatechars:25 }}</h3>
-				<span class="institution">{{ a.institution }}</span>		
-				<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
-				<p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
-		  </li>
-		  {% endfor %}
-		</ul>
+
+    <div class="slide">
+			<ul class="explorerWorks explorerGrid">
+			  {% for a in artworks|slice:":16" %}
+			  <li class="grid-work">
+			    <div class="grid-work-image">
+			      <a href="{{ a.url }}">
+			        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
+			        />
+			      </a>
+			    </div>
+					<h3>{{ a.title|truncatechars:25 }}</h3>
+					<span class="institution">{{ a.institution }}</span>		
+					<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
+					<p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
+			  </li>
+			  {% endfor %}
+			</ul>
+		</div>
+    <div class="slide">
+			<ul class="explorerWorks explorerGrid">
+			  {% for a in artworks|slice:"16:32" %}
+			  <li class="grid-work">
+			    <div class="grid-work-image">
+			      <a href="{{ a.url }}">
+			        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
+			        />
+			      </a>
+			    </div>
+					<h3>{{ a.title|truncatechars:25 }}</h3>
+					<span class="institution">{{ a.institution }}</span>		
+					<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
+					<p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
+			  </li>
+			  {% endfor %}
+			</ul>
+		</div>		
 	</div>
 </div>
 {% endblock %}
@@ -73,7 +97,7 @@ $(document).ready(function() {
 </script>
 {% endblock %}
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'jquery.fullPage.css' %}" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="{% static 'jquery.fullPage.css' %}" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
 <style type="text/css">
 * {
@@ -185,6 +209,17 @@ p.signature span {
 }
 .tableCell {
 	vertical-align:top;
+}
+.controlArrow.prev {
+    left: 15px;
+    width: 0;
+    border-width: 38.5px 34px 38.5px 0;
+    border-color: transparent #cd5c5c transparent transparent;
+}
+.controlArrow.next {
+    right: 15px;
+    border-width: 38.5px 0 38.5px 34px;
+    border-color: transparent transparent transparent #cd5c5c;
 }
 </style>
 {% endblock extrahead %}

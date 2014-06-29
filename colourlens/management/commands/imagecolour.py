@@ -13,6 +13,7 @@ from optparse import make_option
 from StringIO import StringIO
 import io
 
+
 class Command(BaseCommand):
     help = "Image colour palettes from open data CSV or directory of files"
 
@@ -53,9 +54,9 @@ class Command(BaseCommand):
         institution = options['institution']
         start = time.time()
         if institution == "HARVARD":
-            
+
             offset = 0
-            
+
             params = {
                 'apikey': '11915c50-f65c-11e3-9cde-d1a4455847d9',
                 'q': 'poster',
@@ -63,7 +64,7 @@ class Command(BaseCommand):
             }
             api_url = "http://api.harvardartmuseums.org/object"
 
-            while offset < 400:                
+            while offset < 400:
                 params['from'] = offset
                 req_url = "%s?%s" % (api_url, urllib.urlencode(params))
                 print req_url
@@ -91,9 +92,82 @@ class Command(BaseCommand):
                         aw.year = rec['datebegin']
                     aw.save()
                 offset += 100
-            exit()    
-            
-            
+            exit()
+        elif institution == "RIJKS":
+            page = 1
+            params = {
+                'key':'rlALEHO7',
+                'format': 'json',
+                'f': 2,
+                'p': 1,
+                'ps': 100,
+                'type': 'print',
+                'place': 'Japan',
+                'imgonly': True,
+                'ii': 0,
+            }
+            api_url = "https://www.rijksmuseum.nl/api/en/collection"
+            while page < 200:
+                page += 1
+                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
+                print req_url
+                req = urllib.urlopen(req_url)
+                response = json.load(req)
+                for rec in response['artObjects']:
+                    object_id = rec['objectNumber']
+                    image_url = rec['webImage']['url'].replace('=s0', '=s155')
+                    print image_url
+                    aw = Artwork.from_url(
+                        object_id,
+                        institution,
+                        image_url
+                    )
+                    if not aw:
+                        continue
+                    if 'title' in rec:
+                        aw.title = rec['title']
+                    aw.url = rec['links']['web']
+                    if 'principalOrFirstMaker' in rec:
+                        aw.artist = rec['principalOrFirstMaker']
+                    if rec['longTitle']:
+                        aw.year = rec['longTitle'].split(' ')[-1]
+                    aw.save()
+        elif institution == "WALTERS":
+            page = 1
+            params = {
+                'apikey': 'I2aqyzVeH2SSedbYCafST7hYkjD2nbaP4Hlqgu6Hr4VnjkvTDDIABEKBL15EmTrg',
+                'CollectionID': 3,
+                'pagesize': 100,
+                'page': page,
+            }
+            api_url = "http://api.thewalters.org/v1/objects.json"
+            while page < 200:
+                page += 1
+                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
+                print req_url
+                req = urllib.urlopen(req_url)
+                response = json.load(req)
+                for rec in response['Items']:
+                    print rec
+                    object_id = rec['ObjectNumber']
+                    image_url = rec['PrimaryImage']['Medium']
+
+                    aw = Artwork.from_url(
+                        object_id,
+                        institution,
+                        image_url
+                    )
+                    if 'Title' in rec:
+                        aw.title = rec['Title']
+                    aw.url = rec['ResourceURL']
+                    if 'Creator' in rec:
+                        aw.artist = rec['Creator']
+                    if rec['DateBeginYear']:
+                        aw.year = rec['DateBeginYear']
+                    print aw.image_url
+                    aw.save()
+
+
         if options['filedata']:
             if institution == "TATE":
                 csv_file = csv.DictReader(open(options['filedata']))
@@ -101,10 +175,10 @@ class Command(BaseCommand):
                     im = row['thumbnailUrl']
                     if not row['accession_number'].startswith("P"):
                         continue
-                    
+
                     if row['thumbnailUrl']:
                         image_url = row['thumbnailUrl']
-                        print image_url                    
+                        print image_url
                         aw = Artwork.from_url(
                             row['accession_number'],
                             institution,
@@ -137,7 +211,7 @@ class Command(BaseCommand):
                         if not aw:
                             continue
                         aw.year = year
-                        aw.title = title 
+                        aw.title = title
                         aw.artist = "%s, %s" % (fields[27], fields[26])
                         aw.url = url
                         aw.save()
@@ -158,7 +232,7 @@ class Command(BaseCommand):
                          )
                          if not aw:
                              continue
-                         aw.title = title 
+                         aw.title = title
                          aw.url = url
                          aw.save()
         else:
@@ -178,7 +252,7 @@ class Command(BaseCommand):
                                 continue
                             image_url = "http://media.vam.ac.uk/media/thira/collection_images/%s/%s_jpg_w.jpg" % (
                                 im_id[0:6], im_id
-                            )                  
+                            )
                             acno = pdata[0]['fields']['object_number']
                             title = pdata[0]['fields']['title'] or \
                                         pdata[0]['fields']['object']
@@ -187,20 +261,19 @@ class Command(BaseCommand):
                                 acno,
                                 institution,
                                 image_url.replace('_w.', '_s.')
-                            )     
+                            )
                             aw.title = title
-                            aw.image_url = image_url     
+                            aw.image_url = image_url
                             aw.year = year
                             print title, acno, year
                             aw.url = 'http://collections.vam.ac.uk/item/%s' % (
                                 acno
                             )
                             aw.save()
-                                
-                            
+
+
 def url_to_imagefile(url):
-    
+
     response = urllib.urlopen(url)
     im_bytes = response.read()
     return io.BytesIO(im_bytes)
-    
