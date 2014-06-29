@@ -148,10 +148,10 @@ class Command(BaseCommand):
                 req = urllib.urlopen(req_url)
                 response = json.load(req)
                 for rec in response['Items']:
-                    print rec
                     object_id = rec['ObjectNumber']
                     image_url = rec['PrimaryImage']['Medium']
-
+                    if not image_url:
+                        continue
                     aw = Artwork.from_url(
                         object_id,
                         institution,
