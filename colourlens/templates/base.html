@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,7 +9,7 @@
 	</head>
 	<body id="{% block body_id %}{% endblock body_id %}" class="{% block body_class %}{% endblock  %}">
 		<div id="content">{% block content %}{% endblock %}</div>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="{% static 'jquery.min.js' %}"></script>
 		{% block extrascript %}{% endblock %}
 	</body>
 </html>

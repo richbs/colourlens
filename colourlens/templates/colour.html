@@ -31,14 +31,12 @@
 			<a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
 		{% endfor %}</p>
 		</div>
-
-    <div class="slide">
 			<ul class="explorerWorks explorerGrid">
 			  {% for a in artworks|slice:":16" %}
 			  <li class="grid-work">
 			    <div class="grid-work-image">
-			      <a href="{{ a.url }}">
-			        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
+			      <a href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
+			        <img alt="{{ a.title }}" src="{{ a.image_url }}"
 			        />
 			      </a>
 			    </div>
@@ -50,12 +48,12 @@
 			  {% endfor %}
 			</ul>
 		</div>
-    <div class="slide">
+    <div class="section">
 			<ul class="explorerWorks explorerGrid">
-			  {% for a in artworks|slice:"16:32" %}
+			  {% for a in artworks|slice:"16:40" %}
 			  <li class="grid-work">
 			    <div class="grid-work-image">
-			      <a href="{{ a.url }}">
+			      <a href="{{ a.url }}" style="background-image: url({{ a.image_url }});">
 			        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
 			        />
 			      </a>
@@ -81,7 +79,7 @@ $(document).ready(function() {
 		$('#colour-list div a').each(function(i, ele){
 		 	var h = $(ele).height();
 			var sqrt = Math.log(h) * 10;
-			$(ele).parent().css('height', sqrt + 24 + 'px');
+			$(ele).parent().css('height', (sqrt*1.5) + 44 + 'px');
 			ele.innerHTML = '';	
 		})
 		// /$('.section').css('height', $( window ).height())
@@ -166,20 +164,24 @@ body {
 
 .explorerGrid li {
 	height: inherit;
-	min-height: 100px;
-	max-width: 133px;
+	min-height: 82px;
 	width:133px;
+	max-height:215px;
 	display: inline-block;
+	align: left;
 	vertical-align: bottom;
 	font-size:0.66em;
 	margin:0 15px 15px 0;
+	padding: 0;
 }
+
+
 .explorerGrid li span {
 	font-size:1em;
 }
 
 .explorerGrid li img {
-	min-height: 100px;
+	min-height: 82px;
 	max-width: 133px;
 }
 
@@ -202,10 +204,27 @@ body {
 .grid-work-image {
 	padding: 0;
 }
+.grid-work-image a {
+	display: block; 
+	height:133px; 
+	width:133px; 
+	overflow:hidden; 
+	background-position: 50% 50%;
+	background-size: cover;
+  background-repeat: no-repeat;
+}
 
+.grid-work-image a img {
+	visibility: hidden;
+}
 p.signature span {
 	height: 15px;
 	display:inline-block;
+}
+
+p.signature {
+	height: 15px;
+	margin: 9px 0 0 0;
 }
 .tableCell {
 	vertical-align:top;

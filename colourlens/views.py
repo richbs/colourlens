@@ -101,7 +101,7 @@ def index(request, institution=False):
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {
-        'artworks': artworks[:32],
+        'artworks': artworks[:40],
         'colours': colours,
         'colour_count': colour_count,
         'colour_width': colour_width,
