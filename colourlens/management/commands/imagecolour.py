@@ -2,15 +2,11 @@ import csv
 import json
 import os
 import re
-import time
 import urllib
-from decimal import Decimal
 from django.core.management.base import BaseCommand
 from django.conf import settings
-from colourlens.models import Artwork, Colour, ColourDistance
-from colourlens.utils import ArtColour, roygbiv, get_colours
+from colourlens.models import Artwork
 from optparse import make_option
-from StringIO import StringIO
 import io
 
 
@@ -22,7 +18,7 @@ class Command(BaseCommand):
                     dest="filedata",
                     type="string",
                     action="store",
-                    help="Image data file"
+                    help="Image data file/list"
                     ),
         make_option("-d", "--dir",
                     dest="input_dir",
@@ -38,6 +34,13 @@ class Command(BaseCommand):
                     default="TATE",
                     help="Institution"
                     ),
+        make_option("-a", "--apikey",
+                    dest="apikey",
+                    type="string",
+                    action="store",
+                    default="",
+                    help="The API Key from this institution"
+                    ),
     )
 
     def get_acno(self, filename):
@@ -52,13 +55,13 @@ class Command(BaseCommand):
         print 'Images'
         input_dir = options['input_dir']
         institution = options['institution']
-        start = time.time()
+        api_key = options['apikey']
         if institution == "HARVARD":
 
             offset = 0
 
             params = {
-                'apikey': '11915c50-f65c-11e3-9cde-d1a4455847d9',
+                'apikey': api_key,
                 'q': 'poster',
                 'size': 100,
             }
@@ -96,7 +99,7 @@ class Command(BaseCommand):
         elif institution == "RIJKS":
             page = 1
             params = {
-                'key':'rlALEHO7',
+                'key': api_key,
                 'format': 'json',
                 'f': 2,
                 'p': 1,
@@ -135,7 +138,7 @@ class Command(BaseCommand):
         elif institution == "WALTERS":
             page = 1
             params = {
-                'apikey': 'I2aqyzVeH2SSedbYCafST7hYkjD2nbaP4Hlqgu6Hr4VnjkvTDDIABEKBL15EmTrg',
+                'apikey': api_key,
                 'CollectionID': 3,
                 'pagesize': 100,
                 'page': page,
@@ -167,7 +170,6 @@ class Command(BaseCommand):
                     print aw.image_url
                     aw.save()
 
-
         if options['filedata']:
             if institution == "TATE":
                 csv_file = csv.DictReader(open(options['filedata']))
@@ -198,7 +200,7 @@ class Command(BaseCommand):
                     if len(fields) == 30 and count > 0:
                         title = fields[6]
                         year = fields[3]
-                        acno =  fields[0]
+                        acno = fields[0]
                         url = "http://collection.mam.org/details.php?id=%s" % (acno)
                         jpg = fields[25]
                         image_url = "http://collection.mam.org/vmedia/thumbnails/%s" % (jpg)
@@ -216,25 +218,25 @@ class Command(BaseCommand):
                         aw.url = url
                         aw.save()
             elif institution == "WOLF":
-                 f = open(options['filedata'])
-                 for count, l in enumerate(f.readlines()):
-                     fields = l.split('\t')
-                     if len(fields) == 3:
-                         title = fields[0]
-                         acno =  fields[1]
-                         url = "http://%s" % (fields[2].rstrip())
-                         image_url = "http://%s" % (fields[1])
-                         print image_url
-                         aw = Artwork.from_url(
-                             acno,
-                             institution,
-                             image_url
-                         )
-                         if not aw:
-                             continue
-                         aw.title = title
-                         aw.url = url
-                         aw.save()
+                f = open(options['filedata'])
+                for count, l in enumerate(f.readlines()):
+                    fields = l.split('\t')
+                    if len(fields) == 3:
+                        title = fields[0]
+                        acno = fields[1]
+                        url = "http://%s" % (fields[2].rstrip())
+                        image_url = "http://%s" % (fields[1])
+                        print image_url
+                        aw = Artwork.from_url(
+                            acno,
+                            institution,
+                            image_url
+                        )
+                        if not aw:
+                            continue
+                        aw.title = title
+                        aw.url = url
+                        aw.save()
         else:
             for (dirpath, dirnames, filenames) in os.walk(input_dir):
                 for im in filenames:
@@ -255,7 +257,7 @@ class Command(BaseCommand):
                             )
                             acno = pdata[0]['fields']['object_number']
                             title = pdata[0]['fields']['title'] or \
-                                        pdata[0]['fields']['object']
+                                pdata[0]['fields']['object']
                             year = pdata[0]['fields']['year_start']
                             aw = Artwork.from_url(
                                 acno,

@@ -51,7 +51,7 @@ class ColourForm(forms.Form):
     distance = forms.IntegerField(label="Broaden palette",
                                   widget=RangeInput(attrs=DIST_ATTRS))
     submitted = forms.CharField(widget=forms.HiddenInput())
-        
+
 
 def index(request, institution=False):
     """
@@ -68,33 +68,34 @@ def index(request, institution=False):
         artworks = artworks.filter(year__gte=startyear)
     if endyear:
         artworks = artworks.filter(year__lte=endyear)
-        
+
     for hex_value in req_colours:
         artworks = artworks.filter(
             colours__hex_value=hex_value,
             colourdistance__distance__lte=DISTANCE,
         )
 
-
     artworks = artworks.annotate(
         ave_distance=Avg("colourdistance__distance"),
         ave_presence=Avg("colourdistance__presence"),
-        tot_presence=Sum("colourdistance__presence")        
-        )
+        tot_presence=Sum("colourdistance__presence")
+    )
     if institution:
         artworks = artworks.filter(institution=institution)
 
     if req_colours or institution or startyear or endyear:
         colours = colours.filter(
-                        colourdistance__distance__lte=DISTANCE,
-                        artwork__id__in=[a.id for a in artworks]
-                            )
-        
+            colourdistance__distance__lte=DISTANCE,
+            artwork__id__in=[a.id for a in artworks]
+        )
+
     artworks = artworks.order_by('-tot_presence').distinct()
     found_works = artworks.count()
     colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
-    tot = 0
-    total_palette = reduce(lambda x,y: x+y, [c.artwork__count for c in colours])
+    total_palette = reduce(
+        lambda x, y: x+y,
+        [c.artwork__count for c in colours]
+    )
     colour_count = colours.count()
     colour_width = 99.9 / colour_count
     institutions = Artwork.objects.all().values('institution').distinct()
