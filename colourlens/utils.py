@@ -1,10 +1,8 @@
 import colorsys
-import math
 import webcolors
 from cooperhewitt import swatchbook
 from colormath.color_objects import RGBColor
 from decimal import Decimal
-from roygbiv import Roygbiv
 
 COLOURS = {
     'RED': ((255, 0, 0), (340, 17), (10, 100), (40, 100)),
@@ -49,14 +47,14 @@ class ArtColour:
     distance = None
     prominence = None
 
-
     def __init__(self, r, g, b, prominence):
 
         self.rgb = (r, g, b)
         self.prominence = prominence
         (self.red, self.blue, self.green) = (r, g, b)
         self.hsv = self.rgb_to_hsv(r, g, b)
-        (self.hue, self.sat, self.val) = (self.hsv[0], self.hsv[1], self.hsv[2])
+        (self.hue, self.sat, self.val) = \
+            (self.hsv[0], self.hsv[1], self.hsv[2])
         self.ansi = self.ansi_number(r, g, b)
         self.ansi_rgb = self.rgb_reduce(r, g, b)
         self.ansi_hsv = self.rgb_to_hsv(*self.ansi_rgb)
@@ -81,7 +79,8 @@ class ArtColour:
 
     def rgb_reduce(self, r, g, b):
 
-        reduced_rgb = [int(6 * float(val) / 256) * (256/6) for val in (r, g, b)]
+        reduced_rgb = [int(6 * float(val) / 256)
+                       * (256/6) for val in (r, g, b)]
         return tuple(reduced_rgb)
 
     def spin(self, deg):
@@ -108,7 +107,7 @@ class ArtColour:
                 if self.nearest is None or cdist < self.shortest_distance:
                     self.nearest = name
                     self.nearest_rgb = desired_rgb
-                    
+
                     self.shortest_distance = cdist
                     self.distance = cdist
 
@@ -133,7 +132,6 @@ class ArtColour:
                     chosen_name = name
                     self.nearest_hex = webcolors.rgb_to_hex(self.nearest_rgb)
                     return chosen_name
-                    
 
         return None
 
@@ -158,9 +156,9 @@ class ArtColour:
             colour = sum([16] + [int((6 * float(val) / 256)) * mod
                          for val, mod in ((r, 36), (g, 6), (b, 1))])
         return colour
-    
+
     def hex_me_up(self):
-        
+
         self.hex_value = webcolors.rgb_to_hex(self.rgb)
         snapped, colour_name = swatchbook.closest('css3', self.hex_value)
         snapped_rgb = webcolors.hex_to_rgb(snapped)
@@ -181,64 +179,7 @@ class ArtColour:
             'name': colour_name,
             'distance': float(dist),
             'prominence': float(prom),
-            'elite': False,
+            'elite': ELITE,
         }
+
         return self.css
-        
-def get_colours(image):
-
-    roy_im = Roygbiv(image)
-    p = roy_im.get_palette()
-    rgbs = []
-    preselected = []
-    for palette_colour in p.colors:
-        c = ArtColour(*palette_colour.value)
-
-        if self.color:
-            distsqrt = math.sqrt(self.distance)
-            presence = prom * 100 / Decimal(distsqrt).quantize(TWOPLACES)
-            rgbs.append({
-                'r': self.rgb[0],
-                'g': self.rgb[1],
-                'b': self.rgb[2],
-                'hex': snapped,
-                'name': self.color.lower(),
-                'distance': float(self.distance),
-                'prominence': float(prom),
-                'presence': float(presence),
-                'elite': True,
-            })
-
-        print snapped, cdist, self.color, self.distance
-    return rgbs
-
-def roygbiv(image, acno, url=None):
-    roy_im = Roygbiv(image)
-    p = roy_im.get_palette()
-    print acno
-    for palette_colour in p.colors:
-        c = ArtColour(*palette_colour.value)
-        if self.color:
-            cc, cr = Colour.objects.get_or_create(name=self.color)
-            aw, cr = Artwork.objects.get_or_create(accession_number=acno)
-            aw.image = url
-            aw.save()
-
-            dist = Decimal(self.distance).quantize(TWOPLACES)
-            prom = Decimal(palette_colour.prominence).quantize(TWOPLACES)
-
-            cd, cr = ColourDistance.objects.get_or_create(colour=cc,
-                                                          artwork=aw)
-            if cr:
-                cd.distance = dist
-                cd.prominence = prom
-            else:
-                if cd.prominence:
-                    total_area = cd.prominence + prom
-                    d1 = cd.distance * (cd.prominence / total_area)
-                    d2 = dist * (prom / total_area)
-                    cd.distance = d1 + d2
-                    cd.prominence = total_area
-            cd.save()
-        print '\x1b[48;5;%dm     \x1b[0m %s %.2f NEAREST %s %.2f' % (
-            self.ansi, self.color, self.distance, self.nearest, self.shortest_distance)

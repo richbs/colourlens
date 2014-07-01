@@ -3,13 +3,13 @@ from django.db.models.signals import pre_save
 from decimal import Decimal
 import math
 import urllib
-import urlparse
 import io
 import json
 from roygbiv import Roygbiv
 from colourlens.utils import ArtColour
 
 TWOPLACES = Decimal(10) ** -2
+
 
 class Colour(models.Model):
     """
@@ -39,11 +39,11 @@ class Artwork(models.Model):
     url = models.URLField(blank=True)
     image_url = models.URLField(blank=True)
     institution = models.CharField(blank=True, max_length=10, db_index=True)
-    proportions = models.TextField(blank=True)    
+    proportions = models.TextField(blank=True)
     colours = models.ManyToManyField(Colour, through="ColourDistance")
 
     def colour_parts(self):
-        
+
         if self.proportions:
             return json.loads(self.proportions)
         else:
@@ -67,7 +67,7 @@ class Artwork(models.Model):
         aw.image_url = image_url
         aw.save()
         return aw
-                   
+
     @classmethod
     def from_file(cls, accession_number, institution, filename):
         aw, cr = Artwork.objects.get_or_create(
@@ -83,8 +83,6 @@ class Artwork(models.Model):
             print e
             return None
         p = roy_im.get_palette()
-        rgbs = []
-        preselected = []
         for palette_colour in p.colors:
             prominence = round(palette_colour.prominence, 3)
             c = ArtColour(*palette_colour.value, prominence=prominence)
@@ -110,7 +108,7 @@ class Artwork(models.Model):
             css.save()
         aw.save()
         return aw
-        
+
     def __unicode__(self):
         return u"%s" % (self.accession_number)
 
@@ -138,16 +136,21 @@ class ColourDistance(models.Model):
         return u"s%s %s d:%s p:%s" % (self.artwork, self.colour,
                                       self.distance, self.prominence)
 
+
 def artwork_proportions(sender, instance, **kwargs):
     if instance.colourdistance_set.count() > 0:
-        total_area = reduce(lambda x,y: x+y, [cd.prominence for cd in instance.colourdistance_set.all()])
+        total_area = reduce(
+            lambda x, y: x+y,
+            [cd.prominence for cd in instance.colourdistance_set.all()]
+        )
         colour_list = [
-            (cd.colour.hex_value, float(cd.prominence * (100/total_area))) 
+            (cd.colour.hex_value, float(cd.prominence * (100/total_area)))
             for cd in instance.colourdistance_set.all()
         ]
         instance.proportions = json.dumps(colour_list)
     else:
         instance.proportions = json.dumps([])
+
 
 def calculate_colour_presence(sender, instance, **kwargs):
     """
