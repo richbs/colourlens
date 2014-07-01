@@ -53,7 +53,7 @@
 <p>Featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, and code from the Cooper-Hewitt.</p>
     <div class="section">
 			<ul class="explorerWorks explorerGrid">
-			  {% for a in artworks|slice:"16:40" %}
+			  {% for a in artworks|slice:"16:56" %}
 			  <li class="grid-work">
 			    <div class="grid-work-image">
 			      <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
@@ -120,7 +120,7 @@ body {
 }
 
 #colour-list {
-	#background-color:#f3f3f3;
+
 }
 
 #colour-list a {
@@ -168,14 +168,14 @@ body {
 
 .explorerGrid li {
 	height: inherit;
-	min-height: 82px;
+	min-height: 100px;
 	width:133px;
 	max-height:215px;
 	display: inline-block;
 	align: left;
 	vertical-align: bottom;
 	font-size:0.66em;
-	margin:0 15px 15px 0;
+	margin:0 15px 2% 0;
 	padding: 0;
 }
 
@@ -185,7 +185,7 @@ body {
 }
 
 .explorerGrid li img {
-	min-height: 82px;
+	min-height: 100px;
 	max-width: 133px;
 }
 
