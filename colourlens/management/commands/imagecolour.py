@@ -97,28 +97,32 @@ class Command(BaseCommand):
                 offset += 100
             exit()
         elif institution == "RIJKS":
-            page = 1
+            page = 10
             params = {
                 'key': api_key,
                 'format': 'json',
                 'f': 2,
                 'p': 1,
                 'ps': 100,
-                'type': 'print',
-                'place': 'Japan',
+                'type': 'painting',
+                #'place': 'Japan',
+                'f.dating.period': 17,
                 'imgonly': True,
                 'ii': 0,
             }
             api_url = "https://www.rijksmuseum.nl/api/en/collection"
             while page < 200:
                 page += 1
+                params['p'] = page
                 req_url = "%s?%s" % (api_url, urllib.urlencode(params))
                 print req_url
                 req = urllib.urlopen(req_url)
                 response = json.load(req)
                 for rec in response['artObjects']:
                     object_id = rec['objectNumber']
-                    image_url = rec['webImage']['url'].replace('=s0', '=s155')
+                    if not rec['webImage']:
+                        continue 
+                    image_url = rec['webImage']['url'].replace('=s0', '=s300')
                     print image_url
                     aw = Artwork.from_url(
                         object_id,
@@ -136,23 +140,26 @@ class Command(BaseCommand):
                         aw.year = rec['longTitle'].split(' ')[-1]
                     aw.save()
         elif institution == "WALTERS":
-            page = 1
+            page = 2 
             params = {
                 'apikey': api_key,
-                'CollectionID': 3,
-                'pagesize': 100,
-                'page': page,
+                #'CollectionID': 3,
+                'pageSize': 100,
+                'Classification': 'Prints',
+		#'Creator': 'Indian',
+                'Page': page,
             }
             api_url = "http://api.thewalters.org/v1/objects.json"
             while page < 200:
                 page += 1
+                params['Page'] = page
                 req_url = "%s?%s" % (api_url, urllib.urlencode(params))
                 print req_url
                 req = urllib.urlopen(req_url)
                 response = json.load(req)
                 for rec in response['Items']:
                     object_id = rec['ObjectNumber']
-                    image_url = rec['PrimaryImage']['Medium']
+                    image_url = rec['PrimaryImage']['Large']
                     if not image_url:
                         continue
                     aw = Artwork.from_url(
@@ -160,6 +167,8 @@ class Command(BaseCommand):
                         institution,
                         image_url
                     )
+		    if not aw:
+			continue
                     if 'Title' in rec:
                         aw.title = rec['Title']
                     aw.url = rec['ResourceURL']

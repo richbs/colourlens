@@ -3,8 +3,8 @@ from django import forms
 from django.forms.widgets import Input
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.views.decorators.cache import cache_page
 from colourlens.models import Artwork, Colour
-
 
 PROM_ATTRS = {'min': '0', 'max': '100', 'step': '5'}
 DIST_ATTRS = {'min': '0', 'max': '50', 'step': '1'}
@@ -52,7 +52,7 @@ class ColourForm(forms.Form):
                                   widget=RangeInput(attrs=DIST_ATTRS))
     submitted = forms.CharField(widget=forms.HiddenInput())
 
-
+@cache_page(60 * 60)
 def index(request, institution=False):
     """
     Search and browse colours
@@ -91,13 +91,13 @@ def index(request, institution=False):
 
     artworks = artworks.order_by('-tot_presence').distinct()
     found_works = artworks.count()
-    colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
+    colours = colours.annotate(Count('colourdistance')).order_by('hue')
     total_palette = reduce(
         lambda x, y: x+y,
-        [c.artwork__count for c in colours]
+        [c.colourdistance__count for c in colours]
     )
     colour_count = colours.count()
-    colour_width = 99.9 / colour_count
+    colour_width = 98 / colour_count
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {

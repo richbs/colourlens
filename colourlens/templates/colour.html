@@ -24,7 +24,9 @@
 		</div>{% endfor %}
 		</div>
 		<div id="header">
-		<h1 id="colour_me_bad">Colour Lens</h1><em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
+		<h1 id="colour_me_bad">Colour Lens</h1>
+		<p>An experiment in visualisation as navigation</p>
+		<em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
 		<p id="institution-nav">
 			<a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
 			{% for i in institutions %}
@@ -32,11 +34,11 @@
 		{% endfor %}</p>
 		</div>
 			<ul class="explorerWorks explorerGrid">
-			  {% for a in artworks|slice:":16" %}
+			  {% for a in artworks|slice:":24" %}
 			  <li class="grid-work">
 			    <div class="grid-work-image">
-			      <a href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
-			        <img alt="{{ a.title }}" src="{{ a.image_url }}"
+			      <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
+			        <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}"
 			        />
 			      </a>
 			    </div>
@@ -48,16 +50,17 @@
 			  {% endfor %}
 			</ul>
 		</div>
+<p>Featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, and code from the Cooper-Hewitt.</p>
     <div class="section">
 			<ul class="explorerWorks explorerGrid">
 			  {% for a in artworks|slice:"16:40" %}
 			  <li class="grid-work">
 			    <div class="grid-work-image">
-			      <a href="{{ a.url }}" style="background-image: url({{ a.image_url }});">
-			        <img alt="Accession number {{ a.accession_number }}" src="{{ a.image_url }}"
-			        />
-			      </a>
-			    </div>
+			      <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
+                                <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}"
+                                />
+                              </a>    
+			     </div>
 					<h3>{{ a.title|truncatechars:25 }}</h3>
 					<span class="institution">{{ a.institution }}</span>		
 					<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
@@ -68,6 +71,7 @@
 		</div>		
 	</div>
 </div>
+<a href="https://github.com/richbs/colourlens"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 {% endblock %}
 {% block extrascript %}
 <script src="{% static 'vendors/jquery.easings.min.js' %}"></script>
