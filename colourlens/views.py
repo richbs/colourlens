@@ -93,7 +93,7 @@ def index(request, institution=False):
     artworks = artworks.order_by('-tot_presence').distinct()
 
     if req_colours:
-        colour_filters['artwork__id__in'] = [a.id for a in artworks[:999]]
+        colour_filters['artwork__id__in'] = [a.id for a in artworks[:990]]
         colour_filters['colourdistance__distance__lte'] = DISTANCE
 
     found_works = artworks.count()
