@@ -52,22 +52,27 @@ class ColourForm(forms.Form):
                                   widget=RangeInput(attrs=DIST_ATTRS))
     submitted = forms.CharField(widget=forms.HiddenInput())
 
+
 @cache_page(60 * 60)
 def index(request, institution=False):
     """
     Search and browse colours
     """
-    DISTANCE = 25
+    DISTANCE = 20
     artworks = Artwork.objects.select_related().all()
     colours = Colour.objects.all()
     req_colours = request.GET.getlist('colour', [])
     startyear = request.GET.get('startyear', None)
     endyear = request.GET.get('endyear', None)
 
+    colour_filters = {}
+
     if startyear:
         artworks = artworks.filter(year__gte=startyear)
+        colour_filters['artwork__year__gte'] = startyear
     if endyear:
         artworks = artworks.filter(year__lte=endyear)
+        colour_filters['artwork__year__lte'] = endyear
 
     for hex_value in req_colours:
         artworks = artworks.filter(
@@ -75,29 +80,31 @@ def index(request, institution=False):
             colourdistance__distance__lte=DISTANCE,
         )
 
+    if institution:
+        artworks = artworks.filter(institution=institution)
+        colour_filters['artwork__institution'] = institution
+
     artworks = artworks.annotate(
         ave_distance=Avg("colourdistance__distance"),
         ave_presence=Avg("colourdistance__presence"),
         tot_presence=Sum("colourdistance__presence")
     )
-    if institution:
-        artworks = artworks.filter(institution=institution)
-
-    if req_colours or institution or startyear or endyear:
-        colours = colours.filter(
-            colourdistance__distance__lte=DISTANCE,
-            artwork__id__in=[a.id for a in artworks]
-        )
 
     artworks = artworks.order_by('-tot_presence').distinct()
+
+    if req_colours:
+        colour_filters['artwork__id__in'] = [a.id for a in artworks[:999]]
+        colour_filters['colourdistance__distance__lte'] = DISTANCE
+
     found_works = artworks.count()
-    colours = colours.annotate(Count('colourdistance')).order_by('hue')
+    colours = colours.filter(**colour_filters)
+    colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
     total_palette = reduce(
         lambda x, y: x+y,
-        [c.colourdistance__count for c in colours]
+        [c.artwork__count for c in colours]
     )
     colour_count = colours.count()
-    colour_width = 98 / colour_count
+    colour_width = 99.3 / colour_count
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {

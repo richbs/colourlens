@@ -35,7 +35,7 @@ class Artwork(models.Model):
     accession_number = models.CharField(unique=True, max_length=100)
     title = models.CharField(blank=True, max_length=100)
     artist = models.CharField(blank=True, max_length=100)
-    year = models.IntegerField(blank=True, null=True)
+    year = models.IntegerField(blank=True, null=True, db_index=True)
     url = models.URLField(blank=True)
     image_url = models.URLField(blank=True)
     institution = models.CharField(blank=True, max_length=10, db_index=True)
