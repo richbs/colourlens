@@ -1,7 +1,8 @@
 Colour Lens
 ===========
+See it in action at [colourlens.org](http://colourlens.org/).
 
-Working up a generic colour processing Django site
+Working up a generic colour visualising Django site.
 
 Pre-requisites: Assuming use of virtualenv. Also need libjpeg-dev and python-dev for image work, e.g:
 
