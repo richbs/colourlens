@@ -97,7 +97,7 @@ class Command(BaseCommand):
                 offset += 100
             exit()
         elif institution == "RIJKS":
-            page = 10
+            page = 0
             params = {
                 'key': api_key,
                 'format': 'json',
@@ -106,7 +106,7 @@ class Command(BaseCommand):
                 'ps': 100,
                 'type': 'painting',
                 #'place': 'Japan',
-                'f.dating.period': 17,
+                #'f.dating.period': 17,
                 'imgonly': True,
                 'ii': 0,
             }
@@ -138,14 +138,18 @@ class Command(BaseCommand):
                         aw.artist = rec['principalOrFirstMaker']
                     if rec['longTitle']:
                         aw.year = rec['longTitle'].split(' ')[-1]
+                        try:
+                            int(aw.year)
+                        except:
+                            aw.year = None
                     aw.save()
         elif institution == "WALTERS":
-            page = 2 
+            page = 0 
             params = {
                 'apikey': api_key,
                 #'CollectionID': 3,
                 'pageSize': 100,
-                'Classification': 'Prints',
+                'Classification': 'Painting & Drawing',
 		#'Creator': 'Indian',
                 'Page': page,
             }
