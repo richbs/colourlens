@@ -104,7 +104,7 @@ def index(request, institution=False):
         [c.artwork__count for c in colours]
     )
     colour_count = colours.count()
-    colour_width = 99.3 / colour_count
+    colour_width = 99.4 / colour_count
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {

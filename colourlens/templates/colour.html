@@ -9,68 +9,66 @@
 
 {% block content %}
 <div id="fullpage">
-	<div class="section">
-		<div id="colour-page">
-		{% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:{{ c.artwork__count }}px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
-			<a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
-		</div>{% endfor %}
-	  </div>
-	</div>
-	<div class="section active">
-		<div id="colour-list">
-		{% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:{{ c.artwork__count }}px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
-			<a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
-			{% if c.hex_value in req_colours %}<span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:{{ c.hex_value }};"></span>{% else %}{% endif %}	
-		</div>{% endfor %}
-		</div>
-		<div id="header">
-		<h1 id="colour_me_bad">Colour Lens</h1>
-		<p>An experiment in visualisation as navigation</p>
-		<em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
-		<p id="institution-nav">
-			<a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
-			{% for i in institutions %}
-			<a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
-		{% endfor %}</p>
-		</div>
-			<ul class="explorerWorks explorerGrid">
-			  {% for a in artworks|slice:":24" %}
-			  <li class="grid-work">
-			    <div class="grid-work-image">
-			      <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
-			        <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}"
-			        />
-			      </a>
-			    </div>
-					<h3>{{ a.title|truncatechars:25 }}</h3>
-					<span class="institution">{{ a.institution }}</span>		
-					<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
-					<p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
-			  </li>
-			  {% endfor %}
-			</ul>
-			<p>Inpired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
-		</div>
-    <div class="section">
-			<ul class="explorerWorks explorerGrid">
-			  {% for a in artworks|slice:"16:48" %}
-			  <li class="grid-work">
-			    <div class="grid-work-image">
-			      <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
-                                <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}"
-                                />
-                              </a>    
-			     </div>
-					<h3>{{ a.title|truncatechars:25 }}</h3>
-					<span class="institution">{{ a.institution }}</span>		
-					<p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
-					<p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
-			  </li>
-			  {% endfor %}
-			</ul>
-			<p>Inpired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, and code from the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
-		</div>		
-	</div>
+  <div class="section">
+    <div id="colour-page">
+    {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
+      <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
+    </div>{% endfor %}
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
+        <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
+        {% if c.hex_value in req_colours %}<span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:{{ c.hex_value }};"></span>{% else %}{% endif %}  
+      </div>{% endfor %}
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
+      <p id="institution-nav">
+        <a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
+        {% for i in institutions %}
+        <a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
+      {% endfor %}</p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      {% for a in artworks|slice:":24" %}
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
+            <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}"
+            />
+          </a>
+        </div>
+        <h3>{{ a.title|truncatechars:25 }}</h3>
+        <span class="institution">{{ a.institution }}</span>    
+        <p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
+        <p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p>Inpired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      {% for a in artworks|slice:"16:48" %}
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
+            <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}" />
+          </a>    
+        </div>
+        <h3>{{ a.title|truncatechars:25 }}</h3>
+        <span class="institution">{{ a.institution }}</span>    
+        <p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
+        <p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p>Inpired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
 </div>
 {% endblock %}
 {% block extrascript %}
@@ -79,21 +77,22 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-		var total_palette = {{ total_palette }};
-		$('#colour-list div a').each(function(i, ele){
-		 	var h = $(ele).height();
-			var sqrt = Math.log(h) * 10;
-			$(ele).parent().css('height', (sqrt*1.5) + 44 + 'px');
-			ele.innerHTML = '';	
-		})
-		// /$('.section').css('height', $( window ).height())
-		$('#colour-page div a').each(function(i, ele){
-			var h = $(ele).height();
-			var sqrt = Math.log(h) * 10;
-			$(ele).parent().css('height', $( window ).height());
-			ele.innerHTML = '';	
-		})
-		$('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide()
+    var total_palette = {{ total_palette }};
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', (sqrt*1.5) + 44 + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
     $('#fullpage').fullpage();
 });
 </script>
@@ -103,146 +102,134 @@ $(document).ready(function() {
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
 <style type="text/css">
 * {
-	font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
-	Helvetica, Arial, "Lucida Grande", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	color: #666;
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
 }
 
 body {
-	margin:0;
+  margin: 0;
 }
 
-
 #content {
-	max-width:1228px;
-	margin: 0px auto;
+  max-width: 1228px;
+  margin: 0px auto;
 }
 
 #colour-list {
-
 }
 
 #colour-list a {
-	width:100%;
-	height:100%;
-	display:block;
-	color:transparent;
-	text-decoration: none;
-	
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
 }
 
 #colour-list a:hover {
-	font-weight:800;
-	color:white;
+  font-weight: 800;
+  color: white;
 }
 
 #colour-list .selected {
-	width:100%;
-	height:100%;
-	display:block;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 #header * {
-	display:inline-block;
-	margin-right:20px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 #header a {
-	color:#666;
-	font-weight:800;
-	text-decoration:none;
-	padding-bottom:6px;
-	border-bottom:3px solid #666;
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #666;
 }
 
 #institution-nav .selected {
-	color:#444;
-	border-bottom:3px solid #F00;
+  color: #444;
+  border-bottom: 3px solid #F00;
 }
 
 .explorerGrid ul {
-	display: block;
-	width:100%;
+  display: block;
+  width: 100%;
 }
 
 .explorerGrid li {
-	height: inherit;
-	min-height: 100px;
-	width:133px;
-	max-height:215px;
-	display: inline-block;
-	align: left;
-	vertical-align: bottom;
-	font-size:0.66em;
-	margin:0 15px 2% 0;
-	padding: 0;
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
 }
 
-
 .explorerGrid li span {
-	font-size:1em;
+  font-size: 1em;
 }
 
 .explorerGrid li img {
-	min-height: 100px;
-	max-width: 133px;
+  min-height: 100px;
+  max-width: 133px;
 }
 
 .explorerGrid h3 {
-	height:12px;
+  height: 12px;
 }
 
 .explorerGrid p {
-	height:12px;
+  height: 12px;
 }
 
 .explorerGrid span {
-	height:12px;
+  height: 12px;
 }
 
 .explorerWorks {
-	padding:0;
+  padding: 0;
 }
 
 .grid-work-image {
-	padding: 0;
+  padding: 0;
 }
+
 .grid-work-image a {
-	display: block; 
-	height:133px; 
-	width:133px; 
-	overflow:hidden; 
-	background-position: 50% 50%;
-	background-size: cover;
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .grid-work-image a img {
-	visibility: hidden;
+  visibility: hidden;
 }
+
 p.signature span {
-	height: 15px;
-	display:inline-block;
+  height: 15px;
+  display: inline-block;
 }
 
 p.signature {
-	height: 15px;
-	margin: 9px 0 0 0;
+  height: 15px;
+  margin: 9px 0 0 0;
 }
+
 .tableCell {
-	vertical-align:top;
-}
-.controlArrow.prev {
-    left: 15px;
-    width: 0;
-    border-width: 38.5px 34px 38.5px 0;
-    border-color: transparent #cd5c5c transparent transparent;
-}
-.controlArrow.next {
-    right: 15px;
-    border-width: 38.5px 0 38.5px 34px;
-    border-color: transparent transparent transparent #cd5c5c;
+  vertical-align: top;
 }
 </style>
 {% endblock extrahead %}
