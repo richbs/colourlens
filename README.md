@@ -13,7 +13,7 @@ Pre-requisites: Assuming use of virtualenv. Also need libjpeg-dev and python-dev
 5. `source venv/bin/activate`
 6. `pip install -r requirements.txt`
 7. `python manage.py syncdb --noinput`
-8. `python manage.py imagecolour -i HARVARD`
+8. `python manage.py imagecolour -i HARVARD -a api_key`
 9. `python manage.py runserver`
 10. Hit `http://127.0.0.1:8000/` in your browser.
 
