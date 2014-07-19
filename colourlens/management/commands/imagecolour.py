@@ -1,4 +1,6 @@
+from bs4 import BeautifulSoup
 import csv
+import feedparser
 import json
 import os
 import re
@@ -10,6 +12,28 @@ from optparse import make_option
 import io
 
 
+def itunes_rss_color(rss_url):
+    
+    d = feedparser.parse(rss_url)
+    for e in d.entries:
+        html_doc = e['content'][0]['value']
+        cat = e.category
+        identifier = e.id.split('/')[-1].split('&')[0]
+        soup = BeautifulSoup(html_doc)
+        im = soup.findAll('img')[0]
+        name = e['im_name']
+        print name
+        aw = Artwork.from_url(
+            identifier,
+            cat,
+            im['src'].replace('100x100','150x150')
+        )
+        if not aw:
+            continue
+        aw.title = name
+        aw.save()
+    
+
 class Command(BaseCommand):
     help = "Image colour palettes from open data CSV or directory of files"
 
@@ -18,7 +42,8 @@ class Command(BaseCommand):
                     dest="filedata",
                     type="string",
                     action="store",
-                    help="Image data file/list"
+                    help="Image data file/list",
+                    default=None,
                     ),
         make_option("-d", "--dir",
                     dest="input_dir",
@@ -143,6 +168,24 @@ class Command(BaseCommand):
                         except:
                             aw.year = None
                     aw.save()
+        elif institution == "APPSTORE":
+            rss_base = 'https://itunes.apple.com/us/rss/%s/limit=100/genre=%d/xml'
+            
+            lists = ['topfreeapplications', 'toppaidapplications', 'topgrossingapplications', 'topfreeipadapplications',
+                'toppaidipadapplications', 'topgrossingipadapplications', 'newapplications', 'newfreeapplications', 'newpaidapplications', ]
+            
+            categories = range(6003, 6025)
+            
+            for c in categories:
+                for l in lists:
+                    
+                    rss_url = rss_base % (l, c) 
+                    print rss_url
+                    itunes_rss_color(rss_url)
+            
+            
+
+            exit()
         elif institution == "WALTERS":
             page = 0 
             params = {
@@ -150,7 +193,7 @@ class Command(BaseCommand):
                 #'CollectionID': 3,
                 'pageSize': 100,
                 'Classification': 'Painting & Drawing',
-		#'Creator': 'Indian',
+                #'Creator': 'Indian',
                 'Page': page,
             }
             api_url = "http://api.thewalters.org/v1/objects.json"
@@ -171,8 +214,8 @@ class Command(BaseCommand):
                         institution,
                         image_url
                     )
-		    if not aw:
-			continue
+                    if not aw:
+                        continue
                     if 'Title' in rec:
                         aw.title = rec['Title']
                     aw.url = rec['ResourceURL']

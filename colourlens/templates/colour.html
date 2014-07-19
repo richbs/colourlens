@@ -30,7 +30,7 @@
       <p id="institution-nav">
         <a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
         {% for i in institutions %}
-        <a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution }}">{{ i.institution }}</a>
+        <a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution|urlencode }}">{{ i.institution }}</a>
       {% endfor %}</p>
     </div>
     <ul class="explorerWorks explorerGrid">
@@ -80,8 +80,8 @@ $(document).ready(function() {
     var total_palette = {{ total_palette }};
     $('#colour-list div a').each(function(i, ele){
       var h = $(ele).text();
-      var sqrt = Math.log(h) * 10;
-      $(ele).parent().css('height', (sqrt*1.5) + 44 + 'px');
+      var log = Math.log(h) * 40;
+      $(ele).parent().css('height', (log + 44) + 'px');
       $(ele).css('visibility', 'visible');
       ele.innerHTML = '';  
     });
