@@ -6,14 +6,13 @@ import os
 import re
 import urllib
 from django.core.management.base import BaseCommand
-from django.conf import settings
 from colourlens.models import Artwork
 from optparse import make_option
 import io
 
 
 def itunes_rss_color(rss_url):
-    
+
     d = feedparser.parse(rss_url)
     for e in d.entries:
         html_doc = e['content'][0]['value']
@@ -26,13 +25,13 @@ def itunes_rss_color(rss_url):
         aw = Artwork.from_url(
             identifier,
             cat,
-            im['src'].replace('100x100','150x150')
+            im['src'].replace('100x100', '150x150')
         )
         if not aw:
             continue
         aw.title = name
         aw.save()
-    
+
 
 class Command(BaseCommand):
     help = "Image colour palettes from open data CSV or directory of files"
@@ -103,7 +102,8 @@ class Command(BaseCommand):
                         continue
                     if not rec['primaryimageurl']:
                         continue
-                    image_url = rec['primaryimageurl'].split('?')[0] + "?width=255&height=255"
+                    image_url = rec['primaryimageurl'].split('?')[0] + \
+                        "?width=255&height=255"
                     print image_url
                     object_number = rec['objectnumber']
                     aw = Artwork.from_url(
@@ -146,7 +146,7 @@ class Command(BaseCommand):
                 for rec in response['artObjects']:
                     object_id = rec['objectNumber']
                     if not rec['webImage']:
-                        continue 
+                        continue
                     image_url = rec['webImage']['url'].replace('=s0', '=s300')
                     print image_url
                     aw = Artwork.from_url(
@@ -170,24 +170,29 @@ class Command(BaseCommand):
                     aw.save()
         elif institution == "APPSTORE":
             rss_base = 'https://itunes.apple.com/us/rss/%s/limit=100/genre=%d/xml'
-            
-            lists = ['topfreeapplications', 'toppaidapplications', 'topgrossingapplications', 'topfreeipadapplications',
-                'toppaidipadapplications', 'topgrossingipadapplications', 'newapplications', 'newfreeapplications', 'newpaidapplications', ]
-            
+
+            lists = [
+                'topfreeapplications', 'toppaidapplications',
+                'topgrossingapplications', 'topfreeipadapplications',
+                'toppaidipadapplications', 'topgrossingipadapplications',
+                'newapplications', 'newfreeapplications',
+                'newpaidapplications'
+            ]
+
             categories = range(6003, 6025)
-            
+
             for c in categories:
                 for l in lists:
-                    
-                    rss_url = rss_base % (l, c) 
+
+                    rss_url = rss_base % (l, c)
                     print rss_url
                     itunes_rss_color(rss_url)
-            
-            
+
+
 
             exit()
         elif institution == "WALTERS":
-            page = 0 
+            page = 0
             params = {
                 'apikey': api_key,
                 #'CollectionID': 3,
