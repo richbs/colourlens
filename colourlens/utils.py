@@ -160,7 +160,7 @@ class ArtColour:
     def hex_me_up(self):
 
         self.hex_value = webcolors.rgb_to_hex(self.rgb)
-        snapped, colour_name = swatchbook.closest('css3', self.hex_value)
+        snapped, colour_name = swatchbook.closest_delta_e('css3', self.hex_value)
         snapped_rgb = webcolors.hex_to_rgb(snapped)
         hsv = self.rgb_to_hsv(*snapped_rgb)
         target = RGBColor(*snapped_rgb)

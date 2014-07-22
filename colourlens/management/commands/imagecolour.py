@@ -13,6 +13,7 @@ import io
 
 def itunes_rss_color(rss_url):
 
+    print rss_url
     d = feedparser.parse(rss_url)
     for e in d.entries:
         html_doc = e['content'][0]['value']
@@ -21,7 +22,6 @@ def itunes_rss_color(rss_url):
         soup = BeautifulSoup(html_doc)
         im = soup.findAll('img')[0]
         name = e['im_name']
-        print name
         aw = Artwork.from_url(
             identifier,
             cat,
@@ -179,14 +179,17 @@ class Command(BaseCommand):
                 'newpaidapplications'
             ]
 
-            categories = range(6003, 6025)
+            categories = range(6000, 6025)
 
             for c in categories:
                 for l in lists:
 
                     rss_url = rss_base % (l, c)
-                    print rss_url
-                    itunes_rss_color(rss_url)
+                    try:
+                        itunes_rss_color(rss_url)
+                    except Exception, e:
+                        print e
+                        continue
 
 
 
@@ -303,7 +306,7 @@ class Command(BaseCommand):
                 for im in filenames:
                     full_im = os.path.join(dirpath, im)
                     acno = full_im.split('/')[-1].split('.')[0]
-                    if full_im.endswith('.jpg'):
+                    if full_im.endswith('.jpg') or full_im.endswith('.png'):
                         aw = Artwork.from_file(acno, institution, full_im)
                     elif full_im.endswith('.json'):
                         f = open(full_im)
