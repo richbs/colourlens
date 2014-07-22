@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'colourlens.org',
     'www.colourlens.org',
-    'imagecolor.herokuapp.com',
+    'iconcolor.herokuapp.com',
 ]
 
 DATABASES = {
