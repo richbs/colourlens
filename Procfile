@@ -1,1 +1,1 @@
-web: gunicorn coloursite.wsgi --log-file -
+web: gunicorn coloursite.wsgi_heroku --log-file -

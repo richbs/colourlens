@@ -15,7 +15,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(BASE_DIR, 'colourlens.sqlite'),
+        'NAME': os.path.join(BASE_DIR, 'colourlens.sqlite3'),
     }
 }
 
