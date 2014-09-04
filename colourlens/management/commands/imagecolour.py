@@ -9,6 +9,7 @@ from django.core.management.base import BaseCommand
 from colourlens.models import Artwork
 from optparse import make_option
 import io
+import time
 
 
 def itunes_rss_color(rss_url):
@@ -257,6 +258,41 @@ class Command(BaseCommand):
                         if row['year']:
                             aw.year = row['year']
                         aw.save()
+            elif institution == "MNHS":
+                csv_file = csv.DictReader(open(options['filedata']))
+                for count, row in enumerate(csv_file):
+
+                    if count < 4538:
+                        continue
+                    else:
+                        aw = Artwork.from_url(
+                            row['MNHS Catalog ID'],
+                            institution,
+                            row['Thumbnail Image URL']
+                        )
+                        if aw:
+                            aw.title = row['Title']
+                            aw.artist = row['Creators All']
+                            aw.url = row['Catalog Record URL']
+                            print 2222, row['Date']
+                            try:
+                                year = row['Date'][-4:]
+                                year = int(year)
+                            except:
+                                year = row['Date'][0:4]
+                                print 'buckock', year
+                            aw.year = year
+                            try:
+                                aw.save()
+                            except Exception, e:
+                                print "ERROR", row
+                                continue
+                            print count, aw.accession_number
+                        else:
+                            print aw
+
+                    time.sleep(0.1)
+                exit()
             elif institution == "MAM":
                 f = open(options['filedata'])
                 for count, l in enumerate(f.readlines()):
