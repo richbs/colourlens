@@ -60,7 +60,7 @@ def index(request, institution=False):
     """
     DISTANCE = 20
     artworks = Artwork.objects.select_related().all()
-    colours = Colour.objects.all()
+    colours = Colour.objects.filter(artwork__isnull=False)
     req_colours = request.GET.getlist('colour', [])
     startyear = request.GET.get('startyear', None)
     endyear = request.GET.get('endyear', None)
@@ -96,18 +96,22 @@ def index(request, institution=False):
     artworks = artworks.order_by('-tot_prominence').distinct()
 
     if req_colours:
-        colour_filters['artwork__id__in'] = [a.id for a in artworks[:990]]
+        colour_filters['artwork__id__in'] = [a.id for a in artworks[:999]]
         colour_filters['colourdistance__distance__lte'] = DISTANCE
 
     found_works = artworks.count()
     colours = colours.filter(**colour_filters)
     colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
-    total_palette = reduce(
-        lambda x, y: x+y,
-        [c.artwork__count for c in colours]
-    )
+    total_palette = []
+    colour_width = 10
     colour_count = colours.count()
-    colour_width = 99.4 / colour_count
+    if colours:
+        total_palette = reduce(
+            lambda x, y: x+y,
+            [c.artwork__count for c in colours]
+        )
+        colour_width = 99.4 / colour_count
+
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {
