@@ -128,12 +128,12 @@ class Command(BaseCommand):
                 'format': 'json',
                 'f': 2,
                 'p': 1,
-                'ps': 100,
+                # 'ps': 100,
                 'type': 'painting',
                 #'place': 'Japan',
                 #'f.dating.period': 17,
                 'imgonly': True,
-                'ii': 0,
+                # 'ii': 0,
             }
             api_url = "https://www.rijksmuseum.nl/api/en/collection"
             while page < 200:
