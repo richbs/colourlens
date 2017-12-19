@@ -27,6 +27,11 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "coloursite.settings_webfaction"
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
+import newrelic.agent
+newrelic.agent.initialize('/home/offspinner/webapps/colourlens/colourlens/coloursite/newrelic.ini')
+
+application = newrelic.agent.WSGIApplicationWrapper(application)
+
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)

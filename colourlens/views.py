@@ -60,13 +60,15 @@ def index(request, institution=False):
     """
     DISTANCE = 20
     artworks = Artwork.objects.select_related().all()
-    colours = Colour.objects.all()
     req_colours = request.GET.getlist('colour', [])
     startyear = request.GET.get('startyear', None)
     endyear = request.GET.get('endyear', None)
 
     colour_filters = {}
-
+    # usable_colours = Colour.objects.filter(
+    # artwork__isnull=False).distinct().values('id')
+    # colour_filters['id__in'] = [c['id'] for c in usable_colours]
+    colour_filters['artwork__isnull'] = False
     if startyear:
         artworks = artworks.filter(year__gte=startyear)
         colour_filters['artwork__year__gte'] = startyear
@@ -85,28 +87,32 @@ def index(request, institution=False):
         colour_filters['artwork__institution'] = institution
 
     artworks = artworks.annotate(
-        ave_distance=Avg("colourdistance__distance"),
-        ave_presence=Avg("colourdistance__presence"),
-        tot_presence=Sum("colourdistance__presence"),
+        # ave_distance=Avg("colourdistance__distance"),
+        # tot_distance=Avg("colourdistance__distance"),
+        # ave_presence=Avg("colourdistance__presence"),
+        # tot_presence=Sum("colourdistance__presence"),
         tot_prominence=Sum("colourdistance__prominence"),
-        ave_prominence=Avg("colourdistance__prominence"),
+        ave_prominence=Avg("colourdistance__prominence")
     )
 
-    artworks = artworks.order_by('-tot_presence').distinct()
-
+    artworks = artworks.order_by('-tot_prominence').distinct()
     if req_colours:
-        colour_filters['artwork__id__in'] = [a.id for a in artworks[:990]]
+        colour_filters['artwork__id__in'] = [a.id for a in artworks[:900]]
         colour_filters['colourdistance__distance__lte'] = DISTANCE
 
     found_works = artworks.count()
-    colours = colours.filter(**colour_filters)
+    colours = Colour.objects.filter(**colour_filters)
     colours = colours.annotate(Count('artwork', distinct=True)).order_by('hue')
-    total_palette = reduce(
-        lambda x, y: x+y,
-        [c.artwork__count for c in colours]
-    )
+    total_palette = []
+    colour_width = 10
     colour_count = colours.count()
-    colour_width = 99.4 / colour_count
+    if colours:
+        total_palette = reduce(
+            lambda x, y: x+y,
+            [c.artwork__count for c in colours]
+        )
+        colour_width = 99.4 / colour_count
+
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {
