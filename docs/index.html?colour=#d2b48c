@@ -1,0 +1,1141 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23bc8f8f">108</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23696969">443</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23c0c0c0">88</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23a52a2a">9</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23cd5c5c">11</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23808080">538</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23000000">361</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23a9a9a9">101</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23d3d3d3">54</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23dcdcdc">37</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffffff">3</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23800000">41</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23f5f5f5">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fffafa">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#b22222; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23b22222">4</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f08080; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23f08080">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fa8072; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fa8072">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffe4e1; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffe4e1">3</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23e9967a">8</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffa07a; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffa07a">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23a0522d">254</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%238b4513">185</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fff5ee; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fff5ee">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d2691e; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23d2691e">4</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23f4a460">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23cd853f">132</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23faf0e6">10</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffe4c4">11</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23deb887">15</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23faebd7">13</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23d2b48c">900</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffebcd; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffebcd">10</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffdead">2</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffefd5; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffefd5">5</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffe4b5; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffe4b5">3</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23f5deb3">77</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fdf5e6; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fdf5e6">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fffaf0; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fffaf0">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#daa520; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23daa520">2</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23b8860b">5</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fff8dc; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fff8dc">2</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f0e68c; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23f0e68c">3</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23eee8aa">8</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23bdb76b">101</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fffff0; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23fffff0">3</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f5f5dc; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23f5f5dc">4</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffffe0; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23ffffe0">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%236b8e23">4</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23556b2f">342</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%238fbc8f">13</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#006400; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23006400">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%232e8b57">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%232f4f4f">255</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#e0ffff; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23e0ffff">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%235f9ea0">2</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%234682b4">2</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23778899">34</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23708090">16</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23b0c4de">2</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#4169e1; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%234169e1">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23e6e6fa">5</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#191970; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23191970">3</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#483d8b; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23483d8b">1</a>
+    </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d87093; display:inline-block;">
+      <a href="/?colour=%23d2b48c&amp;colour=%23d87093">1</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23bc8f8f">108</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23696969">443</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23c0c0c0">88</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23a52a2a">9</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23cd5c5c">11</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23808080">538</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23000000">361</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23a9a9a9">101</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23d3d3d3">54</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23dcdcdc">37</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffffff">3</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23800000">41</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23f5f5f5">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fffafa">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#b22222; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23b22222">4</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f08080; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23f08080">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fa8072; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fa8072">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffe4e1; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffe4e1">3</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23e9967a">8</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffa07a; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffa07a">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23a0522d">254</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%238b4513">185</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fff5ee; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fff5ee">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d2691e; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23d2691e">4</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23f4a460">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23cd853f">132</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23faf0e6">10</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffe4c4">11</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23deb887">15</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23faebd7">13</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23d2b48c">900</a>
+        <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#d2b48c;"></span>  
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffebcd; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffebcd">10</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffdead">2</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffefd5; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffefd5">5</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffe4b5; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffe4b5">3</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23f5deb3">77</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fdf5e6; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fdf5e6">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fffaf0; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fffaf0">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#daa520; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23daa520">2</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23b8860b">5</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fff8dc; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fff8dc">2</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f0e68c; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23f0e68c">3</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23eee8aa">8</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23bdb76b">101</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#fffff0; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23fffff0">3</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#f5f5dc; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23f5f5dc">4</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#ffffe0; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23ffffe0">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%236b8e23">4</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23556b2f">342</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%238fbc8f">13</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#006400; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23006400">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%232e8b57">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%232f4f4f">255</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#e0ffff; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23e0ffff">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%235f9ea0">2</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%234682b4">2</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23778899">34</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23708090">16</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23b0c4de">2</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#4169e1; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%234169e1">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23e6e6fa">5</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#191970; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23191970">3</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#483d8b; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23483d8b">1</a>
+          
+      </div><div style="width: 1.55%; height:100px; margin:0; padding:0; background-color:#d87093; display:inline-block;">
+        <a href="/?colour=%23d2b48c&amp;colour=%23d87093">1</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>1173 results</em><h2>64 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="selected" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Fruits 1816" href="http://art.thewalters.org/detail/5602"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.13_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Fruits 1816" src="http://static.thewalters.org/images/PS3_35.168.13_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Fruits</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 89.47%; background-color:#d2b48c;"></span><span style="width: 5.26%; background-color:#a0522d;"></span><span style="width: 5.26%; background-color:#bdb76b;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Henry Somm (French, 1844-1907): The Third Class Carriage None" href="http://art.thewalters.org/detail/79177"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2799_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Henry Somm (French, 1844-1907): The Third Class Carriage None" src="http://static.thewalters.org/images/PS1_37.2799_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>The Third Class Carriage</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Henry Somm (French, 18...</em></p>
+        <p class="signature"><span style="width: 88.30%; background-color:#d2b48c;"></span><span style="width: 4.26%; background-color:#bc8f8f;"></span><span style="width: 4.26%; background-color:#808080;"></span><span style="width: 2.13%; background-color:#696969;"></span><span style="width: 1.06%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Coxcomb Flower 1816" href="http://art.thewalters.org/detail/27173"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.12_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Coxcomb Flower 1816" src="http://static.thewalters.org/images/PS3_35.168.12_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Coxcomb Flower</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 83.67%; background-color:#d2b48c;"></span><span style="width: 6.12%; background-color:#bdb76b;"></span><span style="width: 7.14%; background-color:#a0522d;"></span><span style="width: 3.06%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Horse 1816" href="http://art.thewalters.org/detail/29302"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.15_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Horse 1816" src="http://static.thewalters.org/images/PS3_35.168.15_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Horse</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 83.51%; background-color:#d2b48c;"></span><span style="width: 8.25%; background-color:#a0522d;"></span><span style="width: 4.12%; background-color:#bc8f8f;"></span><span style="width: 3.09%; background-color:#a9a9a9;"></span><span style="width: 1.03%; background-color:#bdb76b;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Peach Blossom and Dove 1816" href="http://art.thewalters.org/detail/13772"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.1_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Peach Blossom and Dove 1816" src="http://static.thewalters.org/images/PS3_35.168.1_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Peach Blossom and Dove</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 86.02%; background-color:#d2b48c;"></span><span style="width: 5.38%; background-color:#bc8f8f;"></span><span style="width: 4.30%; background-color:#808080;"></span><span style="width: 4.30%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/40651"  style="background-image: url(http://static.thewalters.org/images/PS3_95.245_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.245_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 77.23%; background-color:#d2b48c;"></span><span style="width: 11.88%; background-color:#556b2f;"></span><span style="width: 5.94%; background-color:#808080;"></span><span style="width: 2.97%; background-color:#a0522d;"></span><span style="width: 1.98%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Plum Blossom 1816" href="http://art.thewalters.org/detail/27088"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.10_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Plum Blossom 1816" src="http://static.thewalters.org/images/PS3_35.168.10_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Plum Blossom</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 77.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#bc8f8f;"></span><span style="width: 6.00%; background-color:#cd853f;"></span><span style="width: 5.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/36559"  style="background-image: url(http://static.thewalters.org/images/PS3_95.259_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.259_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 75.25%; background-color:#d2b48c;"></span><span style="width: 7.92%; background-color:#808080;"></span><span style="width: 5.94%; background-color:#556b2f;"></span><span style="width: 5.94%; background-color:#2f4f4f;"></span><span style="width: 2.97%; background-color:#a0522d;"></span><span style="width: 1.98%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Moritz Retzsch (German, 1779-1857): Scene at Spa 1851" href="http://art.thewalters.org/detail/2165"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1277_Fnt_DD_T10.jpg?width=250);">
+            <img alt="WALTERS: Moritz Retzsch (German, 1779-1857): Scene at Spa 1851" src="http://static.thewalters.org/images/PS1_37.1277_Fnt_DD_T10.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Scene at Spa</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Moritz Retzsch (German...</em></p>
+        <p class="signature"><span style="width: 76.00%; background-color:#d2b48c;"></span><span style="width: 20.00%; background-color:#f5deb3;"></span><span style="width: 4.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Justus Dalee (American, 1793-1878): Emblematical Figures, Representations and Etc. To Please the Eye 1826" href="http://art.thewalters.org/detail/91903"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2518.47_Fp_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Justus Dalee (American, 1793-1878): Emblematical Figures, Representations and Etc. To Please the Eye 1826" src="http://static.thewalters.org/images/PS1_37.2518.47_Fp_DD_T13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Emblematical Figures, ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Justus Dalee (American...</em></p>
+        <p class="signature"><span style="width: 76.29%; background-color:#d2b48c;"></span><span style="width: 14.43%; background-color:#d3d3d3;"></span><span style="width: 3.09%; background-color:#a9a9a9;"></span><span style="width: 3.09%; background-color:#cd853f;"></span><span style="width: 3.09%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Ch&#39;ing-yen T&#39;ang Tai: Spring Dawn Over Lakes and Mountains 1748" href="http://art.thewalters.org/detail/29783"  style="background-image: url(http://static.thewalters.org/images/PS1_35.196.3A_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Ch&#39;ing-yen T&#39;ang Tai: Spring Dawn Over Lakes and Mountains 1748" src="http://static.thewalters.org/images/PS1_35.196.3A_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Spring Dawn Over Lakes...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Ch&#39;ing-yen T&#39;ang Tai</em></p>
+        <p class="signature"><span style="width: 73.74%; background-color:#d2b48c;"></span><span style="width: 8.08%; background-color:#bc8f8f;"></span><span style="width: 7.07%; background-color:#808080;"></span><span style="width: 8.08%; background-color:#696969;"></span><span style="width: 3.03%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/39065"  style="background-image: url(http://static.thewalters.org/images/PS3_95.254_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.254_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 84.71%; background-color:#d2b48c;"></span><span style="width: 4.71%; background-color:#bc8f8f;"></span><span style="width: 3.53%; background-color:#556b2f;"></span><span style="width: 4.71%; background-color:#000000;"></span><span style="width: 2.35%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue None" href="http://art.thewalters.org/detail/24945"  style="background-image: url(http://static.thewalters.org/images/PS3_95.789_Fnt_DD_JP091.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue None" src="http://static.thewalters.org/images/PS3_95.789_Fnt_DD_JP091.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 80.46%; background-color:#d2b48c;"></span><span style="width: 10.34%; background-color:#696969;"></span><span style="width: 4.60%; background-color:#808080;"></span><span style="width: 4.60%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Bamboo 1816" href="http://art.thewalters.org/detail/28118"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.11_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Bamboo 1816" src="http://static.thewalters.org/images/PS3_35.168.11_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Bamboo</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 75.27%; background-color:#d2b48c;"></span><span style="width: 13.98%; background-color:#bc8f8f;"></span><span style="width: 8.60%; background-color:#a0522d;"></span><span style="width: 2.15%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/24740"  style="background-image: url(http://static.thewalters.org/images/PS3_95.273_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.273_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 68.32%; background-color:#d2b48c;"></span><span style="width: 15.84%; background-color:#dcdcdc;"></span><span style="width: 5.94%; background-color:#2f4f4f;"></span><span style="width: 3.96%; background-color:#808080;"></span><span style="width: 5.94%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Eugène Delacroix (French, 1798-1863): The Children of Niobe Killed by Diana None" href="http://art.thewalters.org/detail/79164"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2786_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Eugène Delacroix (French, 1798-1863): The Children of Niobe Killed by Diana None" src="http://static.thewalters.org/images/PS1_37.2786_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>The Children of Niobe ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Eugène Delacroix (Fren...</em></p>
+        <p class="signature"><span style="width: 71.88%; background-color:#d2b48c;"></span><span style="width: 14.58%; background-color:#bc8f8f;"></span><span style="width: 12.50%; background-color:#d3d3d3;"></span><span style="width: 1.04%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Prosper Mérimée (French, 1803-1870): &quot;Le Militaire&quot; None" href="http://art.thewalters.org/detail/79169"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2791_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Prosper Mérimée (French, 1803-1870): &quot;Le Militaire&quot; None" src="http://static.thewalters.org/images/PS1_37.2791_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>&quot;Le Militaire&quot;</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Prosper Mérimée (Frenc...</em></p>
+        <p class="signature"><span style="width: 69.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#dcdcdc;"></span><span style="width: 7.00%; background-color:#808080;"></span><span style="width: 5.00%; background-color:#2f4f4f;"></span><span style="width: 7.00%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Utagawa Kuniyoshi (Japanese, 1798-1861): Seichu gishi den 1847" href="http://art.thewalters.org/detail/33760"  style="background-image: url(http://static.thewalters.org/images/PS3_95.29_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Utagawa Kuniyoshi (Japanese, 1798-1861): Seichu gishi den 1847" src="http://static.thewalters.org/images/PS3_95.29_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Seichu gishi den</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Utagawa Kuniyoshi (Jap...</em></p>
+        <p class="signature"><span style="width: 68.00%; background-color:#d2b48c;"></span><span style="width: 13.00%; background-color:#2f4f4f;"></span><span style="width: 10.00%; background-color:#808080;"></span><span style="width: 4.00%; background-color:#556b2f;"></span><span style="width: 3.00%; background-color:#000000;"></span><span style="width: 2.00%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue None" href="http://art.thewalters.org/detail/40258"  style="background-image: url(http://static.thewalters.org/images/PS3_95.796_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue None" src="http://static.thewalters.org/images/PS3_95.796_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 70.10%; background-color:#d2b48c;"></span><span style="width: 10.31%; background-color:#d3d3d3;"></span><span style="width: 9.28%; background-color:#696969;"></span><span style="width: 5.15%; background-color:#808080;"></span><span style="width: 3.09%; background-color:#556b2f;"></span><span style="width: 2.06%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan Toorop: Portrait of Marie Jeanette de Lange 1900" href="https://www.rijksmuseum.nl/en/collection/SK-A-4989"  style="background-image: url(http://lh5.ggpht.com/J8U7KCkxAO75j55x7UEZsWkRvgc6OOD-YkFZmmOdcbdlZ4kr2bKs2WlcVUf0_tkdvEzLRXMpMHzNyihzm-JDD4UGfA=s300);">
+            <img alt="RIJKS: Jan Toorop: Portrait of Marie Jeanette de Lange 1900" src="http://lh5.ggpht.com/J8U7KCkxAO75j55x7UEZsWkRvgc6OOD-YkFZmmOdcbdlZ4kr2bKs2WlcVUf0_tkdvEzLRXMpMHzNyihzm-JDD4UGfA=s300"
+            />
+          </a>
+        </div>
+        <h3>Portrait of Marie Jean...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan Toorop</em></p>
+        <p class="signature"><span style="width: 67.00%; background-color:#d2b48c;"></span><span style="width: 29.00%; background-color:#808080;"></span><span style="width: 4.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Misty Mountains 1816" href="http://art.thewalters.org/detail/20052"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.5_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Misty Mountains 1816" src="http://static.thewalters.org/images/PS3_35.168.5_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Misty Mountains</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 68.37%; background-color:#d2b48c;"></span><span style="width: 15.31%; background-color:#bc8f8f;"></span><span style="width: 9.18%; background-color:#a0522d;"></span><span style="width: 3.06%; background-color:#808080;"></span><span style="width: 2.04%; background-color:#696969;"></span><span style="width: 2.04%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Bartolomeo Sanvito (Italian, 1435/8-after 1518): Life of Alphonso VI, King of Aragon and Naples (1416-1458) 1701" href="http://art.thewalters.org/detail/2658"  style="background-image: url(http://static.thewalters.org/images/ARG_W.405.2R_ObvDet_UK.jpg?width=150);">
+            <img alt="WALTERS: Bartolomeo Sanvito (Italian, 1435/8-after 1518): Life of Alphonso VI, King of Aragon and Naples (1416-1458) 1701" src="http://static.thewalters.org/images/ARG_W.405.2R_ObvDet_UK.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Life of Alphonso VI, K...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Bartolomeo Sanvito (It...</em></p>
+        <p class="signature"><span style="width: 66.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#a0522d;"></span><span style="width: 8.00%; background-color:#808080;"></span><span style="width: 7.00%; background-color:#556b2f;"></span><span style="width: 7.00%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/28284"  style="background-image: url(http://static.thewalters.org/images/PS3_95.266_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.266_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 69.47%; background-color:#d2b48c;"></span><span style="width: 10.53%; background-color:#f5deb3;"></span><span style="width: 7.37%; background-color:#bc8f8f;"></span><span style="width: 8.42%; background-color:#556b2f;"></span><span style="width: 4.21%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Johann Adam Klein (German, 1792-1875): Peasant and Horses with Wagon 1829" href="http://art.thewalters.org/detail/10548"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1249_Fnt_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Johann Adam Klein (German, 1792-1875): Peasant and Horses with Wagon 1829" src="http://static.thewalters.org/images/PS1_37.1249_Fnt_DD_T13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Peasant and Horses wit...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Johann Adam Klein (Ger...</em></p>
+        <p class="signature"><span style="width: 66.00%; background-color:#d2b48c;"></span><span style="width: 27.00%; background-color:#bc8f8f;"></span><span style="width: 7.00%; background-color:#808080;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Prosper Mérimée (French, 1803-1870): &quot;Le Militaire&quot; None" href="http://art.thewalters.org/detail/79169"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2791_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Prosper Mérimée (French, 1803-1870): &quot;Le Militaire&quot; None" src="http://static.thewalters.org/images/PS1_37.2791_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>&quot;Le Militaire&quot;</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Prosper Mérimée (Frenc...</em></p>
+        <p class="signature"><span style="width: 69.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#dcdcdc;"></span><span style="width: 7.00%; background-color:#808080;"></span><span style="width: 5.00%; background-color:#2f4f4f;"></span><span style="width: 7.00%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Utagawa Kuniyoshi (Japanese, 1798-1861): Seichu gishi den 1847" href="http://art.thewalters.org/detail/33760"  style="background-image: url(http://static.thewalters.org/images/PS3_95.29_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Utagawa Kuniyoshi (Japanese, 1798-1861): Seichu gishi den 1847" src="http://static.thewalters.org/images/PS3_95.29_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Seichu gishi den</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Utagawa Kuniyoshi (Jap...</em></p>
+        <p class="signature"><span style="width: 68.00%; background-color:#d2b48c;"></span><span style="width: 13.00%; background-color:#2f4f4f;"></span><span style="width: 10.00%; background-color:#808080;"></span><span style="width: 4.00%; background-color:#556b2f;"></span><span style="width: 3.00%; background-color:#000000;"></span><span style="width: 2.00%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue None" href="http://art.thewalters.org/detail/40258"  style="background-image: url(http://static.thewalters.org/images/PS3_95.796_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue None" src="http://static.thewalters.org/images/PS3_95.796_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 70.10%; background-color:#d2b48c;"></span><span style="width: 10.31%; background-color:#d3d3d3;"></span><span style="width: 9.28%; background-color:#696969;"></span><span style="width: 5.15%; background-color:#808080;"></span><span style="width: 3.09%; background-color:#556b2f;"></span><span style="width: 2.06%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan Toorop: Portrait of Marie Jeanette de Lange 1900" href="https://www.rijksmuseum.nl/en/collection/SK-A-4989"  style="background-image: url(http://lh5.ggpht.com/J8U7KCkxAO75j55x7UEZsWkRvgc6OOD-YkFZmmOdcbdlZ4kr2bKs2WlcVUf0_tkdvEzLRXMpMHzNyihzm-JDD4UGfA=s300);">
+            <img alt="RIJKS: Jan Toorop: Portrait of Marie Jeanette de Lange 1900" src="http://lh5.ggpht.com/J8U7KCkxAO75j55x7UEZsWkRvgc6OOD-YkFZmmOdcbdlZ4kr2bKs2WlcVUf0_tkdvEzLRXMpMHzNyihzm-JDD4UGfA=s300" />
+          </a>    
+        </div>
+        <h3>Portrait of Marie Jean...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan Toorop</em></p>
+        <p class="signature"><span style="width: 67.00%; background-color:#d2b48c;"></span><span style="width: 29.00%; background-color:#808080;"></span><span style="width: 4.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Misty Mountains 1816" href="http://art.thewalters.org/detail/20052"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.5_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Misty Mountains 1816" src="http://static.thewalters.org/images/PS3_35.168.5_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Misty Mountains</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 68.37%; background-color:#d2b48c;"></span><span style="width: 15.31%; background-color:#bc8f8f;"></span><span style="width: 9.18%; background-color:#a0522d;"></span><span style="width: 3.06%; background-color:#808080;"></span><span style="width: 2.04%; background-color:#696969;"></span><span style="width: 2.04%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Bartolomeo Sanvito (Italian, 1435/8-after 1518): Life of Alphonso VI, King of Aragon and Naples (1416-1458) 1701" href="http://art.thewalters.org/detail/2658"  style="background-image: url(http://static.thewalters.org/images/ARG_W.405.2R_ObvDet_UK.jpg?width=150);">
+            <img alt="WALTERS: Bartolomeo Sanvito (Italian, 1435/8-after 1518): Life of Alphonso VI, King of Aragon and Naples (1416-1458) 1701" src="http://static.thewalters.org/images/ARG_W.405.2R_ObvDet_UK.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Life of Alphonso VI, K...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Bartolomeo Sanvito (It...</em></p>
+        <p class="signature"><span style="width: 66.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#a0522d;"></span><span style="width: 8.00%; background-color:#808080;"></span><span style="width: 7.00%; background-color:#556b2f;"></span><span style="width: 7.00%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/28284"  style="background-image: url(http://static.thewalters.org/images/PS3_95.266_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.266_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 69.47%; background-color:#d2b48c;"></span><span style="width: 10.53%; background-color:#f5deb3;"></span><span style="width: 7.37%; background-color:#bc8f8f;"></span><span style="width: 8.42%; background-color:#556b2f;"></span><span style="width: 4.21%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Johann Adam Klein (German, 1792-1875): Peasant and Horses with Wagon 1829" href="http://art.thewalters.org/detail/10548"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1249_Fnt_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Johann Adam Klein (German, 1792-1875): Peasant and Horses with Wagon 1829" src="http://static.thewalters.org/images/PS1_37.1249_Fnt_DD_T13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Peasant and Horses wit...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Johann Adam Klein (Ger...</em></p>
+        <p class="signature"><span style="width: 66.00%; background-color:#d2b48c;"></span><span style="width: 27.00%; background-color:#bc8f8f;"></span><span style="width: 7.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Benjamin Vautier (German, 1829-1898): Old Man and Girl in Peasant Costume 1857" href="http://art.thewalters.org/detail/23244"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1269_Fnt_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Benjamin Vautier (German, 1829-1898): Old Man and Girl in Peasant Costume 1857" src="http://static.thewalters.org/images/PS1_37.1269_Fnt_DD_T13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Old Man and Girl in Pe...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Benjamin Vautier (Germ...</em></p>
+        <p class="signature"><span style="width: 66.00%; background-color:#d2b48c;"></span><span style="width: 30.00%; background-color:#bc8f8f;"></span><span style="width: 4.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Quail 1816" href="http://art.thewalters.org/detail/38524"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.7_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Quail 1816" src="http://static.thewalters.org/images/PS3_35.168.7_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Quail</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 69.47%; background-color:#d2b48c;"></span><span style="width: 18.95%; background-color:#bc8f8f;"></span><span style="width: 6.32%; background-color:#a0522d;"></span><span style="width: 4.21%; background-color:#696969;"></span><span style="width: 1.05%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Jean Baptiste Edouard Detaille (French, 1848-1912): Two Soldiers with Horses None" href="http://art.thewalters.org/detail/79173"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2795_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Jean Baptiste Edouard Detaille (French, 1848-1912): Two Soldiers with Horses None" src="http://static.thewalters.org/images/PS1_37.2795_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Two Soldiers with Horses</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Jean Baptiste Edouard ...</em></p>
+        <p class="signature"><span style="width: 67.35%; background-color:#d2b48c;"></span><span style="width: 13.27%; background-color:#bc8f8f;"></span><span style="width: 8.16%; background-color:#808080;"></span><span style="width: 8.16%; background-color:#696969;"></span><span style="width: 3.06%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Orchid (?) in a Shell Container 1816" href="http://art.thewalters.org/detail/36025"  style="background-image: url(http://static.thewalters.org/images/PS3_35.168.14_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Isen&#39;in Hoin Eishin (Japanese, 1775-1828): Orchid (?) in a Shell Container 1816" src="http://static.thewalters.org/images/PS3_35.168.14_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Orchid (?) in a Shell ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Isen&#39;in Hoin Eishin (J...</em></p>
+        <p class="signature"><span style="width: 64.36%; background-color:#d2b48c;"></span><span style="width: 16.83%; background-color:#bdb76b;"></span><span style="width: 6.93%; background-color:#bc8f8f;"></span><span style="width: 7.92%; background-color:#a0522d;"></span><span style="width: 1.98%; background-color:#808080;"></span><span style="width: 1.98%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Aricara [sic] Female 1858" href="http://art.thewalters.org/detail/37873"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.19_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Aricara [sic] Female 1858" src="http://static.thewalters.org/images/PS3_37.1940.19_Fnt_DD_KI13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Aricara [sic] Female</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 64.36%; background-color:#d2b48c;"></span><span style="width: 12.87%; background-color:#a9a9a9;"></span><span style="width: 9.90%; background-color:#2f4f4f;"></span><span style="width: 5.94%; background-color:#a0522d;"></span><span style="width: 4.95%; background-color:#8b4513;"></span><span style="width: 1.98%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1898" href="http://art.thewalters.org/detail/30676"  style="background-image: url(http://static.thewalters.org/images/PS3_95.239_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1898" src="http://static.thewalters.org/images/PS3_95.239_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 63.37%; background-color:#d2b48c;"></span><span style="width: 16.83%; background-color:#696969;"></span><span style="width: 10.89%; background-color:#808080;"></span><span style="width: 6.93%; background-color:#2f4f4f;"></span><span style="width: 1.98%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1898" href="http://art.thewalters.org/detail/32622"  style="background-image: url(http://static.thewalters.org/images/PS3_95.283_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1898" src="http://static.thewalters.org/images/PS3_95.283_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 64.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#556b2f;"></span><span style="width: 9.00%; background-color:#bc8f8f;"></span><span style="width: 8.00%; background-color:#dcdcdc;"></span><span style="width: 4.00%; background-color:#cd853f;"></span><span style="width: 3.00%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Miyagawa Shuntei (Japanese, 1873-1914): Fuzoku ga 1897" href="http://art.thewalters.org/detail/36934"  style="background-image: url(http://static.thewalters.org/images/PS3_95.702_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Miyagawa Shuntei (Japanese, 1873-1914): Fuzoku ga 1897" src="http://static.thewalters.org/images/PS3_95.702_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Fuzoku ga</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Miyagawa Shuntei (Japa...</em></p>
+        <p class="signature"><span style="width: 64.00%; background-color:#d2b48c;"></span><span style="width: 20.00%; background-color:#808080;"></span><span style="width: 7.00%; background-color:#556b2f;"></span><span style="width: 6.00%; background-color:#000000;"></span><span style="width: 3.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Paul Gavarni (French, 1804-1866): Peasant Woman Leaning on Wall 1852" href="http://art.thewalters.org/detail/13114"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1420_Fnt_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Paul Gavarni (French, 1804-1866): Peasant Woman Leaning on Wall 1852" src="http://static.thewalters.org/images/PS1_37.1420_Fnt_DD_T13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Peasant Woman Leaning ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Paul Gavarni (French, ...</em></p>
+        <p class="signature"><span style="width: 67.37%; background-color:#d2b48c;"></span><span style="width: 10.53%; background-color:#808080;"></span><span style="width: 10.53%; background-color:#bc8f8f;"></span><span style="width: 4.21%; background-color:#556b2f;"></span><span style="width: 7.37%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Charles Loring Elliott (American, 1812-1868): Portrait of a Man 1845" href="http://art.thewalters.org/detail/26651"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1552_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Charles Loring Elliott (American, 1812-1868): Portrait of a Man 1845" src="http://static.thewalters.org/images/PS3_37.1552_Fnt_DD_KI13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Portrait of a Man</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Charles Loring Elliott...</em></p>
+        <p class="signature"><span style="width: 66.67%; background-color:#d2b48c;"></span><span style="width: 16.67%; background-color:#2f4f4f;"></span><span style="width: 5.21%; background-color:#000000;"></span><span style="width: 8.33%; background-color:#808080;"></span><span style="width: 3.13%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Theodor Hildebrandt: painting 1844" href="https://www.rijksmuseum.nl/en/collection/SK-C-304"  style="background-image: url(http://lh5.ggpht.com/LAxWzM2N2FWVVVPNh0cR9xvLSJjyfKZ-aBRMDUu0-yOYmZYFTkePCxvTVqugtSjBnGSriaDKctscQwKtRbzm1ANABgQ=s300);">
+            <img alt="RIJKS: Theodor Hildebrandt: painting 1844" src="http://lh5.ggpht.com/LAxWzM2N2FWVVVPNh0cR9xvLSJjyfKZ-aBRMDUu0-yOYmZYFTkePCxvTVqugtSjBnGSriaDKctscQwKtRbzm1ANABgQ=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Theodor Hildebrandt</em></p>
+        <p class="signature"><span style="width: 72.41%; background-color:#d2b48c;"></span><span style="width: 10.34%; background-color:#bdb76b;"></span><span style="width: 12.64%; background-color:#556b2f;"></span><span style="width: 4.60%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Yoshizawa Setsuan (Japanese, 1809-1889): Leaf from Album Depicting Birds, Flowers, Landscapes, and Flower Pots 1876" href="http://art.thewalters.org/detail/1957"  style="background-image: url(http://static.thewalters.org/images/PS3_35.174.17A_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Yoshizawa Setsuan (Japanese, 1809-1889): Leaf from Album Depicting Birds, Flowers, Landscapes, and Flower Pots 1876" src="http://static.thewalters.org/images/PS3_35.174.17A_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Leaf from Album Depict...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Yoshizawa Setsuan (Jap...</em></p>
+        <p class="signature"><span style="width: 65.63%; background-color:#d2b48c;"></span><span style="width: 19.79%; background-color:#dcdcdc;"></span><span style="width: 10.42%; background-color:#c0c0c0;"></span><span style="width: 2.08%; background-color:#bc8f8f;"></span><span style="width: 1.04%; background-color:#696969;"></span><span style="width: 1.04%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Ogata Gekko: Nihon hana zue 1896" href="http://art.thewalters.org/detail/23057"  style="background-image: url(http://static.thewalters.org/images/PS3_95.208_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Ogata Gekko: Nihon hana zue 1896" src="http://static.thewalters.org/images/PS3_95.208_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nihon hana zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Ogata Gekko</em></p>
+        <p class="signature"><span style="width: 62.00%; background-color:#d2b48c;"></span><span style="width: 12.00%; background-color:#f5deb3;"></span><span style="width: 11.00%; background-color:#696969;"></span><span style="width: 8.00%; background-color:#cd853f;"></span><span style="width: 3.00%; background-color:#556b2f;"></span><span style="width: 3.00%; background-color:#a0522d;"></span><span style="width: 1.00%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Ogata Gekko: Nihon hana zue 1896" href="http://art.thewalters.org/detail/34958"  style="background-image: url(http://static.thewalters.org/images/PS3_95.219_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Ogata Gekko: Nihon hana zue 1896" src="http://static.thewalters.org/images/PS3_95.219_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nihon hana zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Ogata Gekko</em></p>
+        <p class="signature"><span style="width: 62.00%; background-color:#d2b48c;"></span><span style="width: 15.00%; background-color:#696969;"></span><span style="width: 11.00%; background-color:#cd853f;"></span><span style="width: 6.00%; background-color:#556b2f;"></span><span style="width: 6.00%; background-color:#f5deb3;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/25306"  style="background-image: url(http://static.thewalters.org/images/PS3_95.269_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.269_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 61.62%; background-color:#d2b48c;"></span><span style="width: 14.14%; background-color:#556b2f;"></span><span style="width: 12.12%; background-color:#c0c0c0;"></span><span style="width: 6.06%; background-color:#a0522d;"></span><span style="width: 6.06%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Hokusai Katsushika (Japanese, 1760-1849): Hokusai manga 1819" href="http://art.thewalters.org/detail/32707"  style="background-image: url(http://static.thewalters.org/images/PS3_95.153_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Hokusai Katsushika (Japanese, 1760-1849): Hokusai manga 1819" src="http://static.thewalters.org/images/PS3_95.153_Fnt_DD_JP09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Hokusai manga</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Hokusai Katsushika (Ja...</em></p>
+        <p class="signature"><span style="width: 61.00%; background-color:#d2b48c;"></span><span style="width: 14.00%; background-color:#d3d3d3;"></span><span style="width: 14.00%; background-color:#808080;"></span><span style="width: 6.00%; background-color:#696969;"></span><span style="width: 5.00%; background-color:#556b2f;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 4252;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

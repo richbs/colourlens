@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23bc8f8f">2</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23696969">2</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23c0c0c0">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23a52a2a">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23808080">3</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23000000">3</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23a9a9a9">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23dcdcdc">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23800000">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23fffafa">14</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23e9967a">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23a0522d">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23cd853f">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23deb887">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23d2b48c">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23f5deb3">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23556b2f">2</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%232f4f4f">2</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23778899">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#4169e1; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%234169e1">1</a>
+    </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
+      <a href="/?colour=%23fffafa&amp;colour=%23ffb6c1">1</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23bc8f8f">2</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23696969">2</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23c0c0c0">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23a52a2a">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23808080">3</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23000000">3</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23a9a9a9">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23dcdcdc">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23800000">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23fffafa">14</a>
+        <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#fffafa;"></span>  
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23e9967a">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23a0522d">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23cd853f">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23deb887">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23d2b48c">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23f5deb3">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23556b2f">2</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%232f4f4f">2</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23778899">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#4169e1; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%234169e1">1</a>
+          
+      </div><div style="width: 4.73%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
+        <a href="/?colour=%23fffafa&amp;colour=%23ffb6c1">1</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>14 results</em><h2>21 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="selected" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greek: Lekythos Depciting Mounted Amazon -482" href="http://art.thewalters.org/detail/16581"  style="background-image: url(http://static.thewalters.org/images/PL9_48.231_SideA_BW_T90.jpg?width=250);">
+            <img alt="WALTERS: Greek: Lekythos Depciting Mounted Amazon -482" src="http://static.thewalters.org/images/PL9_48.231_SideA_BW_T90.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Lekythos Depciting Mou...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greek</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Paidikos (Greek, active ca. 530-500 BC): Kylix Depicting Men Bending Drinking from Kylix -522" href="http://art.thewalters.org/detail/16250"  style="background-image: url(http://static.thewalters.org/images/PL9_48.2240_Int_BW_T90.jpg?width=250);">
+            <img alt="WALTERS: Paidikos (Greek, active ca. 530-500 BC): Kylix Depicting Men Bending Drinking from Kylix -522" src="http://static.thewalters.org/images/PL9_48.2240_Int_BW_T90.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Kylix Depicting Men Be...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Paidikos (Greek, activ...</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Bowl with Winged Griffins -300" href="http://art.thewalters.org/detail/100"  style="background-image: url(http://static.thewalters.org/images/PL9_48.364_Fnt_BW_C39.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Bowl with Winged Griffins -300" src="http://static.thewalters.org/images/PL9_48.364_Fnt_BW_C39.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Bowl with Winged Griffins</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greco-Egyptian: Vessel with Garlands and Griffins -332" href="http://art.thewalters.org/detail/9383"  style="background-image: url(http://static.thewalters.org/images/PL9_48.365_Fnt_BW_C39.jpg?width=250);">
+            <img alt="WALTERS: Greco-Egyptian: Vessel with Garlands and Griffins -332" src="http://static.thewalters.org/images/PL9_48.365_Fnt_BW_C39.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Vessel with Garlands a...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greco-Egyptian</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian (?): Jar -30" href="http://art.thewalters.org/detail/5561"  style="background-image: url(http://static.thewalters.org/images/PL9_48.473_Fnt_BW.jpg?width=250);">
+            <img alt="WALTERS: Egyptian (?): Jar -30" src="http://static.thewalters.org/images/PL9_48.473_Fnt_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Jar</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian (?)</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sèvres Porcelain Manufactory (French, active 1756-present): Sugar Bowl 1750" href="http://art.thewalters.org/detail/3515"  style="background-image: url(http://static.thewalters.org/images/PL7_48.726_Fnt_BW.jpg?width=250);">
+            <img alt="WALTERS: Sèvres Porcelain Manufactory (French, active 1756-present): Sugar Bowl 1750" src="http://static.thewalters.org/images/PL7_48.726_Fnt_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Sugar Bowl</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sèvres Porcelain Manuf...</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Jules Emile Saintin (French, 1829-1894): Little Girl Drowsing Over Her Drawing (Portrait of Jennie Walters?) 1859" href="http://art.thewalters.org/detail/36154"  style="background-image: url(http://static.thewalters.org/images/ARG_37.1626_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Jules Emile Saintin (French, 1829-1894): Little Girl Drowsing Over Her Drawing (Portrait of Jennie Walters?) 1859" src="http://static.thewalters.org/images/ARG_37.1626_Fnt_UK.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Little Girl Drowsing O...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Jules Emile Saintin (F...</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Nazca: Happy Fisherman Vessel -200" href="http://art.thewalters.org/detail/33518"  style="background-image: url(http://static.thewalters.org/images/ARG_48.2865_Prof_BW.jpg?width=250);">
+            <img alt="WALTERS: Nazca: Happy Fisherman Vessel -200" src="http://static.thewalters.org/images/ARG_48.2865_Prof_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Happy Fisherman Vessel</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Nazca</em></p>
+        <p class="signature"><span style="width: 66.67%; background-color:#dcdcdc;"></span><span style="width: 22.22%; background-color:#fffafa;"></span><span style="width: 11.11%; background-color:#c0c0c0;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Thai: Episodes in the Life of Buddha 1875" href="http://art.thewalters.org/detail/81914"  style="background-image: url(http://static.thewalters.org/images/REF_2010.12.10_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Thai: Episodes in the Life of Buddha 1875" src="http://static.thewalters.org/images/REF_2010.12.10_Fnt_UK.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Episodes in the Life o...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Thai</em></p>
+        <p class="signature"><span style="width: 32.00%; background-color:#778899;"></span><span style="width: 26.67%; background-color:#e9967a;"></span><span style="width: 21.33%; background-color:#fffafa;"></span><span style="width: 20.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerard de Lairesse: painting 1682" href="https://www.rijksmuseum.nl/en/collection/SK-A-1233"  style="background-image: url(http://lh6.ggpht.com/z6FPj7fXBxSr5ZAZUL2WeurVQdMvJ1SmexlAmNrFnEtqkarswaMejU6_te0o_7V6wsb7Rqtf19bkPv-x__SssddocA=s300);">
+            <img alt="RIJKS: Gerard de Lairesse: painting 1682" src="http://lh6.ggpht.com/z6FPj7fXBxSr5ZAZUL2WeurVQdMvJ1SmexlAmNrFnEtqkarswaMejU6_te0o_7V6wsb7Rqtf19bkPv-x__SssddocA=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerard de Lairesse</em></p>
+        <p class="signature"><span style="width: 37.00%; background-color:#556b2f;"></span><span style="width: 35.00%; background-color:#2f4f4f;"></span><span style="width: 14.00%; background-color:#fffafa;"></span><span style="width: 11.00%; background-color:#808080;"></span><span style="width: 3.00%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Indian: A Sexual Posture 1713" href="http://art.thewalters.org/detail/29903"  style="background-image: url(http://static.thewalters.org/images/ARG_F.277_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Indian: A Sexual Posture 1713" src="http://static.thewalters.org/images/ARG_F.277_Fnt_UK.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>A Sexual Posture</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Indian</em></p>
+        <p class="signature"><span style="width: 47.42%; background-color:#a52a2a;"></span><span style="width: 24.74%; background-color:#a9a9a9;"></span><span style="width: 10.31%; background-color:#696969;"></span><span style="width: 5.15%; background-color:#000000;"></span><span style="width: 4.12%; background-color:#fffafa;"></span><span style="width: 4.12%; background-color:#ffb6c1;"></span><span style="width: 4.12%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: French: Window Panel with Saint Vincent on the Rack 1245" href="http://art.thewalters.org/detail/19397"  style="background-image: url(http://static.thewalters.org/images/PS1_46.69_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: French: Window Panel with Saint Vincent on the Rack 1245" src="http://static.thewalters.org/images/PS1_46.69_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Window Panel with Sain...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>French</em></p>
+        <p class="signature"><span style="width: 44.68%; background-color:#000000;"></span><span style="width: 18.09%; background-color:#800000;"></span><span style="width: 15.96%; background-color:#4169e1;"></span><span style="width: 11.70%; background-color:#d2b48c;"></span><span style="width: 5.32%; background-color:#a0522d;"></span><span style="width: 4.26%; background-color:#fffafa;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan Maurits Quinkhard: painting 1743" href="https://www.rijksmuseum.nl/en/collection/SK-A-791"  style="background-image: url(http://lh3.ggpht.com/bROYXNvb3FPYoxg3CcXv3x2ctxYKRbF9kfOGqEp8CXQirKjdFC7L24aT10bNbrlaobSCLatWeiBkIYpXftmXYsPNJXk=s300);">
+            <img alt="RIJKS: Jan Maurits Quinkhard: painting 1743" src="http://lh3.ggpht.com/bROYXNvb3FPYoxg3CcXv3x2ctxYKRbF9kfOGqEp8CXQirKjdFC7L24aT10bNbrlaobSCLatWeiBkIYpXftmXYsPNJXk=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan Maurits Quinkhard</em></p>
+        <p class="signature"><span style="width: 40.58%; background-color:#2f4f4f;"></span><span style="width: 28.99%; background-color:#808080;"></span><span style="width: 24.64%; background-color:#deb887;"></span><span style="width: 4.35%; background-color:#fffafa;"></span><span style="width: 1.45%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Maria Alexandrina Reuss (prinses van Saxen Weimar Eisenbach): painting 1886" href="https://www.rijksmuseum.nl/en/collection/SK-A-3051"  style="background-image: url(http://lh4.ggpht.com/2R0wY94Z50SYtwa6ZwXQZeYNapI6kkGGrRRvcK3MGzHH2F_85GzFC1kFWMDbU2TN22hgih6NZL1NB4J7D11kGUrkBg=s300);">
+            <img alt="RIJKS: Maria Alexandrina Reuss (prinses van Saxen Weimar Eisenbach): painting 1886" src="http://lh4.ggpht.com/2R0wY94Z50SYtwa6ZwXQZeYNapI6kkGGrRRvcK3MGzHH2F_85GzFC1kFWMDbU2TN22hgih6NZL1NB4J7D11kGUrkBg=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Maria Alexandrina Reus...</em></p>
+        <p class="signature"><span style="width: 47.47%; background-color:#000000;"></span><span style="width: 25.25%; background-color:#556b2f;"></span><span style="width: 17.17%; background-color:#696969;"></span><span style="width: 6.06%; background-color:#f5deb3;"></span><span style="width: 2.02%; background-color:#fffafa;"></span><span style="width: 2.02%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 42;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

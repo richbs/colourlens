@@ -1,0 +1,1071 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23bc8f8f">78</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23696969">260</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23c0c0c0">22</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23a52a2a">3</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23cd5c5c">8</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23808080">245</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23000000">900</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23a9a9a9">43</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23d3d3d3">4</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23dcdcdc">3</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23800000">104</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23f5f5f5">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#b22222; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23b22222">2</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23e9967a">12</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ff4500; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ff4500">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23a0522d">289</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%238b4513">344</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#d2691e; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23d2691e">3</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23f4a460">12</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffdab9; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ffdab9">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23cd853f">171</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ff8c00; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ff8c00">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23deb887">33</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23faebd7">3</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23d2b48c">90</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ffdead">2</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffe4b5; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ffe4b5">2</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23f5deb3">8</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#daa520; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23daa520">3</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23b8860b">5</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f0e68c; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23f0e68c">6</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23eee8aa">7</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23bdb76b">91</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f5f5dc; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23f5f5dc">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffffe0; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ffffe0">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#808000; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23808000">2</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%236b8e23">6</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23556b2f">292</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%238fbc8f">4</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%232e8b57">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%232f4f4f">217</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#008080; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23008080">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%235f9ea0">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%234682b4">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23778899">9</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23708090">6</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23b0c4de">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23e6e6fa">2</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffc0cb; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ffc0cb">1</a>
+    </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
+      <a href="/?colour=%23000000&amp;colour=%23ffb6c1">1</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23bc8f8f">78</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23696969">260</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23c0c0c0">22</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23a52a2a">3</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23cd5c5c">8</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23808080">245</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23000000">900</a>
+        <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#000000;"></span>  
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23a9a9a9">43</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23d3d3d3">4</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23dcdcdc">3</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23800000">104</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23f5f5f5">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#b22222; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23b22222">2</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23e9967a">12</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ff4500; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ff4500">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23a0522d">289</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%238b4513">344</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#d2691e; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23d2691e">3</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23f4a460">12</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffdab9; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ffdab9">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23cd853f">171</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ff8c00; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ff8c00">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23deb887">33</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23faebd7">3</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23d2b48c">90</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ffdead">2</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffe4b5; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ffe4b5">2</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23f5deb3">8</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#daa520; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23daa520">3</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23b8860b">5</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f0e68c; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23f0e68c">6</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23eee8aa">7</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23bdb76b">91</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#f5f5dc; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23f5f5dc">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffffe0; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ffffe0">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#808000; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23808000">2</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%236b8e23">6</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23556b2f">292</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%238fbc8f">4</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%232e8b57">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%232f4f4f">217</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#008080; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23008080">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%235f9ea0">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%234682b4">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23778899">9</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23708090">6</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23b0c4de">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23e6e6fa">2</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffc0cb; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ffc0cb">1</a>
+          
+      </div><div style="width: 1.99%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
+        <a href="/?colour=%23000000&amp;colour=%23ffb6c1">1</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>4053 results</em><h2>50 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="selected" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerard Dou: The Night School 1665" href="https://www.rijksmuseum.nl/en/collection/SK-A-87"  style="background-image: url(http://lh5.ggpht.com/EnLy6ITJh_hVtCCAIUqDSkqDN1UOXMBP83KraYgPt25koJAkC1Ml96eufwMD6rhoUBL4H1mejVuaiYY2S89Ci_1cNg=s300);">
+            <img alt="RIJKS: Gerard Dou: The Night School 1665" src="http://lh5.ggpht.com/EnLy6ITJh_hVtCCAIUqDSkqDN1UOXMBP83KraYgPt25koJAkC1Ml96eufwMD6rhoUBL4H1mejVuaiYY2S89Ci_1cNg=s300"
+            />
+          </a>
+        </div>
+        <h3>The Night School</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerard Dou</em></p>
+        <p class="signature"><span style="width: 98.98%; background-color:#000000;"></span><span style="width: 1.02%; background-color:#800000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: attributed to Abraham van den Tempel: painting 1667" href="https://www.rijksmuseum.nl/en/collection/SK-A-589"  style="background-image: url(http://lh3.ggpht.com/Cw5pcTCsN2RiD8VPqLRA904ouIdEv0faQFeMf48-XJO6jNV_FXiv9Pth3Lv3IY2Um0li3xQ9o91EoeCvG1KMRPEsx1A2=s300);">
+            <img alt="RIJKS: attributed to Abraham van den Tempel: painting 1667" src="http://lh3.ggpht.com/Cw5pcTCsN2RiD8VPqLRA904ouIdEv0faQFeMf48-XJO6jNV_FXiv9Pth3Lv3IY2Um0li3xQ9o91EoeCvG1KMRPEsx1A2=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>attributed to Abraham ...</em></p>
+        <p class="signature"><span style="width: 97.96%; background-color:#000000;"></span><span style="width: 1.02%; background-color:#a0522d;"></span><span style="width: 1.02%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Hohannes: Gospels of Georg Alexief 1600" href="http://art.thewalters.org/detail/1700"  style="background-image: url(http://static.thewalters.org/images/CPS_W.546.binding_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: Hohannes: Gospels of Georg Alexief 1600" src="http://static.thewalters.org/images/CPS_W.546.binding_Fp_DD.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Gospels of Georg Alexief</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Hohannes</em></p>
+        <p class="signature"><span style="width: 95.96%; background-color:#000000;"></span><span style="width: 4.04%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Johannes Borman: painting 1658" href="https://www.rijksmuseum.nl/en/collection/SK-A-754"  style="background-image: url(http://lh6.ggpht.com/lnVxJUIKYtv3AFk5Fx3sc2j00Teq0WNMslcLbC57ZpAJQq1Y70twr9EY4i0jtneXB6PZ6zl7jqLvYIwoBJU-Ys9IN4UQ=s300);">
+            <img alt="RIJKS: Johannes Borman: painting 1658" src="http://lh6.ggpht.com/lnVxJUIKYtv3AFk5Fx3sc2j00Teq0WNMslcLbC57ZpAJQq1Y70twr9EY4i0jtneXB6PZ6zl7jqLvYIwoBJU-Ys9IN4UQ=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Johannes Borman</em></p>
+        <p class="signature"><span style="width: 96.94%; background-color:#000000;"></span><span style="width: 1.02%; background-color:#800000;"></span><span style="width: 1.02%; background-color:#a0522d;"></span><span style="width: 1.02%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Salomon Koninck: painting 1656" href="https://www.rijksmuseum.nl/en/collection/SK-A-23"  style="background-image: url(http://lh4.ggpht.com/EZxqH1jFRIO8r0TaIYarh9Lw_dxQS3tYaExPUrFz2S2faYVwOUp66gIMbVR2vqdCzRPC8I3KG--0ItAxD_yHL4k8Mvk=s300);">
+            <img alt="RIJKS: Salomon Koninck: painting 1656" src="http://lh4.ggpht.com/EZxqH1jFRIO8r0TaIYarh9Lw_dxQS3tYaExPUrFz2S2faYVwOUp66gIMbVR2vqdCzRPC8I3KG--0ItAxD_yHL4k8Mvk=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Salomon Koninck</em></p>
+        <p class="signature"><span style="width: 95.96%; background-color:#000000;"></span><span style="width: 3.03%; background-color:#556b2f;"></span><span style="width: 1.01%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Leonaert Bramer: painting 1648" href="https://www.rijksmuseum.nl/en/collection/SK-A-845"  style="background-image: url(http://lh4.ggpht.com/jF6zjZGXh8QdPMydhtHKFl_wvpCLa2jC7tKABxIFL_e52BWwI7ongxxEjeSK6VPgP4_sPNjnVG6WmHUlP9DuD5j2Dbg=s300);">
+            <img alt="RIJKS: Leonaert Bramer: painting 1648" src="http://lh4.ggpht.com/jF6zjZGXh8QdPMydhtHKFl_wvpCLa2jC7tKABxIFL_e52BWwI7ongxxEjeSK6VPgP4_sPNjnVG6WmHUlP9DuD5j2Dbg=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Leonaert Bramer</em></p>
+        <p class="signature"><span style="width: 94.06%; background-color:#000000;"></span><span style="width: 4.95%; background-color:#2f4f4f;"></span><span style="width: 0.99%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Willem Witsen: painting 1912" href="https://www.rijksmuseum.nl/en/collection/SK-A-2948"  style="background-image: url(http://lh4.ggpht.com/2HI7h87lqaIAS-yixIxVvmshy9bYc1Gi__DrT94P36wQiM6ZzStytQvqHP0JI6yhVo9TIikciXq6niQN6Nd6Dr9tnj86=s300);">
+            <img alt="RIJKS: Willem Witsen: painting 1912" src="http://lh4.ggpht.com/2HI7h87lqaIAS-yixIxVvmshy9bYc1Gi__DrT94P36wQiM6ZzStytQvqHP0JI6yhVo9TIikciXq6niQN6Nd6Dr9tnj86=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Willem Witsen</em></p>
+        <p class="signature"><span style="width: 95.96%; background-color:#000000;"></span><span style="width: 4.04%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: copy after Jan van Scorel: painting 1554" href="https://www.rijksmuseum.nl/en/collection/SK-A-1855"  style="background-image: url(http://lh6.ggpht.com/CFL9PTeSk-pxhJxPcIrUC_vkfELc_42F8O4usCPHR0wxE5t4Xqb5a7T6E3xE3HF-3jloecT7aMRWPRM9i91nUvzpIvI=s300);">
+            <img alt="RIJKS: copy after Jan van Scorel: painting 1554" src="http://lh6.ggpht.com/CFL9PTeSk-pxhJxPcIrUC_vkfELc_42F8O4usCPHR0wxE5t4Xqb5a7T6E3xE3HF-3jloecT7aMRWPRM9i91nUvzpIvI=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>copy after Jan van Scorel</em></p>
+        <p class="signature"><span style="width: 97.94%; background-color:#000000;"></span><span style="width: 1.03%; background-color:#8b4513;"></span><span style="width: 1.03%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: painting 1675" href="https://www.rijksmuseum.nl/en/collection/SK-A-3760"  style="background-image: url(http://lh3.ggpht.com/hHvXvgTDAVyjdstq_Tl8kjOJR5_OJHyVEhkB_9LedU3so-F635Z2QCZ-AVsj2ihZ0TVVdjrjAYQkfzPbc-VtueOE97I=s300);">
+            <img alt="RIJKS: anoniem: painting 1675" src="http://lh3.ggpht.com/hHvXvgTDAVyjdstq_Tl8kjOJR5_OJHyVEhkB_9LedU3so-F635Z2QCZ-AVsj2ihZ0TVVdjrjAYQkfzPbc-VtueOE97I=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 95.92%; background-color:#000000;"></span><span style="width: 1.02%; background-color:#2f4f4f;"></span><span style="width: 1.02%; background-color:#556b2f;"></span><span style="width: 1.02%; background-color:#a0522d;"></span><span style="width: 1.02%; background-color:#800000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: follower of Rembrandt Harmensz. van Rijn: painting 1800" href="https://www.rijksmuseum.nl/en/collection/SK-A-3341"  style="background-image: url(http://lh3.ggpht.com/hqQ-lmOyvJ-OwQTvuiYwgY1uTFIJECTr0oUIeJ4_jojMDKchCgYpxu7lUyn7b1KBZ0HbaH8XYK5w06L3wVNtDSpllGI=s300);">
+            <img alt="RIJKS: follower of Rembrandt Harmensz. van Rijn: painting 1800" src="http://lh3.ggpht.com/hqQ-lmOyvJ-OwQTvuiYwgY1uTFIJECTr0oUIeJ4_jojMDKchCgYpxu7lUyn7b1KBZ0HbaH8XYK5w06L3wVNtDSpllGI=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>follower of Rembrandt ...</em></p>
+        <p class="signature"><span style="width: 97.92%; background-color:#000000;"></span><span style="width: 1.04%; background-color:#a0522d;"></span><span style="width: 1.04%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: painting 1675" href="https://www.rijksmuseum.nl/en/collection/SK-A-3763"  style="background-image: url(http://lh4.ggpht.com/erfRMgGv2fTa3H7yR0oBYiADwmShiaX1XQtp1n5oGvQY3emVIs1R0DExDzUagLYE7YEq8ItEzKxJg8qc8td_vsZ14Qg=s300);">
+            <img alt="RIJKS: anoniem: painting 1675" src="http://lh4.ggpht.com/erfRMgGv2fTa3H7yR0oBYiADwmShiaX1XQtp1n5oGvQY3emVIs1R0DExDzUagLYE7YEq8ItEzKxJg8qc8td_vsZ14Qg=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 97.92%; background-color:#000000;"></span><span style="width: 2.08%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Josephus Augustus Knip: The Shelling of ’s-Hertogenbosch by the French 1800" href="https://www.rijksmuseum.nl/en/collection/SK-A-4220"  style="background-image: url(http://lh4.ggpht.com/lAA3V5ehYkdi3wMsuUz9BKQEM1LOk-pOXA1lNXdVg3dwg_ujPYdaInT1BP5Qm9h0_LFiCnUm6R3GwrKachJjRaZNpg=s300);">
+            <img alt="RIJKS: Josephus Augustus Knip: The Shelling of ’s-Hertogenbosch by the French 1800" src="http://lh4.ggpht.com/lAA3V5ehYkdi3wMsuUz9BKQEM1LOk-pOXA1lNXdVg3dwg_ujPYdaInT1BP5Qm9h0_LFiCnUm6R3GwrKachJjRaZNpg=s300"
+            />
+          </a>
+        </div>
+        <h3>The Shelling of ’s-Her...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Josephus Augustus Knip</em></p>
+        <p class="signature"><span style="width: 95.92%; background-color:#000000;"></span><span style="width: 4.08%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: workshop of Rembrandt Harmensz. van Rijn: painting 1648" href="https://www.rijksmuseum.nl/en/collection/SK-A-4119"  style="background-image: url(http://lh4.ggpht.com/u6WyP1mCHBuzHI9zcVnbpr3yE8d4M_URXEbohft6Jt5HlnHLnMpTC3aE6vSNhaUOynx-wrE8bwT9yfz0BqtoUNwSNw=s300);">
+            <img alt="RIJKS: workshop of Rembrandt Harmensz. van Rijn: painting 1648" src="http://lh4.ggpht.com/u6WyP1mCHBuzHI9zcVnbpr3yE8d4M_URXEbohft6Jt5HlnHLnMpTC3aE6vSNhaUOynx-wrE8bwT9yfz0BqtoUNwSNw=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>workshop of Rembrandt ...</em></p>
+        <p class="signature"><span style="width: 94.00%; background-color:#000000;"></span><span style="width: 4.00%; background-color:#556b2f;"></span><span style="width: 1.00%; background-color:#a0522d;"></span><span style="width: 1.00%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Adriaan Meulemans: painting 1817" href="https://www.rijksmuseum.nl/en/collection/SK-A-1174"  style="background-image: url(http://lh6.ggpht.com/Kqzps6MXOneJcABA547CsDl42gijbd4H3PcO4uuljy7WbZqELH0hzwZiKVn980mBq0QCTohJvNMZayCn45xeW_MMg8E=s300);">
+            <img alt="RIJKS: Adriaan Meulemans: painting 1817" src="http://lh6.ggpht.com/Kqzps6MXOneJcABA547CsDl42gijbd4H3PcO4uuljy7WbZqELH0hzwZiKVn980mBq0QCTohJvNMZayCn45xeW_MMg8E=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Adriaan Meulemans</em></p>
+        <p class="signature"><span style="width: 94.95%; background-color:#000000;"></span><span style="width: 5.05%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Venetian: Portrait of a Child Prince 1598" href="http://art.thewalters.org/detail/9882"  style="background-image: url(http://static.thewalters.org/images/PL7_37.540_Fnt_SL.jpg?width=250);">
+            <img alt="WALTERS: Venetian: Portrait of a Child Prince 1598" src="http://static.thewalters.org/images/PL7_37.540_Fnt_SL.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Portrait of a Child Pr...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Venetian</em></p>
+        <p class="signature"><span style="width: 94.00%; background-color:#000000;"></span><span style="width: 3.00%; background-color:#bdb76b;"></span><span style="width: 2.00%; background-color:#556b2f;"></span><span style="width: 1.00%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: copy after Martin Palin: painting 1800" href="https://www.rijksmuseum.nl/en/collection/SK-A-4536"  style="background-image: url(http://lh3.ggpht.com/CO2TLNVTUL-tNfZVcVE2R6ebkKrN8G02sPUQRPjvDRcKw14EWmqqAdgenYrl1hCjJtdTg5q816c_0wXDAJ8fSPS50AY=s300);">
+            <img alt="RIJKS: copy after Martin Palin: painting 1800" src="http://lh3.ggpht.com/CO2TLNVTUL-tNfZVcVE2R6ebkKrN8G02sPUQRPjvDRcKw14EWmqqAdgenYrl1hCjJtdTg5q816c_0wXDAJ8fSPS50AY=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>copy after Martin Palin</em></p>
+        <p class="signature"><span style="width: 93.94%; background-color:#000000;"></span><span style="width: 2.02%; background-color:#a0522d;"></span><span style="width: 2.02%; background-color:#8b4513;"></span><span style="width: 2.02%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Adriaen Coorte: A Sprig of Gooseberries on a Stone Plinth 1699" href="https://www.rijksmuseum.nl/en/collection/SK-C-1689"  style="background-image: url(http://lh3.ggpht.com/LpC-zXDYwtDpViv0ibYH-s260yENuxvaKai56sXUc-Wuy3cHBL66TQBjQea7WhjanhW54rXIqWCMsNptV_I95fY0xaQ=s300);">
+            <img alt="RIJKS: Adriaen Coorte: A Sprig of Gooseberries on a Stone Plinth 1699" src="http://lh3.ggpht.com/LpC-zXDYwtDpViv0ibYH-s260yENuxvaKai56sXUc-Wuy3cHBL66TQBjQea7WhjanhW54rXIqWCMsNptV_I95fY0xaQ=s300"
+            />
+          </a>
+        </div>
+        <h3>A Sprig of Gooseberrie...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Adriaen Coorte</em></p>
+        <p class="signature"><span style="width: 92.93%; background-color:#000000;"></span><span style="width: 4.04%; background-color:#2f4f4f;"></span><span style="width: 2.02%; background-color:#556b2f;"></span><span style="width: 1.01%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Christiaen Jansz. Dusart: painting 1645" href="https://www.rijksmuseum.nl/en/collection/SK-A-1684"  style="background-image: url(http://lh3.ggpht.com/pE0xVx2sL-EB-Tb6g9en6dlhgytw0xDyn0LoNIrF0lgVzg6_aYv-aEEExvjcBRwrDVIoUdufMs3Fjk4QSXpAPSoAL7k=s300);">
+            <img alt="RIJKS: Christiaen Jansz. Dusart: painting 1645" src="http://lh3.ggpht.com/pE0xVx2sL-EB-Tb6g9en6dlhgytw0xDyn0LoNIrF0lgVzg6_aYv-aEEExvjcBRwrDVIoUdufMs3Fjk4QSXpAPSoAL7k=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Christiaen Jansz. Dusart</em></p>
+        <p class="signature"><span style="width: 94.85%; background-color:#000000;"></span><span style="width: 3.09%; background-color:#556b2f;"></span><span style="width: 2.06%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: copy after Gerrit van Goor: painting 1800" href="https://www.rijksmuseum.nl/en/collection/SK-A-4538"  style="background-image: url(http://lh6.ggpht.com/8s6w4qptiY3AS6P3pQ_eGPN4IocKTXc6hR4261k-Fnn1GjeKV3y5ndnF909oV4P9FD8LxxxaBMQTWGHOEkQpgxak2Xra=s300);">
+            <img alt="RIJKS: copy after Gerrit van Goor: painting 1800" src="http://lh6.ggpht.com/8s6w4qptiY3AS6P3pQ_eGPN4IocKTXc6hR4261k-Fnn1GjeKV3y5ndnF909oV4P9FD8LxxxaBMQTWGHOEkQpgxak2Xra=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>copy after Gerrit van ...</em></p>
+        <p class="signature"><span style="width: 97.87%; background-color:#000000;"></span><span style="width: 1.06%; background-color:#8b4513;"></span><span style="width: 1.06%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Tibout Regters: painting 1761" href="https://www.rijksmuseum.nl/en/collection/SK-A-329"  style="background-image: url(http://lh5.ggpht.com/feT-J4cSoAC4UJcFQtSDRM3c9-aazNAFcij3LJ7fGvcuvwFj1PmGs1oxS3EmMD49T0CdbPmDtTJ7eRYOhE4qnpTB8Q=s300);">
+            <img alt="RIJKS: Tibout Regters: painting 1761" src="http://lh5.ggpht.com/feT-J4cSoAC4UJcFQtSDRM3c9-aazNAFcij3LJ7fGvcuvwFj1PmGs1oxS3EmMD49T0CdbPmDtTJ7eRYOhE4qnpTB8Q=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Tibout Regters</em></p>
+        <p class="signature"><span style="width: 96.84%; background-color:#000000;"></span><span style="width: 3.16%; background-color:#800000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerrit van Goor: painting 1685" href="https://www.rijksmuseum.nl/en/collection/SK-A-3768"  style="background-image: url(http://lh5.ggpht.com/J6H-GiNdMThOhQtPjX_-PjkH7o4W3Y6q1TAuq28nt-5GvN8cPseKFogicWeVElzNovu1ieqpRIeCBvC6Q99qgo7q8aA=s300);">
+            <img alt="RIJKS: Gerrit van Goor: painting 1685" src="http://lh5.ggpht.com/J6H-GiNdMThOhQtPjX_-PjkH7o4W3Y6q1TAuq28nt-5GvN8cPseKFogicWeVElzNovu1ieqpRIeCBvC6Q99qgo7q8aA=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerrit van Goor</em></p>
+        <p class="signature"><span style="width: 91.92%; background-color:#000000;"></span><span style="width: 2.02%; background-color:#2f4f4f;"></span><span style="width: 2.02%; background-color:#808080;"></span><span style="width: 4.04%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Bernardus van Schijndel: painting 1709" href="https://www.rijksmuseum.nl/en/collection/SK-C-173"  style="background-image: url(http://lh5.ggpht.com/kjE0l3Kci6Gvj41dthNYjzkF7n5C8MBKBEZV70CK1na_7aEZFjcJSzD98ufqnAG2RIkGD3hH0J_NLK9Qu9W1AmGM1HA=s300);">
+            <img alt="RIJKS: Bernardus van Schijndel: painting 1709" src="http://lh5.ggpht.com/kjE0l3Kci6Gvj41dthNYjzkF7n5C8MBKBEZV70CK1na_7aEZFjcJSzD98ufqnAG2RIkGD3hH0J_NLK9Qu9W1AmGM1HA=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Bernardus van Schijndel</em></p>
+        <p class="signature"><span style="width: 95.79%; background-color:#000000;"></span><span style="width: 2.11%; background-color:#800000;"></span><span style="width: 2.11%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerard ter Borch (II): painting 1681" href="https://www.rijksmuseum.nl/en/collection/SK-A-3963"  style="background-image: url(http://lh6.ggpht.com/G51B-keA4d86FHmJCJmN8MY8aJ36qPfYb6t4WMuCnPn75-WrMsfTOJzB86B75w6XTMo88t-Z79Qis_1ZT0rVuT0RLQ=s300);">
+            <img alt="RIJKS: Gerard ter Borch (II): painting 1681" src="http://lh6.ggpht.com/G51B-keA4d86FHmJCJmN8MY8aJ36qPfYb6t4WMuCnPn75-WrMsfTOJzB86B75w6XTMo88t-Z79Qis_1ZT0rVuT0RLQ=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerard ter Borch (II)</em></p>
+        <p class="signature"><span style="width: 95.79%; background-color:#000000;"></span><span style="width: 3.16%; background-color:#2f4f4f;"></span><span style="width: 1.05%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Joachim von Sandrart: painting 1700" href="https://www.rijksmuseum.nl/en/collection/SK-A-364"  style="background-image: url(http://lh5.ggpht.com/eJcxdJt1XLM2ikEMuf3yMkD7qAR-5MBMxwsU2FEP4rLvH0536_3OlpsUIfnEiglWDgaJKr9KmYThnFKYMvHEuaM-Vg=s300);">
+            <img alt="RIJKS: Joachim von Sandrart: painting 1700" src="http://lh5.ggpht.com/eJcxdJt1XLM2ikEMuf3yMkD7qAR-5MBMxwsU2FEP4rLvH0536_3OlpsUIfnEiglWDgaJKr9KmYThnFKYMvHEuaM-Vg=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Joachim von Sandrart</em></p>
+        <p class="signature"><span style="width: 91.92%; background-color:#000000;"></span><span style="width: 7.07%; background-color:#8b4513;"></span><span style="width: 1.01%; background-color:#a0522d;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Adriaen Coorte: A Sprig of Gooseberries on a Stone Plinth 1699" href="https://www.rijksmuseum.nl/en/collection/SK-C-1689"  style="background-image: url(http://lh3.ggpht.com/LpC-zXDYwtDpViv0ibYH-s260yENuxvaKai56sXUc-Wuy3cHBL66TQBjQea7WhjanhW54rXIqWCMsNptV_I95fY0xaQ=s300);">
+            <img alt="RIJKS: Adriaen Coorte: A Sprig of Gooseberries on a Stone Plinth 1699" src="http://lh3.ggpht.com/LpC-zXDYwtDpViv0ibYH-s260yENuxvaKai56sXUc-Wuy3cHBL66TQBjQea7WhjanhW54rXIqWCMsNptV_I95fY0xaQ=s300" />
+          </a>    
+        </div>
+        <h3>A Sprig of Gooseberrie...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Adriaen Coorte</em></p>
+        <p class="signature"><span style="width: 92.93%; background-color:#000000;"></span><span style="width: 4.04%; background-color:#2f4f4f;"></span><span style="width: 2.02%; background-color:#556b2f;"></span><span style="width: 1.01%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Christiaen Jansz. Dusart: painting 1645" href="https://www.rijksmuseum.nl/en/collection/SK-A-1684"  style="background-image: url(http://lh3.ggpht.com/pE0xVx2sL-EB-Tb6g9en6dlhgytw0xDyn0LoNIrF0lgVzg6_aYv-aEEExvjcBRwrDVIoUdufMs3Fjk4QSXpAPSoAL7k=s300);">
+            <img alt="RIJKS: Christiaen Jansz. Dusart: painting 1645" src="http://lh3.ggpht.com/pE0xVx2sL-EB-Tb6g9en6dlhgytw0xDyn0LoNIrF0lgVzg6_aYv-aEEExvjcBRwrDVIoUdufMs3Fjk4QSXpAPSoAL7k=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Christiaen Jansz. Dusart</em></p>
+        <p class="signature"><span style="width: 94.85%; background-color:#000000;"></span><span style="width: 3.09%; background-color:#556b2f;"></span><span style="width: 2.06%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: copy after Gerrit van Goor: painting 1800" href="https://www.rijksmuseum.nl/en/collection/SK-A-4538"  style="background-image: url(http://lh6.ggpht.com/8s6w4qptiY3AS6P3pQ_eGPN4IocKTXc6hR4261k-Fnn1GjeKV3y5ndnF909oV4P9FD8LxxxaBMQTWGHOEkQpgxak2Xra=s300);">
+            <img alt="RIJKS: copy after Gerrit van Goor: painting 1800" src="http://lh6.ggpht.com/8s6w4qptiY3AS6P3pQ_eGPN4IocKTXc6hR4261k-Fnn1GjeKV3y5ndnF909oV4P9FD8LxxxaBMQTWGHOEkQpgxak2Xra=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>copy after Gerrit van ...</em></p>
+        <p class="signature"><span style="width: 97.87%; background-color:#000000;"></span><span style="width: 1.06%; background-color:#8b4513;"></span><span style="width: 1.06%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Tibout Regters: painting 1761" href="https://www.rijksmuseum.nl/en/collection/SK-A-329"  style="background-image: url(http://lh5.ggpht.com/feT-J4cSoAC4UJcFQtSDRM3c9-aazNAFcij3LJ7fGvcuvwFj1PmGs1oxS3EmMD49T0CdbPmDtTJ7eRYOhE4qnpTB8Q=s300);">
+            <img alt="RIJKS: Tibout Regters: painting 1761" src="http://lh5.ggpht.com/feT-J4cSoAC4UJcFQtSDRM3c9-aazNAFcij3LJ7fGvcuvwFj1PmGs1oxS3EmMD49T0CdbPmDtTJ7eRYOhE4qnpTB8Q=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Tibout Regters</em></p>
+        <p class="signature"><span style="width: 96.84%; background-color:#000000;"></span><span style="width: 3.16%; background-color:#800000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerrit van Goor: painting 1685" href="https://www.rijksmuseum.nl/en/collection/SK-A-3768"  style="background-image: url(http://lh5.ggpht.com/J6H-GiNdMThOhQtPjX_-PjkH7o4W3Y6q1TAuq28nt-5GvN8cPseKFogicWeVElzNovu1ieqpRIeCBvC6Q99qgo7q8aA=s300);">
+            <img alt="RIJKS: Gerrit van Goor: painting 1685" src="http://lh5.ggpht.com/J6H-GiNdMThOhQtPjX_-PjkH7o4W3Y6q1TAuq28nt-5GvN8cPseKFogicWeVElzNovu1ieqpRIeCBvC6Q99qgo7q8aA=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerrit van Goor</em></p>
+        <p class="signature"><span style="width: 91.92%; background-color:#000000;"></span><span style="width: 2.02%; background-color:#2f4f4f;"></span><span style="width: 2.02%; background-color:#808080;"></span><span style="width: 4.04%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Bernardus van Schijndel: painting 1709" href="https://www.rijksmuseum.nl/en/collection/SK-C-173"  style="background-image: url(http://lh5.ggpht.com/kjE0l3Kci6Gvj41dthNYjzkF7n5C8MBKBEZV70CK1na_7aEZFjcJSzD98ufqnAG2RIkGD3hH0J_NLK9Qu9W1AmGM1HA=s300);">
+            <img alt="RIJKS: Bernardus van Schijndel: painting 1709" src="http://lh5.ggpht.com/kjE0l3Kci6Gvj41dthNYjzkF7n5C8MBKBEZV70CK1na_7aEZFjcJSzD98ufqnAG2RIkGD3hH0J_NLK9Qu9W1AmGM1HA=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Bernardus van Schijndel</em></p>
+        <p class="signature"><span style="width: 95.79%; background-color:#000000;"></span><span style="width: 2.11%; background-color:#800000;"></span><span style="width: 2.11%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerard ter Borch (II): painting 1681" href="https://www.rijksmuseum.nl/en/collection/SK-A-3963"  style="background-image: url(http://lh6.ggpht.com/G51B-keA4d86FHmJCJmN8MY8aJ36qPfYb6t4WMuCnPn75-WrMsfTOJzB86B75w6XTMo88t-Z79Qis_1ZT0rVuT0RLQ=s300);">
+            <img alt="RIJKS: Gerard ter Borch (II): painting 1681" src="http://lh6.ggpht.com/G51B-keA4d86FHmJCJmN8MY8aJ36qPfYb6t4WMuCnPn75-WrMsfTOJzB86B75w6XTMo88t-Z79Qis_1ZT0rVuT0RLQ=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerard ter Borch (II)</em></p>
+        <p class="signature"><span style="width: 95.79%; background-color:#000000;"></span><span style="width: 3.16%; background-color:#2f4f4f;"></span><span style="width: 1.05%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Joachim von Sandrart: painting 1700" href="https://www.rijksmuseum.nl/en/collection/SK-A-364"  style="background-image: url(http://lh5.ggpht.com/eJcxdJt1XLM2ikEMuf3yMkD7qAR-5MBMxwsU2FEP4rLvH0536_3OlpsUIfnEiglWDgaJKr9KmYThnFKYMvHEuaM-Vg=s300);">
+            <img alt="RIJKS: Joachim von Sandrart: painting 1700" src="http://lh5.ggpht.com/eJcxdJt1XLM2ikEMuf3yMkD7qAR-5MBMxwsU2FEP4rLvH0536_3OlpsUIfnEiglWDgaJKr9KmYThnFKYMvHEuaM-Vg=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Joachim von Sandrart</em></p>
+        <p class="signature"><span style="width: 91.92%; background-color:#000000;"></span><span style="width: 7.07%; background-color:#8b4513;"></span><span style="width: 1.01%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Ferdinand Bol: Michiel de Ruyter as Lieutenant-Admiral 1667" href="https://www.rijksmuseum.nl/en/collection/SK-A-44"  style="background-image: url(http://lh4.ggpht.com/WLFrgwyW8gXdebiAy2Rn6t2N_7rLjXt9Xwy2yC5gVzDUNLvUQWaGb-gBlkOBfSBowjZP06s7b718Zy2pI4_PeRlo0Bs=s300);">
+            <img alt="RIJKS: Ferdinand Bol: Michiel de Ruyter as Lieutenant-Admiral 1667" src="http://lh4.ggpht.com/WLFrgwyW8gXdebiAy2Rn6t2N_7rLjXt9Xwy2yC5gVzDUNLvUQWaGb-gBlkOBfSBowjZP06s7b718Zy2pI4_PeRlo0Bs=s300" />
+          </a>    
+        </div>
+        <h3>Michiel de Ruyter as L...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Ferdinand Bol</em></p>
+        <p class="signature"><span style="width: 90.10%; background-color:#000000;"></span><span style="width: 5.94%; background-color:#556b2f;"></span><span style="width: 2.97%; background-color:#cd853f;"></span><span style="width: 0.99%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: painting 1631" href="https://www.rijksmuseum.nl/en/collection/SK-A-1319"  style="background-image: url(http://lh5.ggpht.com/yxjS6K0O3WgEhYI7rMxxy5KcSzFYQRnJ-M4Ct5WeU_c_IXwGQ6qssCHZ2jOFVNpOjFbw_WQHyf96C9vEkZShGwNQXWc=s300);">
+            <img alt="RIJKS: anoniem: painting 1631" src="http://lh5.ggpht.com/yxjS6K0O3WgEhYI7rMxxy5KcSzFYQRnJ-M4Ct5WeU_c_IXwGQ6qssCHZ2jOFVNpOjFbw_WQHyf96C9vEkZShGwNQXWc=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 94.79%; background-color:#000000;"></span><span style="width: 1.04%; background-color:#808080;"></span><span style="width: 1.04%; background-color:#a0522d;"></span><span style="width: 2.08%; background-color:#556b2f;"></span><span style="width: 1.04%; background-color:#bdb76b;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: George Hendrik Breitner: painting 1923" href="https://www.rijksmuseum.nl/en/collection/SK-A-3523"  style="background-image: url(http://lh3.ggpht.com/L3plGjR19pUH0VKu4WaVZN4ufUs5F7QAsbQZs-75oSRZM6oe_gTCvHr0bWU9LupJm3-Ruq2t96nIRyjJydPPbEItZA=s300);">
+            <img alt="RIJKS: George Hendrik Breitner: painting 1923" src="http://lh3.ggpht.com/L3plGjR19pUH0VKu4WaVZN4ufUs5F7QAsbQZs-75oSRZM6oe_gTCvHr0bWU9LupJm3-Ruq2t96nIRyjJydPPbEItZA=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>George Hendrik Breitner</em></p>
+        <p class="signature"><span style="width: 91.92%; background-color:#000000;"></span><span style="width: 7.07%; background-color:#2f4f4f;"></span><span style="width: 1.01%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: copy after Caspar Netscher: painting 1700" href="https://www.rijksmuseum.nl/en/collection/SK-C-175"  style="background-image: url(http://lh4.ggpht.com/6YwdwC8tmdXqEXwmxDS1d8q4SmkO5ORhTxXz4A1yyZFnX3wtpW34TAvxajFQ9FleMrlxJsb8pAUmEoz3x134PA4XVQ=s300);">
+            <img alt="RIJKS: copy after Caspar Netscher: painting 1700" src="http://lh4.ggpht.com/6YwdwC8tmdXqEXwmxDS1d8q4SmkO5ORhTxXz4A1yyZFnX3wtpW34TAvxajFQ9FleMrlxJsb8pAUmEoz3x134PA4XVQ=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>copy after Caspar Nets...</em></p>
+        <p class="signature"><span style="width: 90.10%; background-color:#000000;"></span><span style="width: 3.96%; background-color:#bc8f8f;"></span><span style="width: 2.97%; background-color:#a0522d;"></span><span style="width: 1.98%; background-color:#d2b48c;"></span><span style="width: 0.99%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: painting 1560" href="https://www.rijksmuseum.nl/en/collection/SK-A-4755"  style="background-image: url(http://lh5.ggpht.com/RkQ6N-ClnbCJlJ81aCshn-ZXNjlGBQ9h2cyCTFC1f0N7txVXEt9dh0K-f49qNUwiqpq1DL9lOrzVk-mUYV8EHAO2qM8=s300);">
+            <img alt="RIJKS: anoniem: painting 1560" src="http://lh5.ggpht.com/RkQ6N-ClnbCJlJ81aCshn-ZXNjlGBQ9h2cyCTFC1f0N7txVXEt9dh0K-f49qNUwiqpq1DL9lOrzVk-mUYV8EHAO2qM8=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 95.79%; background-color:#000000;"></span><span style="width: 4.21%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Giambattista Moroni: painting 1565" href="https://www.rijksmuseum.nl/en/collection/SK-A-3410"  style="background-image: url(http://lh3.ggpht.com/ckTWsZ-V_uNyYd8vqizDVmpaPLh598q7w6krYBsDHi65ZJRaW0E87pkPGtgddElIQSPj3aSn93IkAkKQKU6Qc8WlMcU=s300);">
+            <img alt="RIJKS: Giambattista Moroni: painting 1565" src="http://lh3.ggpht.com/ckTWsZ-V_uNyYd8vqizDVmpaPLh598q7w6krYBsDHi65ZJRaW0E87pkPGtgddElIQSPj3aSn93IkAkKQKU6Qc8WlMcU=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Giambattista Moroni</em></p>
+        <p class="signature"><span style="width: 93.81%; background-color:#000000;"></span><span style="width: 3.09%; background-color:#696969;"></span><span style="width: 2.06%; background-color:#556b2f;"></span><span style="width: 1.03%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: painting 1849" href="https://www.rijksmuseum.nl/en/collection/SK-A-4158"  style="background-image: url(http://lh6.ggpht.com/Smo1CVsJ546dX3FQKC2caDUQywTLx3UEKsoi-r73UQ7Z3soiOpNUsodzh7t7VrilrkTaT_uxEFL6vCXCHugAurVuMnI=s300);">
+            <img alt="RIJKS: anoniem: painting 1849" src="http://lh6.ggpht.com/Smo1CVsJ546dX3FQKC2caDUQywTLx3UEKsoi-r73UQ7Z3soiOpNUsodzh7t7VrilrkTaT_uxEFL6vCXCHugAurVuMnI=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 94.79%; background-color:#000000;"></span><span style="width: 2.08%; background-color:#2f4f4f;"></span><span style="width: 1.04%; background-color:#cd853f;"></span><span style="width: 1.04%; background-color:#8b4513;"></span><span style="width: 1.04%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan Jansz. van de Velde (III): painting 1651" href="https://www.rijksmuseum.nl/en/collection/SK-A-3988"  style="background-image: url(http://lh6.ggpht.com/nTQsjpVrT0MYN_fiNabGvtC5ptBeSkbJsvj9tPOWiNpWWkTAdbQ7ehxf-Q3X1rCgqzsLZkKPooOFDe_CEq4uhWOaFg=s300);">
+            <img alt="RIJKS: Jan Jansz. van de Velde (III): painting 1651" src="http://lh6.ggpht.com/nTQsjpVrT0MYN_fiNabGvtC5ptBeSkbJsvj9tPOWiNpWWkTAdbQ7ehxf-Q3X1rCgqzsLZkKPooOFDe_CEq4uhWOaFg=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan Jansz. van de Veld...</em></p>
+        <p class="signature"><span style="width: 94.74%; background-color:#000000;"></span><span style="width: 4.21%; background-color:#556b2f;"></span><span style="width: 1.05%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Adriaen van der Werff: painting 1692" href="https://www.rijksmuseum.nl/en/collection/SK-A-1267"  style="background-image: url(http://lh3.ggpht.com/Y1MADAa-FCUxlGwjSn3R83PC_clA1uEsWJXB0OGC_Reywp3rNpFibnbRAtXX8kyQNQIR9v8zxpIuCmtZInnNHUW_4A=s300);">
+            <img alt="RIJKS: Adriaen van der Werff: painting 1692" src="http://lh3.ggpht.com/Y1MADAa-FCUxlGwjSn3R83PC_clA1uEsWJXB0OGC_Reywp3rNpFibnbRAtXX8kyQNQIR9v8zxpIuCmtZInnNHUW_4A=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Adriaen van der Werff</em></p>
+        <p class="signature"><span style="width: 89.11%; background-color:#000000;"></span><span style="width: 2.97%; background-color:#556b2f;"></span><span style="width: 2.97%; background-color:#d2b48c;"></span><span style="width: 2.97%; background-color:#696969;"></span><span style="width: 1.98%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Joachim Wtewael: painting 1615" href="https://www.rijksmuseum.nl/en/collection/SK-A-1696"  style="background-image: url(http://lh5.ggpht.com/Y4JPFz8ToOmCfRY2x5rc4yEiryl22e-plyF8EAG_dEiHmNOWd3BD7MUQoTsiOEBeS3CRlw54o5RZxb9t6HFh2DiB5d8=s300);">
+            <img alt="RIJKS: Joachim Wtewael: painting 1615" src="http://lh5.ggpht.com/Y4JPFz8ToOmCfRY2x5rc4yEiryl22e-plyF8EAG_dEiHmNOWd3BD7MUQoTsiOEBeS3CRlw54o5RZxb9t6HFh2DiB5d8=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Joachim Wtewael</em></p>
+        <p class="signature"><span style="width: 89.11%; background-color:#000000;"></span><span style="width: 5.94%; background-color:#8b4513;"></span><span style="width: 2.97%; background-color:#556b2f;"></span><span style="width: 1.98%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Michael Sweerts: Visiting the Sick 1649" href="https://www.rijksmuseum.nl/en/collection/SK-A-2848"  style="background-image: url(http://lh5.ggpht.com/9HmEcvkQosOFKe78k8aGY_WRjqYPrawmwaCpEn33XyqkKXyD3cUbj4xqhsP7tnqfHV2wNMKuH_OMps9O8g6414FVufHj=s300);">
+            <img alt="RIJKS: Michael Sweerts: Visiting the Sick 1649" src="http://lh5.ggpht.com/9HmEcvkQosOFKe78k8aGY_WRjqYPrawmwaCpEn33XyqkKXyD3cUbj4xqhsP7tnqfHV2wNMKuH_OMps9O8g6414FVufHj=s300" />
+          </a>    
+        </div>
+        <h3>Visiting the Sick</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Michael Sweerts</em></p>
+        <p class="signature"><span style="width: 91.84%; background-color:#000000;"></span><span style="width: 6.12%; background-color:#2f4f4f;"></span><span style="width: 1.02%; background-color:#696969;"></span><span style="width: 1.02%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gerard ter Borch (II): painting 1670" href="https://www.rijksmuseum.nl/en/collection/SK-A-2418"  style="background-image: url(http://lh5.ggpht.com/TYef1Bq7KoxZ06PWKy13JiEE-uF-IUcgGOPZNGwL8eBMxiP6suxWqYLIw2gV7bcns5kZGzSxI_c1MVryvrqeYFrQ4m8=s300);">
+            <img alt="RIJKS: Gerard ter Borch (II): painting 1670" src="http://lh5.ggpht.com/TYef1Bq7KoxZ06PWKy13JiEE-uF-IUcgGOPZNGwL8eBMxiP6suxWqYLIw2gV7bcns5kZGzSxI_c1MVryvrqeYFrQ4m8=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gerard ter Borch (II)</em></p>
+        <p class="signature"><span style="width: 92.78%; background-color:#000000;"></span><span style="width: 3.09%; background-color:#2f4f4f;"></span><span style="width: 1.03%; background-color:#556b2f;"></span><span style="width: 1.03%; background-color:#696969;"></span><span style="width: 1.03%; background-color:#a0522d;"></span><span style="width: 1.03%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jean Baptiste Vanmour: Sultan Ahmed III 1730" href="https://www.rijksmuseum.nl/en/collection/SK-A-2013"  style="background-image: url(http://lh5.ggpht.com/RGfWhh388QdZErvJPzqS6GgYYSHP0uBW5SL8oFmloW3Z0PtssuZ2RrDTYOhd-AuBizPyU76ZdLOuVu8f0jQranCQXj_Z=s300);">
+            <img alt="RIJKS: Jean Baptiste Vanmour: Sultan Ahmed III 1730" src="http://lh5.ggpht.com/RGfWhh388QdZErvJPzqS6GgYYSHP0uBW5SL8oFmloW3Z0PtssuZ2RrDTYOhd-AuBizPyU76ZdLOuVu8f0jQranCQXj_Z=s300" />
+          </a>    
+        </div>
+        <h3>Sultan Ahmed III</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jean Baptiste Vanmour</em></p>
+        <p class="signature"><span style="width: 94.74%; background-color:#000000;"></span><span style="width: 3.16%; background-color:#8b4513;"></span><span style="width: 2.11%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan Veth: Portrait of Cornelia, Clara and Johanna Veth 1885" href="https://www.rijksmuseum.nl/en/collection/SK-A-4862"  style="background-image: url(http://lh6.ggpht.com/uVI7ZZJqkyvXheJ0tFnDT_vN7AIwk0rieFnu0rF-t2HCM-DRr09PNVJTEmNpIZVgVEY25N545nVY2QpSDWFakTxs0Mjz=s300);">
+            <img alt="RIJKS: Jan Veth: Portrait of Cornelia, Clara and Johanna Veth 1885" src="http://lh6.ggpht.com/uVI7ZZJqkyvXheJ0tFnDT_vN7AIwk0rieFnu0rF-t2HCM-DRr09PNVJTEmNpIZVgVEY25N545nVY2QpSDWFakTxs0Mjz=s300" />
+          </a>    
+        </div>
+        <h3>Portrait of Cornelia, ...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan Veth</em></p>
+        <p class="signature"><span style="width: 95.74%; background-color:#000000;"></span><span style="width: 2.13%; background-color:#a0522d;"></span><span style="width: 1.06%; background-color:#2f4f4f;"></span><span style="width: 1.06%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Gabriël Metsu: painting 1662" href="https://www.rijksmuseum.nl/en/collection/SK-A-2328"  style="background-image: url(http://lh6.ggpht.com/qVM8eb4JSWepIoWhEvWVQQstblUCi2tgB5aRzpsqcDQAqQE79hr_kNyif47epyD00h9fFRxrx3hcRvh0vF4Vh7fa6KQ=s300);">
+            <img alt="RIJKS: Gabriël Metsu: painting 1662" src="http://lh6.ggpht.com/qVM8eb4JSWepIoWhEvWVQQstblUCi2tgB5aRzpsqcDQAqQE79hr_kNyif47epyD00h9fFRxrx3hcRvh0vF4Vh7fa6KQ=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Gabriël Metsu</em></p>
+        <p class="signature"><span style="width: 95.74%; background-color:#000000;"></span><span style="width: 2.13%; background-color:#696969;"></span><span style="width: 1.06%; background-color:#8b4513;"></span><span style="width: 1.06%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Hendrik van den Bosch: painting 1736" href="https://www.rijksmuseum.nl/en/collection/SK-A-3775"  style="background-image: url(http://lh6.ggpht.com/c3LzfkGDZ4jf1KEjWtSHeB-tsZtor0_bh9pZtTNtP9KHUZhvzBVy8Ra1nwGGwhwlIP4xxGVSjPg2kUH8lJqaHuAdost3=s300);">
+            <img alt="RIJKS: Hendrik van den Bosch: painting 1736" src="http://lh6.ggpht.com/c3LzfkGDZ4jf1KEjWtSHeB-tsZtor0_bh9pZtTNtP9KHUZhvzBVy8Ra1nwGGwhwlIP4xxGVSjPg2kUH8lJqaHuAdost3=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Hendrik van den Bosch</em></p>
+        <p class="signature"><span style="width: 89.11%; background-color:#000000;"></span><span style="width: 6.93%; background-color:#556b2f;"></span><span style="width: 3.96%; background-color:#808080;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 3304;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

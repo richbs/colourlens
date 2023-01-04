@@ -1,0 +1,1021 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23bc8f8f">6</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23696969">63</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23c0c0c0">17</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23cd5c5c">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23808080">46</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23000000">40</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23a9a9a9">11</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23d3d3d3">11</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23dcdcdc">4</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23ffffff">7</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23800000">3</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23a0522d">15</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%238b4513">16</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23f4a460">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23cd853f">10</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23faf0e6">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23ffe4c4">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23deb887">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23d2b48c">18</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23ffdead">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23f5deb3">2</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#fdf5e6; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23fdf5e6">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23b8860b">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23eee8aa">5</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23bdb76b">15</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%236b8e23">2</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23556b2f">47</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%238fbc8f">106</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#006400; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23006400">2</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%232e8b57">3</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#20b2aa; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%2320b2aa">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%232f4f4f">35</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%235f9ea0">4</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#b0e0e6; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23b0e0e6">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#87ceeb; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%2387ceeb">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#f0f8ff; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23f0f8ff">1</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23778899">2</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23708090">3</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23b0c4de">2</a>
+    </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+      <a href="/?colour=%238fbc8f&amp;colour=%23e6e6fa">1</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23bc8f8f">6</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23696969">63</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23c0c0c0">17</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23cd5c5c">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23808080">46</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23000000">40</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23a9a9a9">11</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23d3d3d3">11</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23dcdcdc">4</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23ffffff">7</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23800000">3</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23a0522d">15</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%238b4513">16</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23f4a460">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23cd853f">10</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23faf0e6">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23ffe4c4">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23deb887">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23d2b48c">18</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23ffdead">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23f5deb3">2</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#fdf5e6; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23fdf5e6">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23b8860b">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23eee8aa">5</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23bdb76b">15</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%236b8e23">2</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23556b2f">47</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%238fbc8f">106</a>
+        <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#8fbc8f;"></span>  
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#006400; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23006400">2</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%232e8b57">3</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#20b2aa; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%2320b2aa">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%232f4f4f">35</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%235f9ea0">4</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#b0e0e6; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23b0e0e6">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#87ceeb; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%2387ceeb">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#f0f8ff; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23f0f8ff">1</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23778899">2</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23708090">3</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23b0c4de">2</a>
+          
+      </div><div style="width: 2.49%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+        <a href="/?colour=%238fbc8f&amp;colour=%23e6e6fa">1</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>106 results</em><h2>40 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="selected" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Ab Salm: painting 1875" href="https://www.rijksmuseum.nl/en/collection/SK-A-4777"  style="background-image: url(http://lh5.ggpht.com/jcoqWWwhim19P4rSaNCvwylo7tdFowZRs1PJliEFB76LcxE70m5ZHfWhGjdzCL1_8jl6HkPn_Z3Dbm9WikyUMbV1s6E=s300);">
+            <img alt="RIJKS: Ab Salm: painting 1875" src="http://lh5.ggpht.com/jcoqWWwhim19P4rSaNCvwylo7tdFowZRs1PJliEFB76LcxE70m5ZHfWhGjdzCL1_8jl6HkPn_Z3Dbm9WikyUMbV1s6E=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Ab Salm</em></p>
+        <p class="signature"><span style="width: 60.20%; background-color:#8fbc8f;"></span><span style="width: 25.51%; background-color:#556b2f;"></span><span style="width: 11.22%; background-color:#c0c0c0;"></span><span style="width: 3.06%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Ikkei (Japanese, active 1870s): Tokyo meisho sanjuroku gisen 1872" href="http://art.thewalters.org/detail/33675"  style="background-image: url(http://static.thewalters.org/images/PS3_95.670_Fnt_DD_JP09.jpg?width=250);">
+            <img alt="WALTERS: Ikkei (Japanese, active 1870s): Tokyo meisho sanjuroku gisen 1872" src="http://static.thewalters.org/images/PS3_95.670_Fnt_DD_JP09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Tokyo meisho sanjuroku...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Ikkei (Japanese, activ...</em></p>
+        <p class="signature"><span style="width: 56.57%; background-color:#8fbc8f;"></span><span style="width: 20.20%; background-color:#2f4f4f;"></span><span style="width: 10.10%; background-color:#a0522d;"></span><span style="width: 6.06%; background-color:#556b2f;"></span><span style="width: 4.04%; background-color:#000000;"></span><span style="width: 3.03%; background-color:#800000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Wounded Buffalo 1858" href="http://art.thewalters.org/detail/16930"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.56_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Wounded Buffalo 1858" src="http://static.thewalters.org/images/PS3_37.1940.56_Fnt_DD_KI13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Wounded Buffalo</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 54.46%; background-color:#8fbc8f;"></span><span style="width: 21.78%; background-color:#696969;"></span><span style="width: 8.91%; background-color:#000000;"></span><span style="width: 7.92%; background-color:#6b8e23;"></span><span style="width: 6.93%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Frans Jansz. Post: painting 1659" href="https://www.rijksmuseum.nl/en/collection/SK-A-1486"  style="background-image: url(http://lh5.ggpht.com/jsilk37KI3QBCsd80znv1gWnucPMmzkSjpw9AZrwZec2k0OaAvy-r-D_yBpGVWX91Hmn9ABoH1xKexVTh1TKDo4R25I=s300);">
+            <img alt="RIJKS: Frans Jansz. Post: painting 1659" src="http://lh5.ggpht.com/jsilk37KI3QBCsd80znv1gWnucPMmzkSjpw9AZrwZec2k0OaAvy-r-D_yBpGVWX91Hmn9ABoH1xKexVTh1TKDo4R25I=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Frans Jansz. Post</em></p>
+        <p class="signature"><span style="width: 54.55%; background-color:#8fbc8f;"></span><span style="width: 35.35%; background-color:#000000;"></span><span style="width: 4.04%; background-color:#556b2f;"></span><span style="width: 3.03%; background-color:#696969;"></span><span style="width: 3.03%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Khnum Standing -1070" href="http://art.thewalters.org/detail/30415"  style="background-image: url(http://static.thewalters.org/images/CUR_48.2280_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Khnum Standing -1070" src="http://static.thewalters.org/images/CUR_48.2280_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Khnum Standing</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 70.67%; background-color:#8fbc8f;"></span><span style="width: 17.33%; background-color:#c0c0c0;"></span><span style="width: 9.33%; background-color:#696969;"></span><span style="width: 2.67%; background-color:#006400;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Standing Thoth with Ibis Head -664" href="http://art.thewalters.org/detail/4264"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1547_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Standing Thoth with Ibis Head -664" src="http://static.thewalters.org/images/CUR_48.1547_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Standing Thoth with Ib...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 74.29%; background-color:#8fbc8f;"></span><span style="width: 24.29%; background-color:#808080;"></span><span style="width: 1.43%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Philips Wouwerman: Landscape with a Sandy Path 1655" href="https://www.rijksmuseum.nl/en/collection/SK-C-273"  style="background-image: url(http://lh4.ggpht.com/EL2zlhVx6uQ4Vw1eB0dvrfYxwTbek5DDiVVZmYhR76cGectuNBSRTV3VJacYs4_znn_lYb-pzQRXzL6OEWq9aFhL0g=s300);">
+            <img alt="RIJKS: Philips Wouwerman: Landscape with a Sandy Path 1655" src="http://lh4.ggpht.com/EL2zlhVx6uQ4Vw1eB0dvrfYxwTbek5DDiVVZmYhR76cGectuNBSRTV3VJacYs4_znn_lYb-pzQRXzL6OEWq9aFhL0g=s300"
+            />
+          </a>
+        </div>
+        <h3>Landscape with a Sandy...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Philips Wouwerman</em></p>
+        <p class="signature"><span style="width: 51.49%; background-color:#8fbc8f;"></span><span style="width: 23.76%; background-color:#556b2f;"></span><span style="width: 20.79%; background-color:#696969;"></span><span style="width: 3.96%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Buffalo at Bay 1858" href="http://art.thewalters.org/detail/15408"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.91_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Buffalo at Bay 1858" src="http://static.thewalters.org/images/PS3_37.1940.91_Fnt_DD_KI13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Buffalo at Bay</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 52.00%; background-color:#8fbc8f;"></span><span style="width: 30.00%; background-color:#2f4f4f;"></span><span style="width: 7.00%; background-color:#808080;"></span><span style="width: 11.00%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Kebhesenuf with Falcon Head, Son of Horus -1070" href="http://art.thewalters.org/detail/9476"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1632_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Kebhesenuf with Falcon Head, Son of Horus -1070" src="http://static.thewalters.org/images/CUR_48.1632_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Kebhesenuf with Falcon...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 57.47%; background-color:#8fbc8f;"></span><span style="width: 19.54%; background-color:#6b8e23;"></span><span style="width: 13.79%; background-color:#556b2f;"></span><span style="width: 6.90%; background-color:#808080;"></span><span style="width: 2.30%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Bes Mask -400" href="http://art.thewalters.org/detail/27895"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1661_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Bes Mask -400" src="http://static.thewalters.org/images/CUR_48.1661_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Bes Mask</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 67.57%; background-color:#8fbc8f;"></span><span style="width: 18.92%; background-color:#556b2f;"></span><span style="width: 6.76%; background-color:#c0c0c0;"></span><span style="width: 4.05%; background-color:#2f4f4f;"></span><span style="width: 2.70%; background-color:#ffffff;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Formations of Rock 1858" href="http://art.thewalters.org/detail/1542"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.87_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Formations of Rock 1858" src="http://static.thewalters.org/images/PS3_37.1940.87_Fnt_DD_KI13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Formations of Rock</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 48.00%; background-color:#8fbc8f;"></span><span style="width: 28.00%; background-color:#556b2f;"></span><span style="width: 17.00%; background-color:#696969;"></span><span style="width: 7.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Standing Pataikos -300" href="http://art.thewalters.org/detail/19584"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1616_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Standing Pataikos -300" src="http://static.thewalters.org/images/CUR_48.1616_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Standing Pataikos</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 59.49%; background-color:#8fbc8f;"></span><span style="width: 24.05%; background-color:#556b2f;"></span><span style="width: 8.86%; background-color:#708090;"></span><span style="width: 5.06%; background-color:#000000;"></span><span style="width: 2.53%; background-color:#ffffff;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Triad of Isis, Nepthys, and Harpocrates -400" href="http://art.thewalters.org/detail/16223"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1673_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Triad of Isis, Nepthys, and Harpocrates -400" src="http://static.thewalters.org/images/CUR_48.1673_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Triad of Isis, Nepthys...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 57.50%; background-color:#8fbc8f;"></span><span style="width: 17.50%; background-color:#a9a9a9;"></span><span style="width: 11.25%; background-color:#808080;"></span><span style="width: 10.00%; background-color:#696969;"></span><span style="width: 3.75%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Khnum Standing -1070" href="http://art.thewalters.org/detail/16925"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1598_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Khnum Standing -1070" src="http://static.thewalters.org/images/CUR_48.1598_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Khnum Standing</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 63.77%; background-color:#8fbc8f;"></span><span style="width: 31.88%; background-color:#696969;"></span><span style="width: 4.35%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Standing Ape -1070" href="http://art.thewalters.org/detail/29639"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1552_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Standing Ape -1070" src="http://static.thewalters.org/images/CUR_48.1552_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Standing Ape</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 61.97%; background-color:#8fbc8f;"></span><span style="width: 23.94%; background-color:#b0c4de;"></span><span style="width: 14.08%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Kneeling Heh on a Basket -1070" href="http://art.thewalters.org/detail/3610"  style="background-image: url(http://static.thewalters.org/images/CUR_48.425_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Kneeling Heh on a Basket -1070" src="http://static.thewalters.org/images/CUR_48.425_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Kneeling Heh on a Basket</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 56.94%; background-color:#8fbc8f;"></span><span style="width: 12.50%; background-color:#a9a9a9;"></span><span style="width: 18.06%; background-color:#808080;"></span><span style="width: 8.33%; background-color:#c0c0c0;"></span><span style="width: 4.17%; background-color:#d3d3d3;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Seated Bastet -1070" href="http://art.thewalters.org/detail/24293"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1542_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Seated Bastet -1070" src="http://static.thewalters.org/images/CUR_48.1542_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Seated Bastet</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 52.56%; background-color:#8fbc8f;"></span><span style="width: 37.18%; background-color:#696969;"></span><span style="width: 10.26%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Isis Nursing Horus -663" href="http://art.thewalters.org/detail/1735"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1525_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Isis Nursing Horus -663" src="http://static.thewalters.org/images/CUR_48.1525_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Isis Nursing Horus</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 67.80%; background-color:#8fbc8f;"></span><span style="width: 20.34%; background-color:#696969;"></span><span style="width: 6.78%; background-color:#dcdcdc;"></span><span style="width: 5.08%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Amulet-pendant, of Taweret -375" href="http://art.thewalters.org/detail/33216"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1557_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Amulet-pendant, of Taweret -375" src="http://static.thewalters.org/images/CUR_48.1557_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Amulet-pendant, of Taw...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 46.99%; background-color:#8fbc8f;"></span><span style="width: 16.87%; background-color:#808080;"></span><span style="width: 16.87%; background-color:#696969;"></span><span style="width: 9.64%; background-color:#d3d3d3;"></span><span style="width: 7.23%; background-color:#556b2f;"></span><span style="width: 2.41%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jochem de Vries: painting 1772" href="https://www.rijksmuseum.nl/en/collection/SK-A-4065"  style="background-image: url(http://lh6.ggpht.com/gG4OLyl7DcuppDKh7WCCINyBtD3z4o_3W0Jt7iUnSE4LMaSqN2v66fu4CHSRGsE6Cl28krC5KzwyOMI2SdBQmNiXfO0=s300);">
+            <img alt="RIJKS: Jochem de Vries: painting 1772" src="http://lh6.ggpht.com/gG4OLyl7DcuppDKh7WCCINyBtD3z4o_3W0Jt7iUnSE4LMaSqN2v66fu4CHSRGsE6Cl28krC5KzwyOMI2SdBQmNiXfO0=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jochem de Vries</em></p>
+        <p class="signature"><span style="width: 37.62%; background-color:#8fbc8f;"></span><span style="width: 13.86%; background-color:#eee8aa;"></span><span style="width: 22.77%; background-color:#000000;"></span><span style="width: 10.89%; background-color:#808080;"></span><span style="width: 7.92%; background-color:#556b2f;"></span><span style="width: 6.93%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Head of Amun-Re -715" href="http://art.thewalters.org/detail/27660"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1717_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Head of Amun-Re -715" src="http://static.thewalters.org/images/CUR_48.1717_Fnt_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Head of Amun-Re</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 46.25%; background-color:#8fbc8f;"></span><span style="width: 25.00%; background-color:#556b2f;"></span><span style="width: 20.00%; background-color:#eee8aa;"></span><span style="width: 5.00%; background-color:#808080;"></span><span style="width: 3.75%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: Center of a Broken Dish with Shou Lao 1713" href="http://art.thewalters.org/detail/3808"  style="background-image: url(http://static.thewalters.org/images/PL9_49.1126_Fnt_SL_X71.jpg?width=250);">
+            <img alt="WALTERS: Chinese: Center of a Broken Dish with Shou Lao 1713" src="http://static.thewalters.org/images/PL9_49.1126_Fnt_SL_X71.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Center of a Broken Dis...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 40.59%; background-color:#c0c0c0;"></span><span style="width: 32.67%; background-color:#8fbc8f;"></span><span style="width: 20.79%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#2f4f4f;"></span><span style="width: 0.99%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: attributed to Giuseppe Zaïs: painting 1770" href="https://www.rijksmuseum.nl/en/collection/SK-A-3447"  style="background-image: url(http://lh6.ggpht.com/3X-Po1-txoG77dnmj6EdogDKeVoI_0B3oNNic40lsTuc5Z4AF__NUPgwCnMowcGlCBk0k91jPM-wM6cST6PuZNnR-bQ=s300);">
+            <img alt="RIJKS: attributed to Giuseppe Zaïs: painting 1770" src="http://lh6.ggpht.com/3X-Po1-txoG77dnmj6EdogDKeVoI_0B3oNNic40lsTuc5Z4AF__NUPgwCnMowcGlCBk0k91jPM-wM6cST6PuZNnR-bQ=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>attributed to Giuseppe...</em></p>
+        <p class="signature"><span style="width: 35.35%; background-color:#2f4f4f;"></span><span style="width: 32.32%; background-color:#8fbc8f;"></span><span style="width: 25.25%; background-color:#556b2f;"></span><span style="width: 7.07%; background-color:#a9a9a9;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Isis Nursing Horus -663" href="http://art.thewalters.org/detail/8108"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1522_3Qtr_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Isis Nursing Horus -663" src="http://static.thewalters.org/images/CUR_48.1522_3Qtr_DD_RS2009.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Isis Nursing Horus</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 48.44%; background-color:#8fbc8f;"></span><span style="width: 35.94%; background-color:#696969;"></span><span style="width: 7.81%; background-color:#808080;"></span><span style="width: 4.69%; background-color:#556b2f;"></span><span style="width: 3.13%; background-color:#d3d3d3;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Seated Bastet -1070" href="http://art.thewalters.org/detail/24293"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1542_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Seated Bastet -1070" src="http://static.thewalters.org/images/CUR_48.1542_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Seated Bastet</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 52.56%; background-color:#8fbc8f;"></span><span style="width: 37.18%; background-color:#696969;"></span><span style="width: 10.26%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Isis Nursing Horus -663" href="http://art.thewalters.org/detail/1735"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1525_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Isis Nursing Horus -663" src="http://static.thewalters.org/images/CUR_48.1525_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Isis Nursing Horus</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 67.80%; background-color:#8fbc8f;"></span><span style="width: 20.34%; background-color:#696969;"></span><span style="width: 6.78%; background-color:#dcdcdc;"></span><span style="width: 5.08%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Amulet-pendant, of Taweret -375" href="http://art.thewalters.org/detail/33216"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1557_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Amulet-pendant, of Taweret -375" src="http://static.thewalters.org/images/CUR_48.1557_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Amulet-pendant, of Taw...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 46.99%; background-color:#8fbc8f;"></span><span style="width: 16.87%; background-color:#808080;"></span><span style="width: 16.87%; background-color:#696969;"></span><span style="width: 9.64%; background-color:#d3d3d3;"></span><span style="width: 7.23%; background-color:#556b2f;"></span><span style="width: 2.41%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jochem de Vries: painting 1772" href="https://www.rijksmuseum.nl/en/collection/SK-A-4065"  style="background-image: url(http://lh6.ggpht.com/gG4OLyl7DcuppDKh7WCCINyBtD3z4o_3W0Jt7iUnSE4LMaSqN2v66fu4CHSRGsE6Cl28krC5KzwyOMI2SdBQmNiXfO0=s300);">
+            <img alt="RIJKS: Jochem de Vries: painting 1772" src="http://lh6.ggpht.com/gG4OLyl7DcuppDKh7WCCINyBtD3z4o_3W0Jt7iUnSE4LMaSqN2v66fu4CHSRGsE6Cl28krC5KzwyOMI2SdBQmNiXfO0=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jochem de Vries</em></p>
+        <p class="signature"><span style="width: 37.62%; background-color:#8fbc8f;"></span><span style="width: 13.86%; background-color:#eee8aa;"></span><span style="width: 22.77%; background-color:#000000;"></span><span style="width: 10.89%; background-color:#808080;"></span><span style="width: 7.92%; background-color:#556b2f;"></span><span style="width: 6.93%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Head of Amun-Re -715" href="http://art.thewalters.org/detail/27660"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1717_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Head of Amun-Re -715" src="http://static.thewalters.org/images/CUR_48.1717_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Head of Amun-Re</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 46.25%; background-color:#8fbc8f;"></span><span style="width: 25.00%; background-color:#556b2f;"></span><span style="width: 20.00%; background-color:#eee8aa;"></span><span style="width: 5.00%; background-color:#808080;"></span><span style="width: 3.75%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: Center of a Broken Dish with Shou Lao 1713" href="http://art.thewalters.org/detail/3808"  style="background-image: url(http://static.thewalters.org/images/PL9_49.1126_Fnt_SL_X71.jpg?width=250);">
+            <img alt="WALTERS: Chinese: Center of a Broken Dish with Shou Lao 1713" src="http://static.thewalters.org/images/PL9_49.1126_Fnt_SL_X71.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Center of a Broken Dis...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 40.59%; background-color:#c0c0c0;"></span><span style="width: 32.67%; background-color:#8fbc8f;"></span><span style="width: 20.79%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#2f4f4f;"></span><span style="width: 0.99%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: attributed to Giuseppe Zaïs: painting 1770" href="https://www.rijksmuseum.nl/en/collection/SK-A-3447"  style="background-image: url(http://lh6.ggpht.com/3X-Po1-txoG77dnmj6EdogDKeVoI_0B3oNNic40lsTuc5Z4AF__NUPgwCnMowcGlCBk0k91jPM-wM6cST6PuZNnR-bQ=s300);">
+            <img alt="RIJKS: attributed to Giuseppe Zaïs: painting 1770" src="http://lh6.ggpht.com/3X-Po1-txoG77dnmj6EdogDKeVoI_0B3oNNic40lsTuc5Z4AF__NUPgwCnMowcGlCBk0k91jPM-wM6cST6PuZNnR-bQ=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>attributed to Giuseppe...</em></p>
+        <p class="signature"><span style="width: 35.35%; background-color:#2f4f4f;"></span><span style="width: 32.32%; background-color:#8fbc8f;"></span><span style="width: 25.25%; background-color:#556b2f;"></span><span style="width: 7.07%; background-color:#a9a9a9;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Isis Nursing Horus -663" href="http://art.thewalters.org/detail/8108"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1522_3Qtr_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Isis Nursing Horus -663" src="http://static.thewalters.org/images/CUR_48.1522_3Qtr_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Isis Nursing Horus</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 48.44%; background-color:#8fbc8f;"></span><span style="width: 35.94%; background-color:#696969;"></span><span style="width: 7.81%; background-color:#808080;"></span><span style="width: 4.69%; background-color:#556b2f;"></span><span style="width: 3.13%; background-color:#d3d3d3;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Adam Willaerts: painting 1617" href="https://www.rijksmuseum.nl/en/collection/SK-A-1387"  style="background-image: url(http://lh4.ggpht.com/tFs3jUwgIF41szqwjVIY1IGb7nnQeHvTG2hfaGoH6OvLr5JermCiVgjVM0FzY_hXYcneIK1AO1rzYHwthIwZQl5nC7-G=s300);">
+            <img alt="RIJKS: Adam Willaerts: painting 1617" src="http://lh4.ggpht.com/tFs3jUwgIF41szqwjVIY1IGb7nnQeHvTG2hfaGoH6OvLr5JermCiVgjVM0FzY_hXYcneIK1AO1rzYHwthIwZQl5nC7-G=s300" />
+          </a>    
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Adam Willaerts</em></p>
+        <p class="signature"><span style="width: 30.30%; background-color:#8fbc8f;"></span><span style="width: 36.36%; background-color:#2f4f4f;"></span><span style="width: 18.18%; background-color:#808080;"></span><span style="width: 14.14%; background-color:#696969;"></span><span style="width: 1.01%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Amulet-pendant, of Taweret -362" href="http://art.thewalters.org/detail/11051"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1555_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Amulet-pendant, of Taweret -362" src="http://static.thewalters.org/images/CUR_48.1555_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Amulet-pendant, of Taw...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 45.21%; background-color:#708090;"></span><span style="width: 39.73%; background-color:#8fbc8f;"></span><span style="width: 8.22%; background-color:#556b2f;"></span><span style="width: 5.48%; background-color:#808080;"></span><span style="width: 1.37%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Triad of Isis, Nephthys, and Harpocrates -400" href="http://art.thewalters.org/detail/27828"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1674_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Triad of Isis, Nephthys, and Harpocrates -400" src="http://static.thewalters.org/images/CUR_48.1674_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Triad of Isis, Nephthy...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 51.16%; background-color:#696969;"></span><span style="width: 33.72%; background-color:#8fbc8f;"></span><span style="width: 15.12%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Prairie Scene: Mirage 1858" href="http://art.thewalters.org/detail/13431"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.149_Fnt_TR_T90II.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Prairie Scene: Mirage 1858" src="http://static.thewalters.org/images/PL1_37.1940.149_Fnt_TR_T90II.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Prairie Scene: Mirage</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 42.00%; background-color:#f5deb3;"></span><span style="width: 29.00%; background-color:#8fbc8f;"></span><span style="width: 16.00%; background-color:#556b2f;"></span><span style="width: 9.00%; background-color:#cd853f;"></span><span style="width: 4.00%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Pataikos -375" href="http://art.thewalters.org/detail/22349"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1617_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Pataikos -375" src="http://static.thewalters.org/images/CUR_48.1617_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Pataikos</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 37.33%; background-color:#8fbc8f;"></span><span style="width: 25.33%; background-color:#696969;"></span><span style="width: 16.00%; background-color:#c0c0c0;"></span><span style="width: 13.33%; background-color:#d2b48c;"></span><span style="width: 6.67%; background-color:#556b2f;"></span><span style="width: 1.33%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Jean-Marie Reignier (French, 1815-1886): Wild Flowers and Butterfly 1858" href="http://art.thewalters.org/detail/24210"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1594_Fnt_TR_T89II.jpg?width=250);">
+            <img alt="WALTERS: Jean-Marie Reignier (French, 1815-1886): Wild Flowers and Butterfly 1858" src="http://static.thewalters.org/images/PL1_37.1594_Fnt_TR_T89II.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Wild Flowers and Butte...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Jean-Marie Reignier (F...</em></p>
+        <p class="signature"><span style="width: 34.34%; background-color:#696969;"></span><span style="width: 30.30%; background-color:#e6e6fa;"></span><span style="width: 27.27%; background-color:#8fbc8f;"></span><span style="width: 8.08%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): The War Party 1858" href="http://art.thewalters.org/detail/39378"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.148_Fnt_TR_II.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): The War Party 1858" src="http://static.thewalters.org/images/PL1_37.1940.148_Fnt_TR_II.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>The War Party</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 26.00%; background-color:#bc8f8f;"></span><span style="width: 26.00%; background-color:#8fbc8f;"></span><span style="width: 25.00%; background-color:#556b2f;"></span><span style="width: 17.00%; background-color:#696969;"></span><span style="width: 6.00%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Maat -664" href="http://art.thewalters.org/detail/16881"  style="background-image: url(http://static.thewalters.org/images/CUR_48.423_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Maat -664" src="http://static.thewalters.org/images/CUR_48.423_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Maat</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 31.43%; background-color:#808080;"></span><span style="width: 35.71%; background-color:#8fbc8f;"></span><span style="width: 14.29%; background-color:#a9a9a9;"></span><span style="width: 11.43%; background-color:#5f9ea0;"></span><span style="width: 4.29%; background-color:#696969;"></span><span style="width: 2.86%; background-color:#c0c0c0;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Apis Bull -664" href="http://art.thewalters.org/detail/10985"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1649_Lft_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Apis Bull -664" src="http://static.thewalters.org/images/CUR_48.1649_Lft_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Apis Bull</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 34.78%; background-color:#8fbc8f;"></span><span style="width: 17.39%; background-color:#c0c0c0;"></span><span style="width: 23.19%; background-color:#808080;"></span><span style="width: 10.14%; background-color:#ffffff;"></span><span style="width: 7.25%; background-color:#bdb76b;"></span><span style="width: 7.25%; background-color:#d2b48c;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan ten Compe: Rear View of Berckenrode Castle in Heemstede after the Fire 1747" href="https://www.rijksmuseum.nl/en/collection/SK-C-1530"  style="background-image: url(http://lh3.ggpht.com/tSZgwlx76CeEgQPVWOql-MlS73mrCt_hrUmQWqulMbuCPFwleQEZ4OM8U85gmsqLRSERtdVH2hVIa5RXrydTQt7o-A=s300);">
+            <img alt="RIJKS: Jan ten Compe: Rear View of Berckenrode Castle in Heemstede after the Fire 1747" src="http://lh3.ggpht.com/tSZgwlx76CeEgQPVWOql-MlS73mrCt_hrUmQWqulMbuCPFwleQEZ4OM8U85gmsqLRSERtdVH2hVIa5RXrydTQt7o-A=s300" />
+          </a>    
+        </div>
+        <h3>Rear View of Berckenro...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan ten Compe</em></p>
+        <p class="signature"><span style="width: 34.00%; background-color:#d2b48c;"></span><span style="width: 32.00%; background-color:#556b2f;"></span><span style="width: 23.00%; background-color:#8fbc8f;"></span><span style="width: 11.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Woman Kneeling Before an Offering Table -1462" href="http://art.thewalters.org/detail/23169"  style="background-image: url(http://static.thewalters.org/images/ARG_32.2_FntDet_UK.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Woman Kneeling Before an Offering Table -1462" src="http://static.thewalters.org/images/ARG_32.2_FntDet_UK.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Woman Kneeling Before ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 46.00%; background-color:#dcdcdc;"></span><span style="width: 23.00%; background-color:#8fbc8f;"></span><span style="width: 13.00%; background-color:#c0c0c0;"></span><span style="width: 7.00%; background-color:#2f4f4f;"></span><span style="width: 11.00%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Kobayashi Toshimitsu, Hide to, Sekiguchi Masajirô: print 1894" href="https://www.rijksmuseum.nl/en/collection/RP-P-1924-350"  style="background-image: url(http://lh4.ggpht.com/wEjALFEIIlJbs12OMdTl-Ce1xI13D_atgbhu0mlUaB42jH_lVylTbyGv4m-O12GhFa41xMcmHWfiYmjvKo68u3SiTg=s155);">
+            <img alt="RIJKS: Kobayashi Toshimitsu, Hide to, Sekiguchi Masajirô: print 1894" src="http://lh4.ggpht.com/wEjALFEIIlJbs12OMdTl-Ce1xI13D_atgbhu0mlUaB42jH_lVylTbyGv4m-O12GhFa41xMcmHWfiYmjvKo68u3SiTg=s155" />
+          </a>    
+        </div>
+        <h3>print</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Kobayashi Toshimitsu, ...</em></p>
+        <p class="signature"><span style="width: 31.94%; background-color:#bc8f8f;"></span><span style="width: 30.56%; background-color:#8fbc8f;"></span><span style="width: 23.61%; background-color:#696969;"></span><span style="width: 12.50%; background-color:#2f4f4f;"></span><span style="width: 1.39%; background-color:#cd5c5c;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Figure of Duamutef, Son of Horus -400" href="http://art.thewalters.org/detail/4970"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1645_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Figure of Duamutef, Son of Horus -400" src="http://static.thewalters.org/images/CUR_48.1645_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Figure of Duamutef, So...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 37.35%; background-color:#808080;"></span><span style="width: 26.51%; background-color:#8fbc8f;"></span><span style="width: 18.07%; background-color:#bdb76b;"></span><span style="width: 14.46%; background-color:#696969;"></span><span style="width: 3.61%; background-color:#d2b48c;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Baboon -400" href="http://art.thewalters.org/detail/35123"  style="background-image: url(http://static.thewalters.org/images/CUR_48.1551_Fnt_DD_RS2009.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Baboon -400" src="http://static.thewalters.org/images/CUR_48.1551_Fnt_DD_RS2009.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Baboon</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 33.33%; background-color:#8fbc8f;"></span><span style="width: 27.27%; background-color:#808080;"></span><span style="width: 18.18%; background-color:#c0c0c0;"></span><span style="width: 16.67%; background-color:#696969;"></span><span style="width: 4.55%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Snake Indian and His Dog 1858" href="http://art.thewalters.org/detail/31220"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.46_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Snake Indian and His Dog 1858" src="http://static.thewalters.org/images/PS3_37.1940.46_Fnt_DD_KI13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Snake Indian and His Dog</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 41.00%; background-color:#556b2f;"></span><span style="width: 22.00%; background-color:#8fbc8f;"></span><span style="width: 21.00%; background-color:#696969;"></span><span style="width: 7.00%; background-color:#000000;"></span><span style="width: 5.00%; background-color:#8b4513;"></span><span style="width: 4.00%; background-color:#bdb76b;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Willem Roelofs (I): Landscape in the Environs of The Hague 1875" href="https://www.rijksmuseum.nl/en/collection/SK-A-1166"  style="background-image: url(http://lh6.ggpht.com/196EdxtK_IWozA-a14YWAANM8LnGu8ZCvk2nADtuUkJ0iN7mla5bNzVnm_wFbVvQoicLq0lNVWhvq1TrPWkwkvWzCec=s300);">
+            <img alt="RIJKS: Willem Roelofs (I): Landscape in the Environs of The Hague 1875" src="http://lh6.ggpht.com/196EdxtK_IWozA-a14YWAANM8LnGu8ZCvk2nADtuUkJ0iN7mla5bNzVnm_wFbVvQoicLq0lNVWhvq1TrPWkwkvWzCec=s300" />
+          </a>    
+        </div>
+        <h3>Landscape in the Envir...</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Willem Roelofs (I)</em></p>
+        <p class="signature"><span style="width: 32.00%; background-color:#d2b48c;"></span><span style="width: 26.00%; background-color:#696969;"></span><span style="width: 22.00%; background-color:#8fbc8f;"></span><span style="width: 17.00%; background-color:#2f4f4f;"></span><span style="width: 3.00%; background-color:#cd853f;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 508;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

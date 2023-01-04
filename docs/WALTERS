@@ -1,0 +1,1261 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/WALTERS?colour=%23bc8f8f">776</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/WALTERS?colour=%23696969">1678</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/WALTERS?colour=%23c0c0c0">707</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+      <a href="/WALTERS?colour=%23a52a2a">22</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+      <a href="/WALTERS?colour=%23cd5c5c">34</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/WALTERS?colour=%23808080">1601</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/WALTERS?colour=%23000000">1436</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/WALTERS?colour=%23a9a9a9">859</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+      <a href="/WALTERS?colour=%23d3d3d3">446</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+      <a href="/WALTERS?colour=%23dcdcdc">441</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffffff">48</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+      <a href="/WALTERS?colour=%23800000">137</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#8b0000; display:inline-block;">
+      <a href="/WALTERS?colour=%238b0000">9</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+      <a href="/WALTERS?colour=%23f5f5f5">224</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
+      <a href="/WALTERS?colour=%23fffafa">11</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b22222; display:inline-block;">
+      <a href="/WALTERS?colour=%23b22222">5</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f08080; display:inline-block;">
+      <a href="/WALTERS?colour=%23f08080">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffe4e1; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffe4e1">5</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ff6347; display:inline-block;">
+      <a href="/WALTERS?colour=%23ff6347">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+      <a href="/WALTERS?colour=%23e9967a">9</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ff4500; display:inline-block;">
+      <a href="/WALTERS?colour=%23ff4500">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffa07a; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffa07a">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/WALTERS?colour=%23a0522d">643</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+      <a href="/WALTERS?colour=%238b4513">433</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fff5ee; display:inline-block;">
+      <a href="/WALTERS?colour=%23fff5ee">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d2691e; display:inline-block;">
+      <a href="/WALTERS?colour=%23d2691e">5</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+      <a href="/WALTERS?colour=%23f4a460">13</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffdab9; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffdab9">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/WALTERS?colour=%23cd853f">280</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+      <a href="/WALTERS?colour=%23faf0e6">82</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffe4c4">30</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/WALTERS?colour=%23deb887">107</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+      <a href="/WALTERS?colour=%23faebd7">46</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/WALTERS?colour=%23d2b48c">580</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffebcd; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffebcd">14</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffdead">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffefd5; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffefd5">6</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffe4b5; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffe4b5">3</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/WALTERS?colour=%23f5deb3">157</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fdf5e6; display:inline-block;">
+      <a href="/WALTERS?colour=%23fdf5e6">6</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffaf0; display:inline-block;">
+      <a href="/WALTERS?colour=%23fffaf0">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#daa520; display:inline-block;">
+      <a href="/WALTERS?colour=%23daa520">7</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+      <a href="/WALTERS?colour=%23b8860b">15</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fff8dc; display:inline-block;">
+      <a href="/WALTERS?colour=%23fff8dc">3</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f0e68c; display:inline-block;">
+      <a href="/WALTERS?colour=%23f0e68c">11</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffacd; display:inline-block;">
+      <a href="/WALTERS?colour=%23fffacd">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+      <a href="/WALTERS?colour=%23eee8aa">20</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+      <a href="/WALTERS?colour=%23bdb76b">350</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffff0; display:inline-block;">
+      <a href="/WALTERS?colour=%23fffff0">4</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5f5dc; display:inline-block;">
+      <a href="/WALTERS?colour=%23f5f5dc">22</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffffe0; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffffe0">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#808000; display:inline-block;">
+      <a href="/WALTERS?colour=%23808000">3</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+      <a href="/WALTERS?colour=%236b8e23">22</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+      <a href="/WALTERS?colour=%23556b2f">1492</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+      <a href="/WALTERS?colour=%238fbc8f">62</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#006400; display:inline-block;">
+      <a href="/WALTERS?colour=%23006400">6</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#32cd32; display:inline-block;">
+      <a href="/WALTERS?colour=%2332cd32">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+      <a href="/WALTERS?colour=%232e8b57">13</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5fffa; display:inline-block;">
+      <a href="/WALTERS?colour=%23f5fffa">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#66cdaa; display:inline-block;">
+      <a href="/WALTERS?colour=%2366cdaa">3</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#20b2aa; display:inline-block;">
+      <a href="/WALTERS?colour=%2320b2aa">6</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#48d1cc; display:inline-block;">
+      <a href="/WALTERS?colour=%2348d1cc">4</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/WALTERS?colour=%232f4f4f">1727</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#008080; display:inline-block;">
+      <a href="/WALTERS?colour=%23008080">13</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#afeeee; display:inline-block;">
+      <a href="/WALTERS?colour=%23afeeee">2</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#008b8b; display:inline-block;">
+      <a href="/WALTERS?colour=%23008b8b">3</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#e0ffff; display:inline-block;">
+      <a href="/WALTERS?colour=%23e0ffff">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+      <a href="/WALTERS?colour=%235f9ea0">30</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b0e0e6; display:inline-block;">
+      <a href="/WALTERS?colour=%23b0e0e6">7</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#add8e6; display:inline-block;">
+      <a href="/WALTERS?colour=%23add8e6">7</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#87ceeb; display:inline-block;">
+      <a href="/WALTERS?colour=%2387ceeb">14</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#87cefa; display:inline-block;">
+      <a href="/WALTERS?colour=%2387cefa">6</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+      <a href="/WALTERS?colour=%234682b4">34</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f0f8ff; display:inline-block;">
+      <a href="/WALTERS?colour=%23f0f8ff">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/WALTERS?colour=%23778899">167</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+      <a href="/WALTERS?colour=%23708090">98</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+      <a href="/WALTERS?colour=%23b0c4de">25</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#6495ed; display:inline-block;">
+      <a href="/WALTERS?colour=%236495ed">8</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#4169e1; display:inline-block;">
+      <a href="/WALTERS?colour=%234169e1">3</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+      <a href="/WALTERS?colour=%23e6e6fa">70</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#191970; display:inline-block;">
+      <a href="/WALTERS?colour=%23191970">44</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f8f8ff; display:inline-block;">
+      <a href="/WALTERS?colour=%23f8f8ff">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#483d8b; display:inline-block;">
+      <a href="/WALTERS?colour=%23483d8b">36</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d8bfd8; display:inline-block;">
+      <a href="/WALTERS?colour=%23d8bfd8">4</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d87093; display:inline-block;">
+      <a href="/WALTERS?colour=%23d87093">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fff0f5; display:inline-block;">
+      <a href="/WALTERS?colour=%23fff0f5">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffc0cb; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffc0cb">1</a>
+    </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
+      <a href="/WALTERS?colour=%23ffb6c1">4</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/WALTERS?colour=%23bc8f8f">776</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/WALTERS?colour=%23696969">1678</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/WALTERS?colour=%23c0c0c0">707</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+        <a href="/WALTERS?colour=%23a52a2a">22</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+        <a href="/WALTERS?colour=%23cd5c5c">34</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/WALTERS?colour=%23808080">1601</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/WALTERS?colour=%23000000">1436</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/WALTERS?colour=%23a9a9a9">859</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+        <a href="/WALTERS?colour=%23d3d3d3">446</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+        <a href="/WALTERS?colour=%23dcdcdc">441</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffffff">48</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+        <a href="/WALTERS?colour=%23800000">137</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#8b0000; display:inline-block;">
+        <a href="/WALTERS?colour=%238b0000">9</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+        <a href="/WALTERS?colour=%23f5f5f5">224</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
+        <a href="/WALTERS?colour=%23fffafa">11</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b22222; display:inline-block;">
+        <a href="/WALTERS?colour=%23b22222">5</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f08080; display:inline-block;">
+        <a href="/WALTERS?colour=%23f08080">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffe4e1; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffe4e1">5</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ff6347; display:inline-block;">
+        <a href="/WALTERS?colour=%23ff6347">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
+        <a href="/WALTERS?colour=%23e9967a">9</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ff4500; display:inline-block;">
+        <a href="/WALTERS?colour=%23ff4500">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffa07a; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffa07a">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/WALTERS?colour=%23a0522d">643</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+        <a href="/WALTERS?colour=%238b4513">433</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fff5ee; display:inline-block;">
+        <a href="/WALTERS?colour=%23fff5ee">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d2691e; display:inline-block;">
+        <a href="/WALTERS?colour=%23d2691e">5</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+        <a href="/WALTERS?colour=%23f4a460">13</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffdab9; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffdab9">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/WALTERS?colour=%23cd853f">280</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+        <a href="/WALTERS?colour=%23faf0e6">82</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffe4c4">30</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/WALTERS?colour=%23deb887">107</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+        <a href="/WALTERS?colour=%23faebd7">46</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/WALTERS?colour=%23d2b48c">580</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffebcd; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffebcd">14</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffdead; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffdead">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffefd5; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffefd5">6</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffe4b5; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffe4b5">3</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/WALTERS?colour=%23f5deb3">157</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fdf5e6; display:inline-block;">
+        <a href="/WALTERS?colour=%23fdf5e6">6</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffaf0; display:inline-block;">
+        <a href="/WALTERS?colour=%23fffaf0">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#daa520; display:inline-block;">
+        <a href="/WALTERS?colour=%23daa520">7</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b8860b; display:inline-block;">
+        <a href="/WALTERS?colour=%23b8860b">15</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fff8dc; display:inline-block;">
+        <a href="/WALTERS?colour=%23fff8dc">3</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f0e68c; display:inline-block;">
+        <a href="/WALTERS?colour=%23f0e68c">11</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffacd; display:inline-block;">
+        <a href="/WALTERS?colour=%23fffacd">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#eee8aa; display:inline-block;">
+        <a href="/WALTERS?colour=%23eee8aa">20</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+        <a href="/WALTERS?colour=%23bdb76b">350</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fffff0; display:inline-block;">
+        <a href="/WALTERS?colour=%23fffff0">4</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5f5dc; display:inline-block;">
+        <a href="/WALTERS?colour=%23f5f5dc">22</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffffe0; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffffe0">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#808000; display:inline-block;">
+        <a href="/WALTERS?colour=%23808000">3</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#6b8e23; display:inline-block;">
+        <a href="/WALTERS?colour=%236b8e23">22</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+        <a href="/WALTERS?colour=%23556b2f">1492</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+        <a href="/WALTERS?colour=%238fbc8f">62</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#006400; display:inline-block;">
+        <a href="/WALTERS?colour=%23006400">6</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#32cd32; display:inline-block;">
+        <a href="/WALTERS?colour=%2332cd32">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#2e8b57; display:inline-block;">
+        <a href="/WALTERS?colour=%232e8b57">13</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f5fffa; display:inline-block;">
+        <a href="/WALTERS?colour=%23f5fffa">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#66cdaa; display:inline-block;">
+        <a href="/WALTERS?colour=%2366cdaa">3</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#20b2aa; display:inline-block;">
+        <a href="/WALTERS?colour=%2320b2aa">6</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#48d1cc; display:inline-block;">
+        <a href="/WALTERS?colour=%2348d1cc">4</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/WALTERS?colour=%232f4f4f">1727</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#008080; display:inline-block;">
+        <a href="/WALTERS?colour=%23008080">13</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#afeeee; display:inline-block;">
+        <a href="/WALTERS?colour=%23afeeee">2</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#008b8b; display:inline-block;">
+        <a href="/WALTERS?colour=%23008b8b">3</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#e0ffff; display:inline-block;">
+        <a href="/WALTERS?colour=%23e0ffff">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#5f9ea0; display:inline-block;">
+        <a href="/WALTERS?colour=%235f9ea0">30</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b0e0e6; display:inline-block;">
+        <a href="/WALTERS?colour=%23b0e0e6">7</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#add8e6; display:inline-block;">
+        <a href="/WALTERS?colour=%23add8e6">7</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#87ceeb; display:inline-block;">
+        <a href="/WALTERS?colour=%2387ceeb">14</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#87cefa; display:inline-block;">
+        <a href="/WALTERS?colour=%2387cefa">6</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+        <a href="/WALTERS?colour=%234682b4">34</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f0f8ff; display:inline-block;">
+        <a href="/WALTERS?colour=%23f0f8ff">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/WALTERS?colour=%23778899">167</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+        <a href="/WALTERS?colour=%23708090">98</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+        <a href="/WALTERS?colour=%23b0c4de">25</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#6495ed; display:inline-block;">
+        <a href="/WALTERS?colour=%236495ed">8</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#4169e1; display:inline-block;">
+        <a href="/WALTERS?colour=%234169e1">3</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#e6e6fa; display:inline-block;">
+        <a href="/WALTERS?colour=%23e6e6fa">70</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#191970; display:inline-block;">
+        <a href="/WALTERS?colour=%23191970">44</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#f8f8ff; display:inline-block;">
+        <a href="/WALTERS?colour=%23f8f8ff">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#483d8b; display:inline-block;">
+        <a href="/WALTERS?colour=%23483d8b">36</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d8bfd8; display:inline-block;">
+        <a href="/WALTERS?colour=%23d8bfd8">4</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#d87093; display:inline-block;">
+        <a href="/WALTERS?colour=%23d87093">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#fff0f5; display:inline-block;">
+        <a href="/WALTERS?colour=%23fff0f5">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffc0cb; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffc0cb">1</a>
+          
+      </div><div style="width: 1.13%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
+        <a href="/WALTERS?colour=%23ffb6c1">4</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>4127 results</em><h2>88 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="selected" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sèvres Porcelain Manufactory (French, active 1756-present): One of a Pair of Fluted Vases (Vases cannele à bandeau) 1758" href="http://art.thewalters.org/detail/17150"  style="background-image: url(http://static.thewalters.org/images/CUR_48.631_Fnt_DD.jpg?width=250);">
+            <img alt="WALTERS: Sèvres Porcelain Manufactory (French, active 1756-present): One of a Pair of Fluted Vases (Vases cannele à bandeau) 1758" src="http://static.thewalters.org/images/CUR_48.631_Fnt_DD.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>One of a Pair of Flute...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sèvres Porcelain Manuf...</em></p>
+        <p class="signature"><span style="width: 50.98%; background-color:#a9a9a9;"></span><span style="width: 25.49%; background-color:#808080;"></span><span style="width: 6.86%; background-color:#cd853f;"></span><span style="width: 6.86%; background-color:#556b2f;"></span><span style="width: 3.92%; background-color:#dcdcdc;"></span><span style="width: 5.88%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greek: Black-Figure Amphora -532" href="http://art.thewalters.org/detail/10431"  style="background-image: url(http://static.thewalters.org/images/PS1_48.13_SideA_DD_T08.jpg?width=250);">
+            <img alt="WALTERS: Greek: Black-Figure Amphora -532" src="http://static.thewalters.org/images/PS1_48.13_SideA_DD_T08.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Black-Figure Amphora</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greek</em></p>
+        <p class="signature"><span style="width: 32.35%; background-color:#c0c0c0;"></span><span style="width: 28.43%; background-color:#2f4f4f;"></span><span style="width: 19.61%; background-color:#a9a9a9;"></span><span style="width: 9.80%; background-color:#a0522d;"></span><span style="width: 6.86%; background-color:#556b2f;"></span><span style="width: 2.94%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Hododa Company (Japanese): Vase with Arahats and Sages in a Bamboo Grove 1878" href="http://art.thewalters.org/detail/12462"  style="background-image: url(http://static.thewalters.org/images/PL7_49.2712_Fnt_BW.jpg?width=250);">
+            <img alt="WALTERS: Hododa Company (Japanese): Vase with Arahats and Sages in a Bamboo Grove 1878" src="http://static.thewalters.org/images/PL7_49.2712_Fnt_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Vase with Arahats and ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Hododa Company (Japanese)</em></p>
+        <p class="signature"><span style="width: 41.18%; background-color:#808080;"></span><span style="width: 24.51%; background-color:#a9a9a9;"></span><span style="width: 16.67%; background-color:#d3d3d3;"></span><span style="width: 8.82%; background-color:#c0c0c0;"></span><span style="width: 8.82%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Breakfast at Sunrise 1858" href="http://art.thewalters.org/detail/4617"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.52_Fnt_TR_T93II.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Breakfast at Sunrise 1858" src="http://static.thewalters.org/images/PL1_37.1940.52_Fnt_TR_T93II.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Breakfast at Sunrise</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 51.96%; background-color:#c0c0c0;"></span><span style="width: 11.76%; background-color:#808080;"></span><span style="width: 9.80%; background-color:#000000;"></span><span style="width: 7.84%; background-color:#556b2f;"></span><span style="width: 6.86%; background-color:#d2b48c;"></span><span style="width: 6.86%; background-color:#2f4f4f;"></span><span style="width: 4.90%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Marco Zoppo (Italian, ca. 1432-ca. 1478): Saint Jerome in Penitence 1443" href="http://art.thewalters.org/detail/13974"  style="background-image: url(http://static.thewalters.org/images/PL1_37.542_Fnt_TR_T93III.jpg?width=250);">
+            <img alt="WALTERS: Marco Zoppo (Italian, ca. 1432-ca. 1478): Saint Jerome in Penitence 1443" src="http://static.thewalters.org/images/PL1_37.542_Fnt_TR_T93III.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Saint Jerome in Penitence</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Marco Zoppo (Italian, ...</em></p>
+        <p class="signature"><span style="width: 29.41%; background-color:#a0522d;"></span><span style="width: 26.47%; background-color:#8b4513;"></span><span style="width: 20.59%; background-color:#808080;"></span><span style="width: 11.76%; background-color:#deb887;"></span><span style="width: 5.88%; background-color:#696969;"></span><span style="width: 2.94%; background-color:#c0c0c0;"></span><span style="width: 2.94%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: François Boucher (French, 1703-1770): Pastoral Repast 1769" href="http://art.thewalters.org/detail/21207"  style="background-image: url(http://static.thewalters.org/images/PL1_37.838_Fnt_TR_T87III.jpg?width=250);">
+            <img alt="WALTERS: François Boucher (French, 1703-1770): Pastoral Repast 1769" src="http://static.thewalters.org/images/PL1_37.838_Fnt_TR_T87III.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Pastoral Repast</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>François Boucher (Fren...</em></p>
+        <p class="signature"><span style="width: 34.31%; background-color:#2f4f4f;"></span><span style="width: 20.59%; background-color:#556b2f;"></span><span style="width: 16.67%; background-color:#c0c0c0;"></span><span style="width: 13.73%; background-color:#808080;"></span><span style="width: 11.76%; background-color:#8b4513;"></span><span style="width: 2.94%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Bartolomeo Passarotti (Italian, 1529-1592): Portrait of Pope Pius V 1554" href="http://art.thewalters.org/detail/23806"  style="background-image: url(http://static.thewalters.org/images/PS1_37.453_FntAftTrt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Bartolomeo Passarotti (Italian, 1529-1592): Portrait of Pope Pius V 1554" src="http://static.thewalters.org/images/PS1_37.453_FntAftTrt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Portrait of Pope Pius V</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Bartolomeo Passarotti ...</em></p>
+        <p class="signature"><span style="width: 49.02%; background-color:#000000;"></span><span style="width: 17.65%; background-color:#2f4f4f;"></span><span style="width: 13.73%; background-color:#808080;"></span><span style="width: 12.75%; background-color:#556b2f;"></span><span style="width: 6.86%; background-color:#a9a9a9;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Léon Henri Antoine Loire (French, 1821-1898): Man, Woman, and Girl at Prayer in Church 1864" href="http://art.thewalters.org/detail/26258"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1354_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Léon Henri Antoine Loire (French, 1821-1898): Man, Woman, and Girl at Prayer in Church 1864" src="http://static.thewalters.org/images/PS1_37.1354_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Man, Woman, and Girl a...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Léon Henri Antoine Loi...</em></p>
+        <p class="signature"><span style="width: 25.49%; background-color:#bc8f8f;"></span><span style="width: 37.25%; background-color:#2f4f4f;"></span><span style="width: 19.61%; background-color:#556b2f;"></span><span style="width: 17.65%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Jerome 1855" href="http://art.thewalters.org/detail/34745"  style="background-image: url(http://static.thewalters.org/images/PS3_37.2453.3_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Jerome 1855" src="http://static.thewalters.org/images/PS3_37.2453.3_Fnt_DD_KI13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Jerome</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 62.75%; background-color:#bc8f8f;"></span><span style="width: 18.63%; background-color:#d2b48c;"></span><span style="width: 7.84%; background-color:#2f4f4f;"></span><span style="width: 4.90%; background-color:#696969;"></span><span style="width: 5.88%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Marco del Buono Giamberti (Italian, 1402-1489): Episodes from the Story of Susannah 1401" href="http://art.thewalters.org/detail/39896"  style="background-image: url(http://static.thewalters.org/images/PS1_37.2503_Fnt_DD_T10.jpg?width=250);">
+            <img alt="WALTERS: Marco del Buono Giamberti (Italian, 1402-1489): Episodes from the Story of Susannah 1401" src="http://static.thewalters.org/images/PS1_37.2503_Fnt_DD_T10.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Episodes from the Stor...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Marco del Buono Giambe...</em></p>
+        <p class="signature"><span style="width: 35.29%; background-color:#bc8f8f;"></span><span style="width: 24.51%; background-color:#000000;"></span><span style="width: 24.51%; background-color:#a0522d;"></span><span style="width: 11.76%; background-color:#696969;"></span><span style="width: 3.92%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Niccolò Brancaleon (Italian, active 1480-1521): Right Half of a Diptych with the Virgin and Child 1488" href="http://art.thewalters.org/detail/40501"  style="background-image: url(http://static.thewalters.org/images/PL1_36.15_Fnt_TR_T03IV.jpg?width=250);">
+            <img alt="WALTERS: Niccolò Brancaleon (Italian, active 1480-1521): Right Half of a Diptych with the Virgin and Child 1488" src="http://static.thewalters.org/images/PL1_36.15_Fnt_TR_T03IV.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Right Half of a Diptyc...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Niccolò Brancaleon (It...</em></p>
+        <p class="signature"><span style="width: 40.20%; background-color:#f5f5f5;"></span><span style="width: 16.67%; background-color:#556b2f;"></span><span style="width: 12.75%; background-color:#696969;"></span><span style="width: 9.80%; background-color:#2f4f4f;"></span><span style="width: 9.80%; background-color:#c0c0c0;"></span><span style="width: 9.80%; background-color:#8b4513;"></span><span style="width: 0.98%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Kano Toshun (Japanese, 1747-1797): Green Birds and Nandina 1747" href="http://art.thewalters.org/detail/80149"  style="background-image: url(http://static.thewalters.org/images/PS3_35.173M_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Kano Toshun (Japanese, 1747-1797): Green Birds and Nandina 1747" src="http://static.thewalters.org/images/PS3_35.173M_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Green Birds and Nandina</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Kano Toshun (Japanese,...</em></p>
+        <p class="signature"><span style="width: 35.29%; background-color:#deb887;"></span><span style="width: 34.31%; background-color:#bdb76b;"></span><span style="width: 21.57%; background-color:#cd853f;"></span><span style="width: 4.90%; background-color:#a0522d;"></span><span style="width: 3.92%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Thai: Phra Malai in Tavatimsa Heaven 1825" href="http://art.thewalters.org/detail/81943"  style="background-image: url(http://static.thewalters.org/images/REF_2010.12.39_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Thai: Phra Malai in Tavatimsa Heaven 1825" src="http://static.thewalters.org/images/REF_2010.12.39_Fnt_UK.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Phra Malai in Tavatims...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Thai</em></p>
+        <p class="signature"><span style="width: 42.16%; background-color:#808080;"></span><span style="width: 19.61%; background-color:#c0c0c0;"></span><span style="width: 16.67%; background-color:#2f4f4f;"></span><span style="width: 13.73%; background-color:#bc8f8f;"></span><span style="width: 7.84%; background-color:#a52a2a;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Gustave Brion (French, 1824-1877): Peasants Decorating Wayside Shrine 1864" href="http://art.thewalters.org/detail/22694"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1400_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Gustave Brion (French, 1824-1877): Peasants Decorating Wayside Shrine 1864" src="http://static.thewalters.org/images/PS1_37.1400_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Peasants Decorating Wa...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Gustave Brion (French,...</em></p>
+        <p class="signature"><span style="width: 40.20%; background-color:#c0c0c0;"></span><span style="width: 25.49%; background-color:#556b2f;"></span><span style="width: 19.61%; background-color:#2f4f4f;"></span><span style="width: 13.73%; background-color:#808080;"></span><span style="width: 0.98%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Masaki Sozaburo (Japanese, active 1st half 19th century): Incense Container 1801" href="http://art.thewalters.org/detail/32375"  style="background-image: url(http://static.thewalters.org/images/PS1_49.357_Fnt_DD_T06.jpg?width=250);">
+            <img alt="WALTERS: Masaki Sozaburo (Japanese, active 1st half 19th century): Incense Container 1801" src="http://static.thewalters.org/images/PS1_49.357_Fnt_DD_T06.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Incense Container</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Masaki Sozaburo (Japan...</em></p>
+        <p class="signature"><span style="width: 47.52%; background-color:#a9a9a9;"></span><span style="width: 32.67%; background-color:#808080;"></span><span style="width: 6.93%; background-color:#bc8f8f;"></span><span style="width: 6.93%; background-color:#696969;"></span><span style="width: 5.94%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" href="http://art.thewalters.org/detail/25109"  style="background-image: url(http://static.thewalters.org/images/PS3_95.276_Fnt_DD_JP091.jpg?width=250);">
+            <img alt="WALTERS: Sakamaki Kogyo (Japanese, 1869-1927): Nogaku zue 1899" src="http://static.thewalters.org/images/PS3_95.276_Fnt_DD_JP091.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Nogaku zue</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sakamaki Kogyo (Japane...</em></p>
+        <p class="signature"><span style="width: 53.47%; background-color:#dcdcdc;"></span><span style="width: 27.72%; background-color:#bdb76b;"></span><span style="width: 6.93%; background-color:#2f4f4f;"></span><span style="width: 5.94%; background-color:#a0522d;"></span><span style="width: 2.97%; background-color:#8b4513;"></span><span style="width: 2.97%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): The Two Friends 1825" href="http://art.thewalters.org/detail/1274"  style="background-image: url(http://static.thewalters.org/images/PS3_37.2468.21_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): The Two Friends 1825" src="http://static.thewalters.org/images/PS3_37.2468.21_Fnt_DD_KI13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>The Two Friends</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 39.60%; background-color:#a9a9a9;"></span><span style="width: 42.57%; background-color:#bc8f8f;"></span><span style="width: 6.93%; background-color:#808080;"></span><span style="width: 5.94%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Giovanni Odazzi (Italian, 1663-1731): The Rest on the Flight into Egypt 1708" href="http://art.thewalters.org/detail/6435"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1122_Fnt_TR_T91III.jpg?width=250);">
+            <img alt="WALTERS: Giovanni Odazzi (Italian, 1663-1731): The Rest on the Flight into Egypt 1708" src="http://static.thewalters.org/images/PL1_37.1122_Fnt_TR_T91III.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>The Rest on the Flight...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Giovanni Odazzi (Itali...</em></p>
+        <p class="signature"><span style="width: 58.42%; background-color:#000000;"></span><span style="width: 16.83%; background-color:#556b2f;"></span><span style="width: 6.93%; background-color:#696969;"></span><span style="width: 5.94%; background-color:#a0522d;"></span><span style="width: 5.94%; background-color:#8b4513;"></span><span style="width: 3.96%; background-color:#808080;"></span><span style="width: 1.98%; background-color:#d2b48c;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Dodging an Arrow (Crow) 1858" href="http://art.thewalters.org/detail/11124"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.134_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Dodging an Arrow (Crow) 1858" src="http://static.thewalters.org/images/PS3_37.1940.134_Fnt_DD_KI13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Dodging an Arrow (Crow)</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 55.45%; background-color:#bc8f8f;"></span><span style="width: 30.69%; background-color:#556b2f;"></span><span style="width: 13.86%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Edgar Degas (French, 1834-1917): Portrait of Estelle Balfour 1863" href="http://art.thewalters.org/detail/21009"  style="background-image: url(http://static.thewalters.org/images/PL1_37.179_Fnt_TR_T02II.jpg?width=250);">
+            <img alt="WALTERS: Edgar Degas (French, 1834-1917): Portrait of Estelle Balfour 1863" src="http://static.thewalters.org/images/PL1_37.179_Fnt_TR_T02II.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Portrait of Estelle Ba...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Edgar Degas (French, 1...</em></p>
+        <p class="signature"><span style="width: 48.51%; background-color:#556b2f;"></span><span style="width: 33.66%; background-color:#000000;"></span><span style="width: 5.94%; background-color:#808080;"></span><span style="width: 5.94%; background-color:#a9a9a9;"></span><span style="width: 5.94%; background-color:#bdb76b;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Thai: Vessantara Jataka, Chapter 1 (Ten Boons) 1838" href="http://art.thewalters.org/detail/29121"  style="background-image: url(http://static.thewalters.org/images/PS1_35.264_ATFnt_DD_T11.jpg?width=250);">
+            <img alt="WALTERS: Thai: Vessantara Jataka, Chapter 1 (Ten Boons) 1838" src="http://static.thewalters.org/images/PS1_35.264_ATFnt_DD_T11.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Vessantara Jataka, Cha...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Thai</em></p>
+        <p class="signature"><span style="width: 22.77%; background-color:#c0c0c0;"></span><span style="width: 19.80%; background-color:#696969;"></span><span style="width: 17.82%; background-color:#2f4f4f;"></span><span style="width: 16.83%; background-color:#bdb76b;"></span><span style="width: 14.85%; background-color:#8b4513;"></span><span style="width: 5.94%; background-color:#a0522d;"></span><span style="width: 1.98%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Giovanni di Paolo (Italian, ca. 1420-1482): The Entombment 1426" href="http://art.thewalters.org/detail/29964"  style="background-image: url(http://static.thewalters.org/images/PS1_37.489D_AftTrt_DD_T10.jpg?width=250);">
+            <img alt="WALTERS: Giovanni di Paolo (Italian, ca. 1420-1482): The Entombment 1426" src="http://static.thewalters.org/images/PS1_37.489D_AftTrt_DD_T10.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>The Entombment</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Giovanni di Paolo (Ita...</em></p>
+        <p class="signature"><span style="width: 43.56%; background-color:#a0522d;"></span><span style="width: 33.66%; background-color:#800000;"></span><span style="width: 6.93%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#8b4513;"></span><span style="width: 3.96%; background-color:#191970;"></span><span style="width: 3.96%; background-color:#cd853f;"></span><span style="width: 2.97%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Nicolò Rondinello (Italian, ca. 1450-ca. 1510): Triptych Panel with Archangel Michael 1490" href="http://art.thewalters.org/detail/76659"  style="background-image: url(http://static.thewalters.org/images/PL1_37.517_LftSide_TR_T98IV.jpg?width=250);">
+            <img alt="WALTERS: Nicolò Rondinello (Italian, ca. 1450-ca. 1510): Triptych Panel with Archangel Michael 1490" src="http://static.thewalters.org/images/PL1_37.517_LftSide_TR_T98IV.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Triptych Panel with Ar...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Nicolò Rondinello (Ita...</em></p>
+        <p class="signature"><span style="width: 22.77%; background-color:#2f4f4f;"></span><span style="width: 19.80%; background-color:#8b4513;"></span><span style="width: 17.82%; background-color:#808080;"></span><span style="width: 15.84%; background-color:#a9a9a9;"></span><span style="width: 12.87%; background-color:#a0522d;"></span><span style="width: 6.93%; background-color:#d2b48c;"></span><span style="width: 3.96%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Firdawsi (Persian, died 411-416 AH/AD 1020-1025): Bahram Gur Hunts with his Men 1618" href="http://art.thewalters.org/detail/78"  style="background-image: url(http://static.thewalters.org/images/CPS_W.602.494b_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: Firdawsi (Persian, died 411-416 AH/AD 1020-1025): Bahram Gur Hunts with his Men 1618" src="http://static.thewalters.org/images/CPS_W.602.494b_Fp_DD.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Bahram Gur Hunts with ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Firdawsi (Persian, die...</em></p>
+        <p class="signature"><span style="width: 56.44%; background-color:#bdb76b;"></span><span style="width: 23.76%; background-color:#696969;"></span><span style="width: 12.87%; background-color:#000000;"></span><span style="width: 6.93%; background-color:#556b2f;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): The Two Friends 1825" href="http://art.thewalters.org/detail/1274"  style="background-image: url(http://static.thewalters.org/images/PS3_37.2468.21_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): The Two Friends 1825" src="http://static.thewalters.org/images/PS3_37.2468.21_Fnt_DD_KI13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>The Two Friends</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 39.60%; background-color:#a9a9a9;"></span><span style="width: 42.57%; background-color:#bc8f8f;"></span><span style="width: 6.93%; background-color:#808080;"></span><span style="width: 5.94%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Giovanni Odazzi (Italian, 1663-1731): The Rest on the Flight into Egypt 1708" href="http://art.thewalters.org/detail/6435"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1122_Fnt_TR_T91III.jpg?width=250);">
+            <img alt="WALTERS: Giovanni Odazzi (Italian, 1663-1731): The Rest on the Flight into Egypt 1708" src="http://static.thewalters.org/images/PL1_37.1122_Fnt_TR_T91III.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>The Rest on the Flight...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Giovanni Odazzi (Itali...</em></p>
+        <p class="signature"><span style="width: 58.42%; background-color:#000000;"></span><span style="width: 16.83%; background-color:#556b2f;"></span><span style="width: 6.93%; background-color:#696969;"></span><span style="width: 5.94%; background-color:#a0522d;"></span><span style="width: 5.94%; background-color:#8b4513;"></span><span style="width: 3.96%; background-color:#808080;"></span><span style="width: 1.98%; background-color:#d2b48c;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Dodging an Arrow (Crow) 1858" href="http://art.thewalters.org/detail/11124"  style="background-image: url(http://static.thewalters.org/images/PS3_37.1940.134_Fnt_DD_KI13.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Dodging an Arrow (Crow) 1858" src="http://static.thewalters.org/images/PS3_37.1940.134_Fnt_DD_KI13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Dodging an Arrow (Crow)</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 55.45%; background-color:#bc8f8f;"></span><span style="width: 30.69%; background-color:#556b2f;"></span><span style="width: 13.86%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Edgar Degas (French, 1834-1917): Portrait of Estelle Balfour 1863" href="http://art.thewalters.org/detail/21009"  style="background-image: url(http://static.thewalters.org/images/PL1_37.179_Fnt_TR_T02II.jpg?width=250);">
+            <img alt="WALTERS: Edgar Degas (French, 1834-1917): Portrait of Estelle Balfour 1863" src="http://static.thewalters.org/images/PL1_37.179_Fnt_TR_T02II.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Portrait of Estelle Ba...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Edgar Degas (French, 1...</em></p>
+        <p class="signature"><span style="width: 48.51%; background-color:#556b2f;"></span><span style="width: 33.66%; background-color:#000000;"></span><span style="width: 5.94%; background-color:#808080;"></span><span style="width: 5.94%; background-color:#a9a9a9;"></span><span style="width: 5.94%; background-color:#bdb76b;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Thai: Vessantara Jataka, Chapter 1 (Ten Boons) 1838" href="http://art.thewalters.org/detail/29121"  style="background-image: url(http://static.thewalters.org/images/PS1_35.264_ATFnt_DD_T11.jpg?width=250);">
+            <img alt="WALTERS: Thai: Vessantara Jataka, Chapter 1 (Ten Boons) 1838" src="http://static.thewalters.org/images/PS1_35.264_ATFnt_DD_T11.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Vessantara Jataka, Cha...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Thai</em></p>
+        <p class="signature"><span style="width: 22.77%; background-color:#c0c0c0;"></span><span style="width: 19.80%; background-color:#696969;"></span><span style="width: 17.82%; background-color:#2f4f4f;"></span><span style="width: 16.83%; background-color:#bdb76b;"></span><span style="width: 14.85%; background-color:#8b4513;"></span><span style="width: 5.94%; background-color:#a0522d;"></span><span style="width: 1.98%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Giovanni di Paolo (Italian, ca. 1420-1482): The Entombment 1426" href="http://art.thewalters.org/detail/29964"  style="background-image: url(http://static.thewalters.org/images/PS1_37.489D_AftTrt_DD_T10.jpg?width=250);">
+            <img alt="WALTERS: Giovanni di Paolo (Italian, ca. 1420-1482): The Entombment 1426" src="http://static.thewalters.org/images/PS1_37.489D_AftTrt_DD_T10.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>The Entombment</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Giovanni di Paolo (Ita...</em></p>
+        <p class="signature"><span style="width: 43.56%; background-color:#a0522d;"></span><span style="width: 33.66%; background-color:#800000;"></span><span style="width: 6.93%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#8b4513;"></span><span style="width: 3.96%; background-color:#191970;"></span><span style="width: 3.96%; background-color:#cd853f;"></span><span style="width: 2.97%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Nicolò Rondinello (Italian, ca. 1450-ca. 1510): Triptych Panel with Archangel Michael 1490" href="http://art.thewalters.org/detail/76659"  style="background-image: url(http://static.thewalters.org/images/PL1_37.517_LftSide_TR_T98IV.jpg?width=250);">
+            <img alt="WALTERS: Nicolò Rondinello (Italian, ca. 1450-ca. 1510): Triptych Panel with Archangel Michael 1490" src="http://static.thewalters.org/images/PL1_37.517_LftSide_TR_T98IV.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Triptych Panel with Ar...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Nicolò Rondinello (Ita...</em></p>
+        <p class="signature"><span style="width: 22.77%; background-color:#2f4f4f;"></span><span style="width: 19.80%; background-color:#8b4513;"></span><span style="width: 17.82%; background-color:#808080;"></span><span style="width: 15.84%; background-color:#a9a9a9;"></span><span style="width: 12.87%; background-color:#a0522d;"></span><span style="width: 6.93%; background-color:#d2b48c;"></span><span style="width: 3.96%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Firdawsi (Persian, died 411-416 AH/AD 1020-1025): Bahram Gur Hunts with his Men 1618" href="http://art.thewalters.org/detail/78"  style="background-image: url(http://static.thewalters.org/images/CPS_W.602.494b_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: Firdawsi (Persian, died 411-416 AH/AD 1020-1025): Bahram Gur Hunts with his Men 1618" src="http://static.thewalters.org/images/CPS_W.602.494b_Fp_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Bahram Gur Hunts with ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Firdawsi (Persian, die...</em></p>
+        <p class="signature"><span style="width: 56.44%; background-color:#bdb76b;"></span><span style="width: 23.76%; background-color:#696969;"></span><span style="width: 12.87%; background-color:#000000;"></span><span style="width: 6.93%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: German: Initial S with David Bathing in the Sea and God Blessing; Lion in Margins 1280" href="http://art.thewalters.org/detail/668"  style="background-image: url(http://static.thewalters.org/images/CPS_W.111.132R_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: German: Initial S with David Bathing in the Sea and God Blessing; Lion in Margins 1280" src="http://static.thewalters.org/images/CPS_W.111.132R_Fp_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Initial S with David B...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>German</em></p>
+        <p class="signature"><span style="width: 47.52%; background-color:#bc8f8f;"></span><span style="width: 23.76%; background-color:#556b2f;"></span><span style="width: 16.83%; background-color:#000000;"></span><span style="width: 8.91%; background-color:#696969;"></span><span style="width: 2.97%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Bartolomeo Sanvito (Italian, 1435/8-after 1518): I Trionfi 1468" href="http://art.thewalters.org/detail/800"  style="background-image: url(http://static.thewalters.org/images/ARG_W.755.2R_ObvDet_UK.jpg?width=150);">
+            <img alt="WALTERS: Bartolomeo Sanvito (Italian, 1435/8-after 1518): I Trionfi 1468" src="http://static.thewalters.org/images/ARG_W.755.2R_ObvDet_UK.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>I Trionfi</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Bartolomeo Sanvito (It...</em></p>
+        <p class="signature"><span style="width: 53.47%; background-color:#d2b48c;"></span><span style="width: 27.72%; background-color:#cd853f;"></span><span style="width: 8.91%; background-color:#a0522d;"></span><span style="width: 5.94%; background-color:#8b4513;"></span><span style="width: 3.96%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: T&#39;oros Roslin (Armenian, active 1256-1268): Canon Table 1262" href="http://art.thewalters.org/detail/1055"  style="background-image: url(http://static.thewalters.org/images/CPS_W.539.8R_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: T&#39;oros Roslin (Armenian, active 1256-1268): Canon Table 1262" src="http://static.thewalters.org/images/CPS_W.539.8R_Fp_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Canon Table</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>T&#39;oros Roslin (Armenia...</em></p>
+        <p class="signature"><span style="width: 51.49%; background-color:#808080;"></span><span style="width: 23.76%; background-color:#556b2f;"></span><span style="width: 11.88%; background-color:#2f4f4f;"></span><span style="width: 9.90%; background-color:#000000;"></span><span style="width: 2.97%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Johannes de Malborch: Pentecost 1400" href="http://art.thewalters.org/detail/1445"  style="background-image: url(http://static.thewalters.org/images/CPS_W.185.103V_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: Johannes de Malborch: Pentecost 1400" src="http://static.thewalters.org/images/CPS_W.185.103V_Fp_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Pentecost</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Johannes de Malborch</em></p>
+        <p class="signature"><span style="width: 50.50%; background-color:#a9a9a9;"></span><span style="width: 22.77%; background-color:#000000;"></span><span style="width: 10.89%; background-color:#808080;"></span><span style="width: 8.91%; background-color:#556b2f;"></span><span style="width: 2.97%; background-color:#2f4f4f;"></span><span style="width: 1.98%; background-color:#cd853f;"></span><span style="width: 1.98%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Muhammad Musá al-Mudhahhib: Five Poems (Quintet) 1517" href="http://art.thewalters.org/detail/1971"  style="background-image: url(http://static.thewalters.org/images/CPS_W.606.binding_TopExt_DD.jpg?width=150);">
+            <img alt="WALTERS: Muhammad Musá al-Mudhahhib: Five Poems (Quintet) 1517" src="http://static.thewalters.org/images/CPS_W.606.binding_TopExt_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Five Poems (Quintet)</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Muhammad Musá al-Mudha...</em></p>
+        <p class="signature"><span style="width: 42.57%; background-color:#a0522d;"></span><span style="width: 42.57%; background-color:#000000;"></span><span style="width: 8.91%; background-color:#cd853f;"></span><span style="width: 5.94%; background-color:#8b4513;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Ethiopian: Portrait of the Evangelist Matthew 1500" href="http://art.thewalters.org/detail/2611"  style="background-image: url(http://static.thewalters.org/images/CPS_W.850.4V_Fp_DD.jpg?width=150);">
+            <img alt="WALTERS: Ethiopian: Portrait of the Evangelist Matthew 1500" src="http://static.thewalters.org/images/CPS_W.850.4V_Fp_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Portrait of the Evange...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Ethiopian</em></p>
+        <p class="signature"><span style="width: 31.68%; background-color:#bdb76b;"></span><span style="width: 23.76%; background-color:#556b2f;"></span><span style="width: 19.80%; background-color:#8b4513;"></span><span style="width: 13.86%; background-color:#696969;"></span><span style="width: 10.89%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Sino-Tibetan: Offering Thanka of Protector Deity Palden Remati 1700" href="http://art.thewalters.org/detail/1092"  style="background-image: url(http://static.thewalters.org/images/ARG_F.124_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Sino-Tibetan: Offering Thanka of Protector Deity Palden Remati 1700" src="http://static.thewalters.org/images/ARG_F.124_Fnt_UK.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Offering Thanka of Pro...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Sino-Tibetan</em></p>
+        <p class="signature"><span style="width: 70.30%; background-color:#000000;"></span><span style="width: 11.88%; background-color:#556b2f;"></span><span style="width: 8.91%; background-color:#808080;"></span><span style="width: 4.95%; background-color:#bc8f8f;"></span><span style="width: 3.96%; background-color:#ffc0cb;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Tibetan: Vajradhara with Mahasiddhas 1388" href="http://art.thewalters.org/detail/11857"  style="background-image: url(http://static.thewalters.org/images/ARG_F.206_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Tibetan: Vajradhara with Mahasiddhas 1388" src="http://static.thewalters.org/images/ARG_F.206_Fnt_UK.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Vajradhara with Mahasi...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Tibetan</em></p>
+        <p class="signature"><span style="width: 44.55%; background-color:#556b2f;"></span><span style="width: 17.82%; background-color:#cd853f;"></span><span style="width: 22.77%; background-color:#000000;"></span><span style="width: 11.88%; background-color:#8b0000;"></span><span style="width: 2.97%; background-color:#deb887;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Tibetan: Portrait of a Kadampa Hierarch 1100" href="http://art.thewalters.org/detail/29336"  style="background-image: url(http://static.thewalters.org/images/PL1_F.111_Fnt_TR.jpg?width=250);">
+            <img alt="WALTERS: Tibetan: Portrait of a Kadampa Hierarch 1100" src="http://static.thewalters.org/images/PL1_F.111_Fnt_TR.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Portrait of a Kadampa ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Tibetan</em></p>
+        <p class="signature"><span style="width: 29.70%; background-color:#a0522d;"></span><span style="width: 19.80%; background-color:#808080;"></span><span style="width: 16.83%; background-color:#556b2f;"></span><span style="width: 15.84%; background-color:#cd853f;"></span><span style="width: 13.86%; background-color:#2f4f4f;"></span><span style="width: 3.96%; background-color:#f5deb3;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Tibetan: The Savior Goddess Tara and Other Deities 1063" href="http://art.thewalters.org/detail/39277"  style="background-image: url(http://static.thewalters.org/images/PS1_F.112_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Tibetan: The Savior Goddess Tara and Other Deities 1063" src="http://static.thewalters.org/images/PS1_F.112_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>The Savior Goddess Tar...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Tibetan</em></p>
+        <p class="signature"><span style="width: 50.50%; background-color:#556b2f;"></span><span style="width: 22.77%; background-color:#a0522d;"></span><span style="width: 17.82%; background-color:#808080;"></span><span style="width: 8.91%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Workshop of Veit Hirshvogel the elder (German, 1461-1525): Stained Glass Quatrefoil Roundel with Hunting Scenes 1506" href="http://art.thewalters.org/detail/23436"  style="background-image: url(http://static.thewalters.org/images/PL1_46.75_DetA_TR_T99IV.jpg?width=250);">
+            <img alt="WALTERS: Workshop of Veit Hirshvogel the elder (German, 1461-1525): Stained Glass Quatrefoil Roundel with Hunting Scenes 1506" src="http://static.thewalters.org/images/PL1_46.75_DetA_TR_T99IV.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Stained Glass Quatrefo...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Workshop of Veit Hirsh...</em></p>
+        <p class="signature"><span style="width: 40.59%; background-color:#000000;"></span><span style="width: 23.76%; background-color:#d3d3d3;"></span><span style="width: 24.75%; background-color:#2f4f4f;"></span><span style="width: 3.96%; background-color:#808080;"></span><span style="width: 3.96%; background-color:#191970;"></span><span style="width: 2.97%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred André (French, 1839-1919): Jewel Casket with Busts of Emperors 1548" href="http://art.thewalters.org/detail/31890"  style="background-image: url(http://static.thewalters.org/images/PL1_46.3_SideA_TR_T89III.jpg?width=250);">
+            <img alt="WALTERS: Alfred André (French, 1839-1919): Jewel Casket with Busts of Emperors 1548" src="http://static.thewalters.org/images/PL1_46.3_SideA_TR_T89III.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Jewel Casket with Bust...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred André (French, ...</em></p>
+        <p class="signature"><span style="width: 32.67%; background-color:#696969;"></span><span style="width: 34.65%; background-color:#000000;"></span><span style="width: 15.84%; background-color:#556b2f;"></span><span style="width: 9.90%; background-color:#d3d3d3;"></span><span style="width: 6.93%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Sake Bottle (&quot;Tokkuri&quot;) with Boys Chasing Butterflies 1830" href="http://art.thewalters.org/detail/395"  style="background-image: url(http://static.thewalters.org/images/PS1_49.951_VwA_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Sake Bottle (&quot;Tokkuri&quot;) with Boys Chasing Butterflies 1830" src="http://static.thewalters.org/images/PS1_49.951_VwA_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Sake Bottle (&quot;Tokkuri&quot;...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 36.63%; background-color:#000000;"></span><span style="width: 26.73%; background-color:#dcdcdc;"></span><span style="width: 11.88%; background-color:#a9a9a9;"></span><span style="width: 10.89%; background-color:#696969;"></span><span style="width: 5.94%; background-color:#778899;"></span><span style="width: 3.96%; background-color:#708090;"></span><span style="width: 3.96%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Calendar Vase with Pomegrante Blossoms and 1705 Calendar 1701" href="http://art.thewalters.org/detail/1875"  style="background-image: url(http://static.thewalters.org/images/PS1_49.2080_3QtrVwA_DD_T06_.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Calendar Vase with Pomegrante Blossoms and 1705 Calendar 1701" src="http://static.thewalters.org/images/PS1_49.2080_3QtrVwA_DD_T06_.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Calendar Vase with Pom...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 67.33%; background-color:#c0c0c0;"></span><span style="width: 20.79%; background-color:#808080;"></span><span style="width: 8.91%; background-color:#2f4f4f;"></span><span style="width: 2.97%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Ewer with Formal Floral Designs 1825" href="http://art.thewalters.org/detail/3313"  style="background-image: url(http://static.thewalters.org/images/PS1_49.954_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Ewer with Formal Floral Designs 1825" src="http://static.thewalters.org/images/PS1_49.954_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Ewer with Formal Flora...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 41.58%; background-color:#000000;"></span><span style="width: 19.80%; background-color:#2f4f4f;"></span><span style="width: 18.81%; background-color:#c0c0c0;"></span><span style="width: 13.86%; background-color:#808080;"></span><span style="width: 3.96%; background-color:#696969;"></span><span style="width: 1.98%; background-color:#a9a9a9;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: Center of a Broken Dish with Shou Lao 1713" href="http://art.thewalters.org/detail/3808"  style="background-image: url(http://static.thewalters.org/images/PL9_49.1126_Fnt_SL_X71.jpg?width=250);">
+            <img alt="WALTERS: Chinese: Center of a Broken Dish with Shou Lao 1713" src="http://static.thewalters.org/images/PL9_49.1126_Fnt_SL_X71.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Center of a Broken Dis...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 40.59%; background-color:#c0c0c0;"></span><span style="width: 32.67%; background-color:#8fbc8f;"></span><span style="width: 20.79%; background-color:#696969;"></span><span style="width: 4.95%; background-color:#2f4f4f;"></span><span style="width: 0.99%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 15222;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

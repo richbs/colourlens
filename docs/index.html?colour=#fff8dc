@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23bc8f8f">2</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23696969">7</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23c0c0c0">1</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23cd5c5c">1</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23808080">2</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23000000">2</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23a9a9a9">1</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23a0522d">4</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%238b4513">1</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23f4a460">1</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23cd853f">3</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23deb887">3</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23d2b48c">2</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23f5deb3">2</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#fff8dc; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23fff8dc">9</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23bdb76b">3</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%232f4f4f">3</a>
+    </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/?colour=%23fff8dc&amp;colour=%23778899">1</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23bc8f8f">2</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23696969">7</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23c0c0c0">1</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23cd5c5c">1</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23808080">2</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23000000">2</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23a9a9a9">1</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23a0522d">4</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%238b4513">1</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#f4a460; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23f4a460">1</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23cd853f">3</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23deb887">3</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23d2b48c">2</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23f5deb3">2</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#fff8dc; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23fff8dc">9</a>
+        <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#fff8dc;"></span>  
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23bdb76b">3</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%232f4f4f">3</a>
+          
+      </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/?colour=%23fff8dc&amp;colour=%23778899">1</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>9 results</em><h2>18 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="selected" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Utagawa Yoshiiku, Shinagawaya: print 1860" href="https://www.rijksmuseum.nl/en/collection/RP-P-OB-JAP-76"  style="background-image: url(http://lh6.ggpht.com/wNchuSDX31WQ5zyCUMHCzdPcrWujrBSuG0Xn8sAoSTkWVGQ3oGrDMfIT5ekcvylYth22a-xq2SKp9p3mhewIv7kASw=s155);">
+            <img alt="RIJKS: Utagawa Yoshiiku, Shinagawaya: print 1860" src="http://lh6.ggpht.com/wNchuSDX31WQ5zyCUMHCzdPcrWujrBSuG0Xn8sAoSTkWVGQ3oGrDMfIT5ekcvylYth22a-xq2SKp9p3mhewIv7kASw=s155"
+            />
+          </a>
+        </div>
+        <h3>print</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Utagawa Yoshiiku, Shin...</em></p>
+        <p class="signature"><span style="width: 39.80%; background-color:#fff8dc;"></span><span style="width: 21.43%; background-color:#bc8f8f;"></span><span style="width: 17.35%; background-color:#f4a460;"></span><span style="width: 14.29%; background-color:#696969;"></span><span style="width: 3.06%; background-color:#a9a9a9;"></span><span style="width: 3.06%; background-color:#cd5c5c;"></span><span style="width: 1.02%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: attributed to Pseudo-Ambrodigio di Baldese: painting 1425" href="https://www.rijksmuseum.nl/en/collection/SK-A-2589"  style="background-image: url(http://lh3.ggpht.com/30DqgBmu9HA8H0f2_5kmioxaWUtPle1UHjGmb2JZDkOWw4UBv9UcQ69_LUvYo14vhVMnyunHXFVWmZOGkjIuGJ-K4mQ=s300);">
+            <img alt="RIJKS: attributed to Pseudo-Ambrodigio di Baldese: painting 1425" src="http://lh3.ggpht.com/30DqgBmu9HA8H0f2_5kmioxaWUtPle1UHjGmb2JZDkOWw4UBv9UcQ69_LUvYo14vhVMnyunHXFVWmZOGkjIuGJ-K4mQ=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>attributed to Pseudo-A...</em></p>
+        <p class="signature"><span style="width: 34.72%; background-color:#bdb76b;"></span><span style="width: 31.94%; background-color:#fff8dc;"></span><span style="width: 18.06%; background-color:#696969;"></span><span style="width: 15.28%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Francesco di Antonio del Chierico (Italian, 1433-1484): Leaf from Breviary 1450" href="http://art.thewalters.org/detail/741"  style="background-image: url(http://static.thewalters.org/images/ARG_W.334.376V_OpnRev_UK.jpg?width=150);">
+            <img alt="WALTERS: Francesco di Antonio del Chierico (Italian, 1433-1484): Leaf from Breviary 1450" src="http://static.thewalters.org/images/ARG_W.334.376V_OpnRev_UK.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Breviary</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Francesco di Antonio d...</em></p>
+        <p class="signature"><span style="width: 31.58%; background-color:#f5deb3;"></span><span style="width: 27.37%; background-color:#d2b48c;"></span><span style="width: 23.16%; background-color:#fff8dc;"></span><span style="width: 10.53%; background-color:#bc8f8f;"></span><span style="width: 4.21%; background-color:#bdb76b;"></span><span style="width: 3.16%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Benedetto Bordon (Italian, 1450-1530): Leaf from Breviary 1468" href="http://art.thewalters.org/detail/2404"  style="background-image: url(http://static.thewalters.org/images/ARG_W.333.421V_OpnRev_UK.jpg?width=150);">
+            <img alt="WALTERS: Benedetto Bordon (Italian, 1450-1530): Leaf from Breviary 1468" src="http://static.thewalters.org/images/ARG_W.333.421V_OpnRev_UK.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Breviary</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Benedetto Bordon (Ital...</em></p>
+        <p class="signature"><span style="width: 47.92%; background-color:#f5deb3;"></span><span style="width: 21.88%; background-color:#d2b48c;"></span><span style="width: 18.75%; background-color:#fff8dc;"></span><span style="width: 8.33%; background-color:#bdb76b;"></span><span style="width: 1.04%; background-color:#a0522d;"></span><span style="width: 1.04%; background-color:#808080;"></span><span style="width: 1.04%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: painting 1660" href="https://www.rijksmuseum.nl/en/collection/SK-A-806"  style="background-image: url(http://lh6.ggpht.com/xQ_vm96IzT1Udlq9VrX0v52jN6XQJRwyWWU5atr4I_v8ws_jFJYOzDfoTphV3ZbMfh0-04_00THTM80WAoGKk0Hq4h8=s300);">
+            <img alt="RIJKS: anoniem: painting 1660" src="http://lh6.ggpht.com/xQ_vm96IzT1Udlq9VrX0v52jN6XQJRwyWWU5atr4I_v8ws_jFJYOzDfoTphV3ZbMfh0-04_00THTM80WAoGKk0Hq4h8=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 47.00%; background-color:#000000;"></span><span style="width: 27.00%; background-color:#2f4f4f;"></span><span style="width: 10.00%; background-color:#696969;"></span><span style="width: 9.00%; background-color:#fff8dc;"></span><span style="width: 5.00%; background-color:#deb887;"></span><span style="width: 2.00%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Jan Kobell (II): painting 1806" href="https://www.rijksmuseum.nl/en/collection/SK-A-1061"  style="background-image: url(http://lh5.ggpht.com/fwI-vGzQwT59HDxqLM6tQ5ah-MSq_u5I8Q5Le7zq-ZSP5bcMApuM2n8S8-mHpG3T93JgN-Zcg2M7vWFIiVZ-28DNVFI=s300);">
+            <img alt="RIJKS: Jan Kobell (II): painting 1806" src="http://lh5.ggpht.com/fwI-vGzQwT59HDxqLM6tQ5ah-MSq_u5I8Q5Le7zq-ZSP5bcMApuM2n8S8-mHpG3T93JgN-Zcg2M7vWFIiVZ-28DNVFI=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Jan Kobell (II)</em></p>
+        <p class="signature"><span style="width: 35.00%; background-color:#c0c0c0;"></span><span style="width: 24.00%; background-color:#556b2f;"></span><span style="width: 15.00%; background-color:#778899;"></span><span style="width: 15.00%; background-color:#696969;"></span><span style="width: 6.00%; background-color:#bc8f8f;"></span><span style="width: 5.00%; background-color:#fff8dc;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Arnoud van Halen: painting 1732" href="https://www.rijksmuseum.nl/en/collection/SK-A-4605"  style="background-image: url(http://lh5.ggpht.com/JoLy28IfLK6OmrAzJ9NvXqgUV3P_iY-HTIsqCEvDQXuMFacpPWj2llu08NFBB_HmVROn7r6Cta4L8SMFwACxjvFCJUQ=s300);">
+            <img alt="RIJKS: Arnoud van Halen: painting 1732" src="http://lh5.ggpht.com/JoLy28IfLK6OmrAzJ9NvXqgUV3P_iY-HTIsqCEvDQXuMFacpPWj2llu08NFBB_HmVROn7r6Cta4L8SMFwACxjvFCJUQ=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Arnoud van Halen</em></p>
+        <p class="signature"><span style="width: 41.54%; background-color:#2f4f4f;"></span><span style="width: 26.15%; background-color:#deb887;"></span><span style="width: 15.38%; background-color:#696969;"></span><span style="width: 12.31%; background-color:#a0522d;"></span><span style="width: 4.62%; background-color:#fff8dc;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Master of the Panzano Triptych (Italian, active 14th century): Madonna and Child Enthroned with Saints 1368" href="http://art.thewalters.org/detail/8187"  style="background-image: url(http://static.thewalters.org/images/ARG_37.728_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Master of the Panzano Triptych (Italian, active 14th century): Madonna and Child Enthroned with Saints 1368" src="http://static.thewalters.org/images/ARG_37.728_Fnt_UK.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Madonna and Child Enth...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Master of the Panzano ...</em></p>
+        <p class="signature"><span style="width: 35.00%; background-color:#8b4513;"></span><span style="width: 29.00%; background-color:#000000;"></span><span style="width: 22.00%; background-color:#cd853f;"></span><span style="width: 11.00%; background-color:#a0522d;"></span><span style="width: 3.00%; background-color:#fff8dc;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: Arnoud van Halen: painting 1732" href="https://www.rijksmuseum.nl/en/collection/SK-A-4581"  style="background-image: url(http://lh6.ggpht.com/puCFe8mM5NYYv3tbvBN2WOku6B_31BLlOFK6DHfmPv5dEnJa-jw_itRLyji9uo0gWpFtRc7hyCkTNegREzNpl1m-uQ=s300);">
+            <img alt="RIJKS: Arnoud van Halen: painting 1732" src="http://lh6.ggpht.com/puCFe8mM5NYYv3tbvBN2WOku6B_31BLlOFK6DHfmPv5dEnJa-jw_itRLyji9uo0gWpFtRc7hyCkTNegREzNpl1m-uQ=s300"
+            />
+          </a>
+        </div>
+        <h3>painting</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>Arnoud van Halen</em></p>
+        <p class="signature"><span style="width: 39.39%; background-color:#2f4f4f;"></span><span style="width: 21.21%; background-color:#cd853f;"></span><span style="width: 21.21%; background-color:#deb887;"></span><span style="width: 15.15%; background-color:#696969;"></span><span style="width: 3.03%; background-color:#fff8dc;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 48;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

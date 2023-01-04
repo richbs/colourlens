@@ -1,0 +1,991 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Colour Lens</title>
+		
+<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css">
+* {
+  font-family: 'Quattrocento Sans', "HelveticaNeue-Thin", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #666;
+}
+
+body {
+  margin: 0;
+}
+
+#content {
+  max-width: 1228px;
+  margin: 0px auto;
+}
+
+#colour-list {
+}
+
+#colour-list a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: transparent;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#colour-list a:hover {
+  font-weight: 800;
+  color: white;
+}
+
+#colour-list .selected {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#header * {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#header a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #666;
+}
+
+#institution-nav .selected {
+  color: #444;
+  border-bottom: 3px solid #F00;
+}
+
+.explorerGrid ul {
+  display: block;
+  width: 100%;
+}
+
+.explorerGrid li {
+  height: inherit;
+  min-height: 100px;
+  width: 133px;
+  max-height: 215px;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 0.66em;
+  margin: 0 15px 2% 0;
+  padding: 0;
+}
+
+.explorerGrid li span {
+  font-size: 1em;
+}
+
+.explorerGrid li img {
+  min-height: 100px;
+  max-width: 133px;
+}
+
+.explorerGrid h3 {
+  height: 12px;
+}
+
+.explorerGrid p {
+  height: 12px;
+}
+
+.explorerGrid span {
+  height: 12px;
+}
+
+.explorerWorks {
+  padding: 0;
+}
+
+.grid-work-image {
+  padding: 0;
+}
+
+.grid-work-image a {
+  display: block;
+  height: 133px;
+  width: 133px;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.grid-work-image a img {
+  visibility: hidden;
+}
+
+p.signature span {
+  height: 15px;
+  display: inline-block;
+}
+
+p.signature {
+  height: 15px;
+  margin: 9px 0 0 0;
+}
+
+.tableCell {
+  vertical-align: top;
+}
+</style>
+
+	</head>
+	<body id="colour-browse" class="full-page-colour">
+		<div id="content">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    <div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23bc8f8f">16</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23696969">45</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23c0c0c0">22</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23a52a2a">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23cd5c5c">3</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23808080">45</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23000000">33</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23a9a9a9">38</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23d3d3d3">15</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23dcdcdc">6</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23800000">3</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23f5f5f5">2</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#fa8072; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23fa8072">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23a0522d">15</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%238b4513">11</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23cd853f">6</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23faf0e6">88</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23ffe4c4">4</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23deb887">4</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23faebd7">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23d2b48c">13</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23f5deb3">5</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23bdb76b">5</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23556b2f">16</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%238fbc8f">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#20b2aa; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%2320b2aa">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%232f4f4f">34</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#b0e0e6; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23b0e0e6">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%234682b4">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23778899">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23708090">3</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23b0c4de">1</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#191970; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23191970">3</a>
+    </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#483d8b; display:inline-block;">
+      <a href="/?colour=%23faf0e6&amp;colour=%23483d8b">1</a>
+    </div>
+    </div>
+  </div>
+  <div class="section active">
+    <div id="colour-list">
+      <div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#bc8f8f; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23bc8f8f">16</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23696969">45</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#c0c0c0; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23c0c0c0">22</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23a52a2a">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23cd5c5c">3</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23808080">45</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23000000">33</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23a9a9a9">38</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#d3d3d3; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23d3d3d3">15</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#dcdcdc; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23dcdcdc">6</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#800000; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23800000">3</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#f5f5f5; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23f5f5f5">2</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#fa8072; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23fa8072">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23a0522d">15</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%238b4513">11</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23cd853f">6</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#faf0e6; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23faf0e6">88</a>
+        <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#faf0e6;"></span>  
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#ffe4c4; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23ffe4c4">4</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#deb887; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23deb887">4</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#faebd7; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23faebd7">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#d2b48c; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23d2b48c">13</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23f5deb3">5</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#bdb76b; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23bdb76b">5</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#556b2f; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23556b2f">16</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#8fbc8f; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%238fbc8f">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#20b2aa; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%2320b2aa">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%232f4f4f">34</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#b0e0e6; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23b0e0e6">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#4682b4; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%234682b4">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#778899; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23778899">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#708090; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23708090">3</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23b0c4de">1</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#191970; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23191970">3</a>
+          
+      </div><div style="width: 2.92%; height:100px; margin:0; padding:0; background-color:#483d8b; display:inline-block;">
+        <a href="/?colour=%23faf0e6&amp;colour=%23483d8b">1</a>
+          
+      </div>
+    </div>
+    <div id="header">
+      <h1 id="colour_me_bad">Colour Lens</h1>
+      <p>An experiment in visualisation as navigation</p>
+      <em>88 results</em><h2>34 colours in this set</h2>
+      <p id="institution-nav">
+        <a class="selected" href="/">ALL</a>
+        
+        <a class="" href="/RIJKS">RIJKS</a>
+      
+        <a class="" href="/WALTERS">WALTERS</a>
+      </p>
+    </div>
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" href="http://art.thewalters.org/detail/80525"  style="background-image: url(http://static.thewalters.org/images/PS1_35.176F_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" src="http://static.thewalters.org/images/PS1_35.176F_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Bound Collec...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Indian (?)</em></p>
+        <p class="signature"><span style="width: 70.00%; background-color:#faf0e6;"></span><span style="width: 10.00%; background-color:#bc8f8f;"></span><span style="width: 5.00%; background-color:#bdb76b;"></span><span style="width: 4.00%; background-color:#2f4f4f;"></span><span style="width: 4.00%; background-color:#556b2f;"></span><span style="width: 4.00%; background-color:#8b4513;"></span><span style="width: 3.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" href="http://art.thewalters.org/detail/80526"  style="background-image: url(http://static.thewalters.org/images/PS1_35.176G_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" src="http://static.thewalters.org/images/PS1_35.176G_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Bound Collec...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Indian (?)</em></p>
+        <p class="signature"><span style="width: 68.69%; background-color:#faf0e6;"></span><span style="width: 11.11%; background-color:#d2b48c;"></span><span style="width: 11.11%; background-color:#a0522d;"></span><span style="width: 4.04%; background-color:#2f4f4f;"></span><span style="width: 3.03%; background-color:#696969;"></span><span style="width: 2.02%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Frank Blackwell Mayer (American, 1827-1899): Classical Scene 1848" href="http://art.thewalters.org/detail/26792"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1567_Fnt_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Frank Blackwell Mayer (American, 1827-1899): Classical Scene 1848" src="http://static.thewalters.org/images/PS1_37.1567_Fnt_DD_T13.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Classical Scene</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Frank Blackwell Mayer ...</em></p>
+        <p class="signature"><span style="width: 65.00%; background-color:#faf0e6;"></span><span style="width: 32.00%; background-color:#dcdcdc;"></span><span style="width: 3.00%; background-color:#c0c0c0;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" href="http://art.thewalters.org/detail/80529"  style="background-image: url(http://static.thewalters.org/images/PS1_35.176J_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" src="http://static.thewalters.org/images/PS1_35.176J_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Bound Collec...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Indian (?)</em></p>
+        <p class="signature"><span style="width: 57.00%; background-color:#faf0e6;"></span><span style="width: 15.00%; background-color:#deb887;"></span><span style="width: 11.00%; background-color:#8b4513;"></span><span style="width: 9.00%; background-color:#000000;"></span><span style="width: 5.00%; background-color:#808080;"></span><span style="width: 2.00%; background-color:#cd5c5c;"></span><span style="width: 1.00%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: French: Leaf from Gospels 975" href="http://art.thewalters.org/detail/2813"  style="background-image: url(http://static.thewalters.org/images/ARG_W.3.17V_OpnRev_UK.jpg?width=150);">
+            <img alt="WALTERS: French: Leaf from Gospels 975" src="http://static.thewalters.org/images/ARG_W.3.17V_OpnRev_UK.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Gospels</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>French</em></p>
+        <p class="signature"><span style="width: 58.33%; background-color:#faf0e6;"></span><span style="width: 20.83%; background-color:#bc8f8f;"></span><span style="width: 14.58%; background-color:#808080;"></span><span style="width: 5.21%; background-color:#2f4f4f;"></span><span style="width: 1.04%; background-color:#f5deb3;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" href="http://art.thewalters.org/detail/80531"  style="background-image: url(http://static.thewalters.org/images/PS1_35.176L_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" src="http://static.thewalters.org/images/PS1_35.176L_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Bound Collec...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Indian (?)</em></p>
+        <p class="signature"><span style="width: 59.57%; background-color:#faf0e6;"></span><span style="width: 26.60%; background-color:#d3d3d3;"></span><span style="width: 5.32%; background-color:#c0c0c0;"></span><span style="width: 2.13%; background-color:#000000;"></span><span style="width: 2.13%; background-color:#deb887;"></span><span style="width: 2.13%; background-color:#808080;"></span><span style="width: 2.13%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Supplying Camp with Buffalo Meat 1858" href="http://art.thewalters.org/detail/38304"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.173_Fnt_TR_C82IA.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Supplying Camp with Buffalo Meat 1858" src="http://static.thewalters.org/images/PL1_37.1940.173_Fnt_TR_C82IA.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Supplying Camp with Bu...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 56.00%; background-color:#faf0e6;"></span><span style="width: 17.00%; background-color:#2f4f4f;"></span><span style="width: 11.00%; background-color:#808080;"></span><span style="width: 7.00%; background-color:#d2b48c;"></span><span style="width: 5.00%; background-color:#696969;"></span><span style="width: 4.00%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greek: Early Corinthian Amphora with Real and Fantastic Animals -625" href="http://art.thewalters.org/detail/7078"  style="background-image: url(http://static.thewalters.org/images/PS1_48.2033_SideA_DD_T12.jpg?width=250);">
+            <img alt="WALTERS: Greek: Early Corinthian Amphora with Real and Fantastic Animals -625" src="http://static.thewalters.org/images/PS1_48.2033_SideA_DD_T12.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Early Corinthian Ampho...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greek</em></p>
+        <p class="signature"><span style="width: 57.29%; background-color:#faf0e6;"></span><span style="width: 13.54%; background-color:#c0c0c0;"></span><span style="width: 14.58%; background-color:#556b2f;"></span><span style="width: 6.25%; background-color:#2f4f4f;"></span><span style="width: 8.33%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Trappers and Indians Communicating by Signs 1858" href="http://art.thewalters.org/detail/38625"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.193_Fnt_TR_T95II.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Trappers and Indians Communicating by Signs 1858" src="http://static.thewalters.org/images/PL1_37.1940.193_Fnt_TR_T95II.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Trappers and Indians C...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 53.00%; background-color:#faf0e6;"></span><span style="width: 22.00%; background-color:#556b2f;"></span><span style="width: 14.00%; background-color:#000000;"></span><span style="width: 11.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Eugène Isabey (French, 1803-1886): Fishing Boats 1862" href="http://art.thewalters.org/detail/8871"  style="background-image: url(http://static.thewalters.org/images/PL1_37.888_Fnt_TR_T02IV.jpg?width=250);">
+            <img alt="WALTERS: Eugène Isabey (French, 1803-1886): Fishing Boats 1862" src="http://static.thewalters.org/images/PL1_37.888_Fnt_TR_T02IV.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Fishing Boats</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Eugène Isabey (French,...</em></p>
+        <p class="signature"><span style="width: 52.00%; background-color:#faf0e6;"></span><span style="width: 19.00%; background-color:#b0c4de;"></span><span style="width: 17.00%; background-color:#a9a9a9;"></span><span style="width: 6.00%; background-color:#556b2f;"></span><span style="width: 6.00%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Hashiguchi Goyo (Japanese, 1st quarter 20th century): 手拭持てる女 (Sketch of Woman Holding a Towel) 1920" href="http://art.thewalters.org/detail/82722"  style="background-image: url(http://static.thewalters.org/images/PS1_35.305_Fnt_DD_T11.jpg?width=250);">
+            <img alt="WALTERS: Hashiguchi Goyo (Japanese, 1st quarter 20th century): 手拭持てる女 (Sketch of Woman Holding a Towel) 1920" src="http://static.thewalters.org/images/PS1_35.305_Fnt_DD_T11.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>手拭持てる女 (Sketch of Woma...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Hashiguchi Goyo (Japan...</em></p>
+        <p class="signature"><span style="width: 52.00%; background-color:#faf0e6;"></span><span style="width: 37.00%; background-color:#d3d3d3;"></span><span style="width: 8.00%; background-color:#a9a9a9;"></span><span style="width: 3.00%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" href="http://art.thewalters.org/detail/80522"  style="background-image: url(http://static.thewalters.org/images/PS1_35.176C_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Indian (?): Leaf from Bound Collection of 20 Miniatures Depicting Village Life 1870" src="http://static.thewalters.org/images/PS1_35.176C_Fnt_DD_T09.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Bound Collec...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Indian (?)</em></p>
+        <p class="signature"><span style="width: 48.48%; background-color:#faf0e6;"></span><span style="width: 32.32%; background-color:#a9a9a9;"></span><span style="width: 7.07%; background-color:#556b2f;"></span><span style="width: 6.06%; background-color:#bdb76b;"></span><span style="width: 3.03%; background-color:#696969;"></span><span style="width: 3.03%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Female Portrait Mask 100" href="http://art.thewalters.org/detail/5872"  style="background-image: url(http://static.thewalters.org/images/PL1_32.5_Fnt_TR_T02VI.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Female Portrait Mask 100" src="http://static.thewalters.org/images/PL1_32.5_Fnt_TR_T02VI.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Female Portrait Mask</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 46.00%; background-color:#faf0e6;"></span><span style="width: 26.00%; background-color:#2f4f4f;"></span><span style="width: 12.00%; background-color:#696969;"></span><span style="width: 7.00%; background-color:#cd853f;"></span><span style="width: 4.00%; background-color:#a9a9a9;"></span><span style="width: 3.00%; background-color:#000000;"></span><span style="width: 2.00%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greek: Appliqué Relief of a Running Maiden -400" href="http://art.thewalters.org/detail/16366"  style="background-image: url(http://static.thewalters.org/images/PL7_48.2538_Fnt_BW.jpg?width=250);">
+            <img alt="WALTERS: Greek: Appliqué Relief of a Running Maiden -400" src="http://static.thewalters.org/images/PL7_48.2538_Fnt_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Appliqué Relief of a R...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greek</em></p>
+        <p class="signature"><span style="width: 44.90%; background-color:#faf0e6;"></span><span style="width: 14.29%; background-color:#c0c0c0;"></span><span style="width: 13.27%; background-color:#a9a9a9;"></span><span style="width: 11.22%; background-color:#808080;"></span><span style="width: 16.33%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Miniatore di S. Alessio in Bigiano (Italian, active 13th-14th century): Leaf from Bentivoglio Bible 1258" href="http://art.thewalters.org/detail/2589"  style="background-image: url(http://static.thewalters.org/images/ARG_W.151.117R_OpnObv_UK.jpg?width=150);">
+            <img alt="WALTERS: Miniatore di S. Alessio in Bigiano (Italian, active 13th-14th century): Leaf from Bentivoglio Bible 1258" src="http://static.thewalters.org/images/ARG_W.151.117R_OpnObv_UK.jpg?width=150"
+            />
+          </a>
+        </div>
+        <h3>Leaf from Bentivoglio ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Miniatore di S. Alessi...</em></p>
+        <p class="signature"><span style="width: 42.71%; background-color:#faf0e6;"></span><span style="width: 39.58%; background-color:#d2b48c;"></span><span style="width: 10.42%; background-color:#808080;"></span><span style="width: 5.21%; background-color:#a0522d;"></span><span style="width: 1.04%; background-color:#696969;"></span><span style="width: 1.04%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: &quot;Three-String&quot; Vase 1710" href="http://art.thewalters.org/detail/14771"  style="background-image: url(http://static.thewalters.org/images/ARG_49.154_Prof_BW.jpg?width=250);">
+            <img alt="WALTERS: Chinese: &quot;Three-String&quot; Vase 1710" src="http://static.thewalters.org/images/ARG_49.154_Prof_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>&quot;Three-String&quot; Vase</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Shu -664" href="http://art.thewalters.org/detail/37259"  style="background-image: url(http://static.thewalters.org/images/PL9_48.1683_3Qtr_SL_T.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Shu -664" src="http://static.thewalters.org/images/PL9_48.1683_3Qtr_SL_T.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Shu</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 41.00%; background-color:#faf0e6;"></span><span style="width: 24.00%; background-color:#696969;"></span><span style="width: 22.00%; background-color:#778899;"></span><span style="width: 9.00%; background-color:#2f4f4f;"></span><span style="width: 3.00%; background-color:#c0c0c0;"></span><span style="width: 1.00%; background-color:#708090;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Imamura Yoju: Flowers 1748" href="http://art.thewalters.org/detail/31272"  style="background-image: url(http://static.thewalters.org/images/PL2_35.162.001_Fnt_BW_T91.jpg?width=250);">
+            <img alt="WALTERS: Imamura Yoju: Flowers 1748" src="http://static.thewalters.org/images/PL2_35.162.001_Fnt_BW_T91.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Flowers</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Imamura Yoju</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Martín Rico y Ortega (Spanish, 1833-1908): Seville 1875" href="http://art.thewalters.org/detail/18310"  style="background-image: url(http://static.thewalters.org/images/PL1_37.972_Fnt_TR_TII.jpg?width=250);">
+            <img alt="WALTERS: Martín Rico y Ortega (Spanish, 1833-1908): Seville 1875" src="http://static.thewalters.org/images/PL1_37.972_Fnt_TR_TII.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Seville</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Martín Rico y Ortega (...</em></p>
+        <p class="signature"><span style="width: 39.60%; background-color:#faf0e6;"></span><span style="width: 22.77%; background-color:#a9a9a9;"></span><span style="width: 19.80%; background-color:#696969;"></span><span style="width: 11.88%; background-color:#d3d3d3;"></span><span style="width: 5.94%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Shosohonee [sic] Indian Preparing His Meal 1858" href="http://art.thewalters.org/detail/17831"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.24_Fnt_TR_II.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Shosohonee [sic] Indian Preparing His Meal 1858" src="http://static.thewalters.org/images/PL1_37.1940.24_Fnt_TR_II.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Shosohonee [sic] India...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 39.00%; background-color:#faf0e6;"></span><span style="width: 28.00%; background-color:#ffe4c4;"></span><span style="width: 9.00%; background-color:#bdb76b;"></span><span style="width: 9.00%; background-color:#800000;"></span><span style="width: 13.00%; background-color:#a0522d;"></span><span style="width: 2.00%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Jules-Auguste Habert-Dys (French, 1850-1924): One of a Pair of Vases 1866" href="http://art.thewalters.org/detail/4440"  style="background-image: url(http://static.thewalters.org/images/PL9_48.2743_3Qtr_SL_T.jpg?width=250);">
+            <img alt="WALTERS: Jules-Auguste Habert-Dys (French, 1850-1924): One of a Pair of Vases 1866" src="http://static.thewalters.org/images/PL9_48.2743_3Qtr_SL_T.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>One of a Pair of Vases</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Jules-Auguste Habert-D...</em></p>
+        <p class="signature"><span style="width: 43.68%; background-color:#faf0e6;"></span><span style="width: 18.39%; background-color:#dcdcdc;"></span><span style="width: 16.09%; background-color:#d2b48c;"></span><span style="width: 11.49%; background-color:#808080;"></span><span style="width: 10.34%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: RP-P-1961-123 1890" href="https://www.rijksmuseum.nl/en/collection/RP-P-1961-123"  style="background-image: url(http://lh5.ggpht.com/vvBZ5OxP8i6de59NQ5oUTTYIv9EXSeHk1518NqjyQGEAf1UhOGJdk703qwmYQccOqLXgqTX3xK89kP9KIOn3yPcAOjc=s155);">
+            <img alt="RIJKS: anoniem: RP-P-1961-123 1890" src="http://lh5.ggpht.com/vvBZ5OxP8i6de59NQ5oUTTYIv9EXSeHk1518NqjyQGEAf1UhOGJdk703qwmYQccOqLXgqTX3xK89kP9KIOn3yPcAOjc=s155"
+            />
+          </a>
+        </div>
+        <h3>RP-P-1961-123</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 44.44%; background-color:#f5deb3;"></span><span style="width: 34.34%; background-color:#faf0e6;"></span><span style="width: 13.13%; background-color:#696969;"></span><span style="width: 5.05%; background-color:#fa8072;"></span><span style="width: 3.03%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Vase with Autumn Flowers and Elephant Handles 1800" href="http://art.thewalters.org/detail/29449"  style="background-image: url(http://static.thewalters.org/images/PL9_49.2193_Fnt_BW_PL90.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Vase with Autumn Flowers and Elephant Handles 1800" src="http://static.thewalters.org/images/PL9_49.2193_Fnt_BW_PL90.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Vase with Autumn Flowe...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: Blue and White Cup 1700" href="http://art.thewalters.org/detail/10244"  style="background-image: url(http://static.thewalters.org/images/PL7_49.338_VwB_BW.jpg?width=250);">
+            <img alt="WALTERS: Chinese: Blue and White Cup 1700" src="http://static.thewalters.org/images/PL7_49.338_VwB_BW.jpg?width=250"
+            />
+          </a>
+        </div>
+        <h3>Blue and White Cup</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 67.35%; background-color:#faf0e6;"></span><span style="width: 16.33%; background-color:#d3d3d3;"></span><span style="width: 8.16%; background-color:#a9a9a9;"></span><span style="width: 6.12%; background-color:#808080;"></span><span style="width: 2.04%; background-color:#696969;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Egyptian: Shu -664" href="http://art.thewalters.org/detail/37259"  style="background-image: url(http://static.thewalters.org/images/PL9_48.1683_3Qtr_SL_T.jpg?width=250);">
+            <img alt="WALTERS: Egyptian: Shu -664" src="http://static.thewalters.org/images/PL9_48.1683_3Qtr_SL_T.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Shu</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Egyptian</em></p>
+        <p class="signature"><span style="width: 41.00%; background-color:#faf0e6;"></span><span style="width: 24.00%; background-color:#696969;"></span><span style="width: 22.00%; background-color:#778899;"></span><span style="width: 9.00%; background-color:#2f4f4f;"></span><span style="width: 3.00%; background-color:#c0c0c0;"></span><span style="width: 1.00%; background-color:#708090;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Imamura Yoju: Flowers 1748" href="http://art.thewalters.org/detail/31272"  style="background-image: url(http://static.thewalters.org/images/PL2_35.162.001_Fnt_BW_T91.jpg?width=250);">
+            <img alt="WALTERS: Imamura Yoju: Flowers 1748" src="http://static.thewalters.org/images/PL2_35.162.001_Fnt_BW_T91.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Flowers</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Imamura Yoju</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Martín Rico y Ortega (Spanish, 1833-1908): Seville 1875" href="http://art.thewalters.org/detail/18310"  style="background-image: url(http://static.thewalters.org/images/PL1_37.972_Fnt_TR_TII.jpg?width=250);">
+            <img alt="WALTERS: Martín Rico y Ortega (Spanish, 1833-1908): Seville 1875" src="http://static.thewalters.org/images/PL1_37.972_Fnt_TR_TII.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Seville</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Martín Rico y Ortega (...</em></p>
+        <p class="signature"><span style="width: 39.60%; background-color:#faf0e6;"></span><span style="width: 22.77%; background-color:#a9a9a9;"></span><span style="width: 19.80%; background-color:#696969;"></span><span style="width: 11.88%; background-color:#d3d3d3;"></span><span style="width: 5.94%; background-color:#2f4f4f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Alfred Jacob Miller (American, 1810-1874): Shosohonee [sic] Indian Preparing His Meal 1858" href="http://art.thewalters.org/detail/17831"  style="background-image: url(http://static.thewalters.org/images/PL1_37.1940.24_Fnt_TR_II.jpg?width=250);">
+            <img alt="WALTERS: Alfred Jacob Miller (American, 1810-1874): Shosohonee [sic] Indian Preparing His Meal 1858" src="http://static.thewalters.org/images/PL1_37.1940.24_Fnt_TR_II.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Shosohonee [sic] India...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Alfred Jacob Miller (A...</em></p>
+        <p class="signature"><span style="width: 39.00%; background-color:#faf0e6;"></span><span style="width: 28.00%; background-color:#ffe4c4;"></span><span style="width: 9.00%; background-color:#bdb76b;"></span><span style="width: 9.00%; background-color:#800000;"></span><span style="width: 13.00%; background-color:#a0522d;"></span><span style="width: 2.00%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Jules-Auguste Habert-Dys (French, 1850-1924): One of a Pair of Vases 1866" href="http://art.thewalters.org/detail/4440"  style="background-image: url(http://static.thewalters.org/images/PL9_48.2743_3Qtr_SL_T.jpg?width=250);">
+            <img alt="WALTERS: Jules-Auguste Habert-Dys (French, 1850-1924): One of a Pair of Vases 1866" src="http://static.thewalters.org/images/PL9_48.2743_3Qtr_SL_T.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>One of a Pair of Vases</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Jules-Auguste Habert-D...</em></p>
+        <p class="signature"><span style="width: 43.68%; background-color:#faf0e6;"></span><span style="width: 18.39%; background-color:#dcdcdc;"></span><span style="width: 16.09%; background-color:#d2b48c;"></span><span style="width: 11.49%; background-color:#808080;"></span><span style="width: 10.34%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: RP-P-1961-123 1890" href="https://www.rijksmuseum.nl/en/collection/RP-P-1961-123"  style="background-image: url(http://lh5.ggpht.com/vvBZ5OxP8i6de59NQ5oUTTYIv9EXSeHk1518NqjyQGEAf1UhOGJdk703qwmYQccOqLXgqTX3xK89kP9KIOn3yPcAOjc=s155);">
+            <img alt="RIJKS: anoniem: RP-P-1961-123 1890" src="http://lh5.ggpht.com/vvBZ5OxP8i6de59NQ5oUTTYIv9EXSeHk1518NqjyQGEAf1UhOGJdk703qwmYQccOqLXgqTX3xK89kP9KIOn3yPcAOjc=s155" />
+          </a>    
+        </div>
+        <h3>RP-P-1961-123</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 44.44%; background-color:#f5deb3;"></span><span style="width: 34.34%; background-color:#faf0e6;"></span><span style="width: 13.13%; background-color:#696969;"></span><span style="width: 5.05%; background-color:#fa8072;"></span><span style="width: 3.03%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Vase with Autumn Flowers and Elephant Handles 1800" href="http://art.thewalters.org/detail/29449"  style="background-image: url(http://static.thewalters.org/images/PL9_49.2193_Fnt_BW_PL90.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Vase with Autumn Flowers and Elephant Handles 1800" src="http://static.thewalters.org/images/PL9_49.2193_Fnt_BW_PL90.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Vase with Autumn Flowe...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: Blue and White Cup 1700" href="http://art.thewalters.org/detail/10244"  style="background-image: url(http://static.thewalters.org/images/PL7_49.338_VwB_BW.jpg?width=250);">
+            <img alt="WALTERS: Chinese: Blue and White Cup 1700" src="http://static.thewalters.org/images/PL7_49.338_VwB_BW.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Blue and White Cup</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 67.35%; background-color:#faf0e6;"></span><span style="width: 16.33%; background-color:#d3d3d3;"></span><span style="width: 8.16%; background-color:#a9a9a9;"></span><span style="width: 6.12%; background-color:#808080;"></span><span style="width: 2.04%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Korean: Footed Jar 400" href="http://art.thewalters.org/detail/10135"  style="background-image: url(http://static.thewalters.org/images/PL9_49.2682_Fnt_SL_T.jpg?width=250);">
+            <img alt="WALTERS: Korean: Footed Jar 400" src="http://static.thewalters.org/images/PL9_49.2682_Fnt_SL_T.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Footed Jar</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Korean</em></p>
+        <p class="signature"><span style="width: 38.55%; background-color:#faf0e6;"></span><span style="width: 13.25%; background-color:#2f4f4f;"></span><span style="width: 12.05%; background-color:#556b2f;"></span><span style="width: 9.64%; background-color:#dcdcdc;"></span><span style="width: 9.64%; background-color:#808080;"></span><span style="width: 8.43%; background-color:#c0c0c0;"></span><span style="width: 8.43%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Incense Burner (&quot;Koro&quot;) in the Shape of a Hat 1800" href="http://art.thewalters.org/detail/37787"  style="background-image: url(http://static.thewalters.org/images/PL7_49.1382_Fnt_BW.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Incense Burner (&quot;Koro&quot;) in the Shape of a Hat 1800" src="http://static.thewalters.org/images/PL7_49.1382_Fnt_BW.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Incense Burner (&quot;Koro&quot;...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 34.07%; background-color:#faf0e6;"></span><span style="width: 27.47%; background-color:#dcdcdc;"></span><span style="width: 19.78%; background-color:#a9a9a9;"></span><span style="width: 12.09%; background-color:#696969;"></span><span style="width: 6.59%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Toyohara Kunichika (Japanese, 1835-1900): Kabuki Juhachiban no nai Kanjincho 1869" href="http://art.thewalters.org/detail/79292"  style="background-image: url(http://static.thewalters.org/images/PL2_95.343.1_Fnt_BW_T92.jpg?width=250);">
+            <img alt="WALTERS: Toyohara Kunichika (Japanese, 1835-1900): Kabuki Juhachiban no nai Kanjincho 1869" src="http://static.thewalters.org/images/PL2_95.343.1_Fnt_BW_T92.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Kabuki Juhachiban no n...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Toyohara Kunichika (Ja...</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: André-Henri Dargelas (French, 1828-1906): Boys Playing Marbles 1848" href="http://art.thewalters.org/detail/30148"  style="background-image: url(http://static.thewalters.org/images/ARG_37.1636_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: André-Henri Dargelas (French, 1828-1906): Boys Playing Marbles 1848" src="http://static.thewalters.org/images/ARG_37.1636_Fnt_UK.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Boys Playing Marbles</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>André-Henri Dargelas (...</em></p>
+        <p class="signature"><span style="width: 31.52%; background-color:#faf0e6;"></span><span style="width: 27.17%; background-color:#d3d3d3;"></span><span style="width: 16.30%; background-color:#c0c0c0;"></span><span style="width: 14.13%; background-color:#a9a9a9;"></span><span style="width: 10.87%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Mori Kansai (Japanese, 1814-1894): Kamigamo Shrine in Summer 1860" href="http://art.thewalters.org/detail/35616"  style="background-image: url(http://static.thewalters.org/images/PL1_35.147_Fnt_TR_T90III.jpg?width=250);">
+            <img alt="WALTERS: Mori Kansai (Japanese, 1814-1894): Kamigamo Shrine in Summer 1860" src="http://static.thewalters.org/images/PL1_35.147_Fnt_TR_T90III.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Kamigamo Shrine in Summer</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Mori Kansai (Japanese,...</em></p>
+        <p class="signature"><span style="width: 30.00%; background-color:#d2b48c;"></span><span style="width: 27.00%; background-color:#faf0e6;"></span><span style="width: 16.00%; background-color:#c0c0c0;"></span><span style="width: 14.00%; background-color:#2f4f4f;"></span><span style="width: 10.00%; background-color:#808080;"></span><span style="width: 3.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chokha (Indian, active 1800-1825) (?): Lovers in Dalliance 1800" href="http://art.thewalters.org/detail/14416"  style="background-image: url(http://static.thewalters.org/images/ARG_F.329_Fnt_UK.jpg?width=250);">
+            <img alt="WALTERS: Chokha (Indian, active 1800-1825) (?): Lovers in Dalliance 1800" src="http://static.thewalters.org/images/ARG_F.329_Fnt_UK.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Lovers in Dalliance</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chokha (Indian, active...</em></p>
+        <p class="signature"><span style="width: 35.05%; background-color:#a9a9a9;"></span><span style="width: 26.80%; background-color:#faf0e6;"></span><span style="width: 12.37%; background-color:#cd853f;"></span><span style="width: 9.28%; background-color:#bc8f8f;"></span><span style="width: 8.25%; background-color:#a52a2a;"></span><span style="width: 4.12%; background-color:#191970;"></span><span style="width: 4.12%; background-color:#000000;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Patanazzi family (Italian, active 16th-17th centuries): Ewer Basin with Leda and the Swan 1568" href="http://art.thewalters.org/detail/19350"  style="background-image: url(http://static.thewalters.org/images/PL9_48.1510_Fnt_SL_T85.jpg?width=250);">
+            <img alt="WALTERS: Patanazzi family (Italian, active 16th-17th centuries): Ewer Basin with Leda and the Swan 1568" src="http://static.thewalters.org/images/PL9_48.1510_Fnt_SL_T85.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Ewer Basin with Leda a...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Patanazzi family (Ital...</em></p>
+        <p class="signature"><span style="width: 25.25%; background-color:#000000;"></span><span style="width: 25.25%; background-color:#faf0e6;"></span><span style="width: 20.20%; background-color:#8b4513;"></span><span style="width: 16.16%; background-color:#808080;"></span><span style="width: 13.13%; background-color:#cd853f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Gerardina Jacoba Van De Sande Bakhuysen (Dutch, 1826-1895): Pansies 1863" href="http://art.thewalters.org/detail/22688"  style="background-image: url(http://static.thewalters.org/images/PS1_37.1263_Fnt_DD_T13.jpg?width=250);">
+            <img alt="WALTERS: Gerardina Jacoba Van De Sande Bakhuysen (Dutch, 1826-1895): Pansies 1863" src="http://static.thewalters.org/images/PS1_37.1263_Fnt_DD_T13.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Pansies</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Gerardina Jacoba Van D...</em></p>
+        <p class="signature"><span style="width: 59.79%; background-color:#faebd7;"></span><span style="width: 25.77%; background-color:#faf0e6;"></span><span style="width: 7.22%; background-color:#a9a9a9;"></span><span style="width: 3.09%; background-color:#000000;"></span><span style="width: 2.06%; background-color:#2f4f4f;"></span><span style="width: 2.06%; background-color:#696969;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Nazca: Stirrup-spout Bottle 200" href="http://art.thewalters.org/detail/80264"  style="background-image: url(http://static.thewalters.org/images/PS1_TL.2009.20.109_SideA_DD_T10.jpg?width=250);">
+            <img alt="WALTERS: Nazca: Stirrup-spout Bottle 200" src="http://static.thewalters.org/images/PS1_TL.2009.20.109_SideA_DD_T10.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Stirrup-spout Bottle</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Nazca</em></p>
+        <p class="signature"><span style="width: 28.24%; background-color:#faf0e6;"></span><span style="width: 27.06%; background-color:#000000;"></span><span style="width: 22.35%; background-color:#8b4513;"></span><span style="width: 20.00%; background-color:#2f4f4f;"></span><span style="width: 1.18%; background-color:#696969;"></span><span style="width: 1.18%; background-color:#bc8f8f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Chinese: Vase with a Scene from a Novel 1660" href="http://art.thewalters.org/detail/33029"  style="background-image: url(http://static.thewalters.org/images/PL7_49.201_Fnt_BW.jpg?width=250);">
+            <img alt="WALTERS: Chinese: Vase with a Scene from a Novel 1660" src="http://static.thewalters.org/images/PL7_49.201_Fnt_BW.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Vase with a Scene from...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Chinese</em></p>
+        <p class="signature"><span style="width: 40.00%; background-color:#f5f5f5;"></span><span style="width: 24.21%; background-color:#faf0e6;"></span><span style="width: 20.00%; background-color:#d3d3d3;"></span><span style="width: 4.21%; background-color:#2f4f4f;"></span><span style="width: 8.42%; background-color:#a9a9a9;"></span><span style="width: 3.16%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="RIJKS: anoniem: BK-NM-1010-359 1710" href="https://www.rijksmuseum.nl/en/collection/BK-NM-1010-359"  style="background-image: url(http://lh3.ggpht.com/pVW9A2F468kOOyZF3KKv2wtJNHMhW1_ZEEqgHsHV2ayJnGrClpYYhqqtt216ECJsaIlTXmOHyTVQZSKNoaTi0jA8AQ=s300);">
+            <img alt="RIJKS: anoniem: BK-NM-1010-359 1710" src="http://lh3.ggpht.com/pVW9A2F468kOOyZF3KKv2wtJNHMhW1_ZEEqgHsHV2ayJnGrClpYYhqqtt216ECJsaIlTXmOHyTVQZSKNoaTi0jA8AQ=s300" />
+          </a>    
+        </div>
+        <h3>BK-NM-1010-359</h3>
+        <span class="institution">RIJKS</span>    
+        <p class="artist"><em>anoniem</em></p>
+        <p class="signature"><span style="width: 24.00%; background-color:#8b4513;"></span><span style="width: 22.00%; background-color:#dcdcdc;"></span><span style="width: 21.00%; background-color:#faf0e6;"></span><span style="width: 17.00%; background-color:#000000;"></span><span style="width: 9.00%; background-color:#bdb76b;"></span><span style="width: 7.00%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Ethiopian: Scroll with Angels and Talismans 1700" href="http://art.thewalters.org/detail/1715"  style="background-image: url(http://static.thewalters.org/images/CPS_W.788_PcE_DD.jpg?width=150);">
+            <img alt="WALTERS: Ethiopian: Scroll with Angels and Talismans 1700" src="http://static.thewalters.org/images/CPS_W.788_PcE_DD.jpg?width=150" />
+          </a>    
+        </div>
+        <h3>Scroll with Angels and...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Ethiopian</em></p>
+        <p class="signature"><span style="width: 56.70%; background-color:#a0522d;"></span><span style="width: 20.62%; background-color:#faf0e6;"></span><span style="width: 16.49%; background-color:#cd853f;"></span><span style="width: 6.19%; background-color:#556b2f;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Toyohara Kunichika (Japanese, 1835-1900): Nise Murasaki Inaka Genji 1867" href="http://art.thewalters.org/detail/79272"  style="background-image: url(http://static.thewalters.org/images/PL2_95.340.1_Fnt_BW_T92.jpg?width=250);">
+            <img alt="WALTERS: Toyohara Kunichika (Japanese, 1835-1900): Nise Murasaki Inaka Genji 1867" src="http://static.thewalters.org/images/PL2_95.340.1_Fnt_BW_T92.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Nise Murasaki Inaka Genji</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Toyohara Kunichika (Ja...</em></p>
+        <p class="signature"><span style="width: 100.00%; background-color:#faf0e6;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greek: Red-figure Pyxis and Cover with Women and Erotes -382" href="http://art.thewalters.org/detail/6514"  style="background-image: url(http://static.thewalters.org/images/PS1_48.264_Fnt_DD_T08.jpg?width=250);">
+            <img alt="WALTERS: Greek: Red-figure Pyxis and Cover with Women and Erotes -382" src="http://static.thewalters.org/images/PS1_48.264_Fnt_DD_T08.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Red-figure Pyxis and C...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greek</em></p>
+        <p class="signature"><span style="width: 31.31%; background-color:#696969;"></span><span style="width: 19.19%; background-color:#faf0e6;"></span><span style="width: 15.15%; background-color:#a9a9a9;"></span><span style="width: 15.15%; background-color:#556b2f;"></span><span style="width: 8.08%; background-color:#cd853f;"></span><span style="width: 6.06%; background-color:#000000;"></span><span style="width: 5.05%; background-color:#a0522d;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Greek: Aryballos in the Form of Head of an African -492" href="http://art.thewalters.org/detail/4096"  style="background-image: url(http://static.thewalters.org/images/PS1_48.2017_3QtrLft_DD_T11.jpg?width=250);">
+            <img alt="WALTERS: Greek: Aryballos in the Form of Head of an African -492" src="http://static.thewalters.org/images/PS1_48.2017_3QtrLft_DD_T11.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Aryballos in the Form ...</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Greek</em></p>
+        <p class="signature"><span style="width: 54.84%; background-color:#2f4f4f;"></span><span style="width: 19.35%; background-color:#faf0e6;"></span><span style="width: 8.60%; background-color:#696969;"></span><span style="width: 7.53%; background-color:#c0c0c0;"></span><span style="width: 5.38%; background-color:#a9a9a9;"></span><span style="width: 4.30%; background-color:#808080;"></span></p>
+      </li>
+      
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="WALTERS: Japanese: Gourd-Shaped Sake Bottle 1675" href="http://art.thewalters.org/detail/4888"  style="background-image: url(http://static.thewalters.org/images/PS1_49.2162_Fnt_DD_T09.jpg?width=250);">
+            <img alt="WALTERS: Japanese: Gourd-Shaped Sake Bottle 1675" src="http://static.thewalters.org/images/PS1_49.2162_Fnt_DD_T09.jpg?width=250" />
+          </a>    
+        </div>
+        <h3>Gourd-Shaped Sake Bottle</h3>
+        <span class="institution">WALTERS</span>    
+        <p class="artist"><em>Japanese</em></p>
+        <p class="signature"><span style="width: 51.00%; background-color:#2f4f4f;"></span><span style="width: 19.00%; background-color:#808080;"></span><span style="width: 18.00%; background-color:#faf0e6;"></span><span style="width: 6.00%; background-color:#191970;"></span><span style="width: 6.00%; background-color:#a9a9a9;"></span></p>
+      </li>
+      
+    </ul>
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>    
+</div>
+</div>
+		<script src="/static/jquery.min.js"></script>
+		
+<script src="/static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    var total_palette = 445;
+    $('#colour-list div a').each(function(i, ele){
+      var h = $(ele).text();
+      var log = Math.log(h) * 20;
+      $(ele).parent().css('height', (log + 11) + 'px');
+      $(ele).css('visibility', 'visible');
+      ele.innerHTML = '';  
+    });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
+    $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
+    $('#fullpage').fullpage();
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52506332-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>
