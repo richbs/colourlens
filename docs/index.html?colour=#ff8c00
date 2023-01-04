@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Colour Lens</title>
 		
-<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link rel="stylesheet" href="static/jquery.fullPage.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
 <style type="text/css">
 * {
@@ -149,24 +149,24 @@ p.signature {
   <div class="section">
     <div id="colour-page">
     <div style="width: 33.13%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
-      <a href="/?colour=%23ff8c00&amp;colour=%23000000">1</a>
+      <a href="?colour=%23ff8c00&amp;colour=%23000000">1</a>
     </div><div style="width: 33.13%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
-      <a href="/?colour=%23ff8c00&amp;colour=%238b4513">1</a>
+      <a href="?colour=%23ff8c00&amp;colour=%238b4513">1</a>
     </div><div style="width: 33.13%; height:100px; margin:0; padding:0; background-color:#ff8c00; display:inline-block;">
-      <a href="/?colour=%23ff8c00&amp;colour=%23ff8c00">1</a>
+      <a href="?colour=%23ff8c00&amp;colour=%23ff8c00">1</a>
     </div>
     </div>
   </div>
   <div class="section active">
     <div id="colour-list">
       <div style="width: 33.13%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
-        <a href="/?colour=%23ff8c00&amp;colour=%23000000">1</a>
+        <a href="?colour=%23ff8c00&amp;colour=%23000000">1</a>
           
       </div><div style="width: 33.13%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
-        <a href="/?colour=%23ff8c00&amp;colour=%238b4513">1</a>
+        <a href="?colour=%23ff8c00&amp;colour=%238b4513">1</a>
           
       </div><div style="width: 33.13%; height:100px; margin:0; padding:0; background-color:#ff8c00; display:inline-block;">
-        <a href="/?colour=%23ff8c00&amp;colour=%23ff8c00">1</a>
+        <a href="?colour=%23ff8c00&amp;colour=%23ff8c00">1</a>
         <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#ff8c00;"></span>  
       </div>
     </div>
@@ -175,11 +175,11 @@ p.signature {
       <p>An experiment in visualisation as navigation</p>
       <em>1 results</em><h2>3 colours in this set</h2>
       <p id="institution-nav">
-        <a class="selected" href="/">ALL</a>
+        <a class="selected" href="">ALL</a>
         
-        <a class="" href="/RIJKS">RIJKS</a>
+        <a class="" href="RIJKS">RIJKS</a>
       
-        <a class="" href="/WALTERS">WALTERS</a>
+        <a class="" href="WALTERS">WALTERS</a>
       </p>
     </div>
     <ul class="explorerWorks explorerGrid">
@@ -208,10 +208,10 @@ p.signature {
   </div>    
 </div>
 </div>
-		<script src="/static/jquery.min.js"></script>
+		<script src="static/jquery.min.js"></script>
 		
-<script src="/static/vendors/jquery.easings.min.js"></script>
-<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script src="static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="static/jquery.fullPage.min.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {

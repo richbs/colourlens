@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Colour Lens</title>
 		
-<link rel="stylesheet" href="/static/jquery.fullPage.css" type="text/css">
+<link rel="stylesheet" href="static/jquery.fullPage.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
 <style type="text/css">
 * {
@@ -149,99 +149,99 @@ p.signature {
   <div class="section">
     <div id="colour-page">
     <div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23696969">3</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23696969">3</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23a52a2a">2</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23a52a2a">2</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23cd5c5c">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23cd5c5c">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23808080">2</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23808080">2</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23000000">4</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23000000">4</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23a9a9a9">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23a9a9a9">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23ffffff">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23ffffff">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#8b0000; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%238b0000">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%238b0000">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23fffafa">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23fffafa">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23e9967a">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23e9967a">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#ff4500; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23ff4500">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23ff4500">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23a0522d">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23a0522d">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%238b4513">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%238b4513">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23cd853f">3</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23cd853f">3</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23f5deb3">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23f5deb3">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%232f4f4f">2</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%232f4f4f">2</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23b0c4de">1</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23b0c4de">1</a>
     </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
-      <a href="/?colour=%23ffb6c1&amp;colour=%23ffb6c1">5</a>
+      <a href="?colour=%23ffb6c1&amp;colour=%23ffb6c1">5</a>
     </div>
     </div>
   </div>
   <div class="section active">
     <div id="colour-list">
       <div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#696969; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23696969">3</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23696969">3</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a52a2a; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23a52a2a">2</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23a52a2a">2</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd5c5c; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23cd5c5c">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23cd5c5c">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#808080; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23808080">2</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23808080">2</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#000000; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23000000">4</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23000000">4</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a9a9a9; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23a9a9a9">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23a9a9a9">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#ffffff; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23ffffff">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23ffffff">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#8b0000; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%238b0000">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%238b0000">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#fffafa; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23fffafa">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23fffafa">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#e9967a; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23e9967a">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23e9967a">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#ff4500; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23ff4500">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23ff4500">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#a0522d; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23a0522d">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23a0522d">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#8b4513; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%238b4513">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%238b4513">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#cd853f; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23cd853f">3</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23cd853f">3</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#f5deb3; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23f5deb3">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23f5deb3">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#2f4f4f; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%232f4f4f">2</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%232f4f4f">2</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#b0c4de; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23b0c4de">1</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23b0c4de">1</a>
           
       </div><div style="width: 5.52%; height:100px; margin:0; padding:0; background-color:#ffb6c1; display:inline-block;">
-        <a href="/?colour=%23ffb6c1&amp;colour=%23ffb6c1">5</a>
+        <a href="?colour=%23ffb6c1&amp;colour=%23ffb6c1">5</a>
         <span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:#ffb6c1;"></span>  
       </div>
     </div>
@@ -250,11 +250,11 @@ p.signature {
       <p>An experiment in visualisation as navigation</p>
       <em>5 results</em><h2>18 colours in this set</h2>
       <p id="institution-nav">
-        <a class="selected" href="/">ALL</a>
+        <a class="selected" href="">ALL</a>
         
-        <a class="" href="/RIJKS">RIJKS</a>
+        <a class="" href="RIJKS">RIJKS</a>
       
-        <a class="" href="/WALTERS">WALTERS</a>
+        <a class="" href="WALTERS">WALTERS</a>
       </p>
     </div>
     <ul class="explorerWorks explorerGrid">
@@ -335,10 +335,10 @@ p.signature {
   </div>    
 </div>
 </div>
-		<script src="/static/jquery.min.js"></script>
+		<script src="static/jquery.min.js"></script>
 		
-<script src="/static/vendors/jquery.easings.min.js"></script>
-<script type="text/javascript" src="/static/jquery.fullPage.min.js"></script>
+<script src="static/vendors/jquery.easings.min.js"></script>
+<script type="text/javascript" src="static/jquery.fullPage.min.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
