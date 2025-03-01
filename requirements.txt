@@ -1,9 +1,9 @@
 Django<=1.7
--e git://github.com/richbs/RoyGBiv.git#egg=roygbiv
--e git://github.com/richbs/py-cooperhewitt-swatchbook.git#egg=cooperhewitt
+-e git+https://github.com/richbs/RoyGBiv.git#egg=roygbiv
+-e git+https://github.com/richbs/py-cooperhewitt-swatchbook.git#egg=cooperhewitt
 colormath<2
 webcolors
-django-debug-toolbar
+django-debug-toolbar<=1.4
 feedparser
 beautifulsoup4
 # heroku
