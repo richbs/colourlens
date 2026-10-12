@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.views.decorators.cache import cache_page
 from colourlens.models import Artwork, Colour
+from functools import reduce
 
 PROM_ATTRS = {'min': '0', 'max': '100', 'step': '5'}
 DIST_ATTRS = {'min': '0', 'max': '50', 'step': '1'}
@@ -22,7 +23,7 @@ class ColourForm(forms.Form):
         """
         super(ColourForm, self).__init__(*args, **kwargs)
 
-        for k, v in self.fields.iteritems():
+        for k, v in self.fields.items():
             if v.widget.__class__ == forms.CheckboxInput:
                 v.widget.attrs['class'] = 'colourbox'
             elif v.widget.__class__ == RangeInput:

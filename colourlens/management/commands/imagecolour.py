@@ -4,7 +4,8 @@ import feedparser
 import json
 import os
 import re
-import urllib
+from urllib.parse import urlencode
+from urllib.request import urlopen
 from django.core.management.base import BaseCommand
 from colourlens.models import Artwork
 from optparse import make_option
@@ -13,7 +14,7 @@ import io
 
 def itunes_rss_color(rss_url):
 
-    print rss_url
+    print(rss_url)
     d = feedparser.parse(rss_url)
     for e in d.entries:
         html_doc = e['content'][0]['value']
@@ -76,7 +77,7 @@ class Command(BaseCommand):
             return "Foo"
 
     def handle(self, *args, **options):
-        print 'Images'
+        print('Images')
         input_dir = options['input_dir']
         institution = options['institution']
         api_key = options['apikey']
@@ -93,9 +94,9 @@ class Command(BaseCommand):
 
             while offset < 400:
                 params['from'] = offset
-                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
-                print req_url
-                req = urllib.urlopen(req_url)
+                req_url = "%s?%s" % (api_url, urlencode(params))
+                print(req_url)
+                req = urlopen(req_url)
                 response = json.load(req)
                 for rec in response['records']:
                     if 'primaryimageurl' not in rec:
@@ -104,7 +105,7 @@ class Command(BaseCommand):
                         continue
                     image_url = rec['primaryimageurl'].split('?')[0] + \
                         "?width=255&height=255"
-                    print image_url
+                    print(image_url)
                     object_number = rec['objectnumber']
                     aw = Artwork.from_url(
                         object_number,
@@ -139,16 +140,16 @@ class Command(BaseCommand):
             while page < 200:
                 page += 1
                 params['p'] = page
-                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
-                print req_url
-                req = urllib.urlopen(req_url)
+                req_url = "%s?%s" % (api_url, urlencode(params))
+                print(req_url)
+                req = urlopen(req_url)
                 response = json.load(req)
                 for rec in response['artObjects']:
                     object_id = rec['objectNumber']
                     if not rec['webImage']:
                         continue
                     image_url = rec['webImage']['url'].replace('=s0', '=s300')
-                    print image_url
+                    print(image_url)
                     aw = Artwork.from_url(
                         object_id,
                         institution,
@@ -187,8 +188,8 @@ class Command(BaseCommand):
                     rss_url = rss_base % (l, c)
                     try:
                         itunes_rss_color(rss_url)
-                    except Exception, e:
-                        print e
+                    except Exception as e:
+                        print(e)
                         continue
 
 
@@ -208,9 +209,9 @@ class Command(BaseCommand):
             while page < 200:
                 page += 1
                 params['Page'] = page
-                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
-                print req_url
-                req = urllib.urlopen(req_url)
+                req_url = "%s?%s" % (api_url, urlencode(params))
+                print(req_url)
+                req = urlopen(req_url)
                 response = json.load(req)
                 for rec in response['Items']:
                     object_id = rec['ObjectNumber']
@@ -231,7 +232,7 @@ class Command(BaseCommand):
                         aw.artist = rec['Creator']
                     if rec['DateBeginYear']:
                         aw.year = rec['DateBeginYear']
-                    print aw.image_url
+                    print(aw.image_url)
                     aw.save()
 
         if options['filedata']:
@@ -244,7 +245,7 @@ class Command(BaseCommand):
 
                     if row['thumbnailUrl']:
                         image_url = row['thumbnailUrl']
-                        print image_url
+                        print(image_url)
                         aw = Artwork.from_url(
                             row['accession_number'],
                             institution,
@@ -268,7 +269,7 @@ class Command(BaseCommand):
                         url = "http://collection.mam.org/details.php?id=%s" % (acno)
                         jpg = fields[25]
                         image_url = "http://collection.mam.org/vmedia/thumbnails/%s" % (jpg)
-                        print acno, image_url
+                        print(acno, image_url)
                         aw = Artwork.from_url(
                             acno,
                             institution,
@@ -290,7 +291,7 @@ class Command(BaseCommand):
                         acno = fields[1]
                         url = "http://%s" % (fields[2].rstrip())
                         image_url = "http://%s" % (fields[1])
-                        print image_url
+                        print(image_url)
                         aw = Artwork.from_url(
                             acno,
                             institution,
@@ -331,7 +332,7 @@ class Command(BaseCommand):
                             aw.title = title
                             aw.image_url = image_url
                             aw.year = year
-                            print title, acno, year
+                            print(title, acno, year)
                             aw.url = 'http://collections.vam.ac.uk/item/%s' % (
                                 acno
                             )
@@ -340,6 +341,6 @@ class Command(BaseCommand):
 
 def url_to_imagefile(url):
 
-    response = urllib.urlopen(url)
+    response = urlopen(url)
     im_bytes = response.read()
     return io.BytesIO(im_bytes)

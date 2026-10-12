@@ -2,9 +2,10 @@ from django.db import models
 from django.db.models.signals import pre_save
 from decimal import Decimal
 import math
-import urllib
+from urllib.request import urlopen
 import io
 import json
+from functools import reduce
 from roygbiv import Roygbiv
 from colourlens.utils import ArtColour
 
@@ -52,10 +53,10 @@ class Artwork(models.Model):
     @classmethod
     def from_url(cls, accession_number, institution, image_url):
         try:
-            response = urllib.urlopen(image_url)
+            response = urlopen(image_url)
             im_bytes = response.read()
-        except IOError, e:
-            print e
+        except IOError as e:
+            print(e)
             return None
         aw = Artwork.from_file(
             accession_number,
@@ -79,8 +80,8 @@ class Artwork(models.Model):
         aw.image_url = "file://%s" % filename
         try:
             roy_im = Roygbiv(filename)
-        except IOError, e:
-            print e
+        except IOError as e:
+            print(e)
             return None
         p = roy_im.get_palette()
         for palette_colour in p.colors:
