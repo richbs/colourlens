@@ -6,7 +6,7 @@ from urllib.request import urlopen
 import io
 import json
 from functools import reduce
-from roygbiv import Roygbiv
+from roygbiv import *
 from colourlens.utils import ArtColour
 
 TWOPLACES = Decimal(10) ** -2
@@ -118,8 +118,8 @@ class ColourDistance(models.Model):
     """
     Join Model with distance field added to show proximity to colour
     """
-    artwork = models.ForeignKey(Artwork)
-    colour = models.ForeignKey(Colour)
+    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
+    colour = models.ForeignKey(Colour, on_delete=models.CASCADE)
     red = models.IntegerField(blank=False, null=True)
     green = models.IntegerField(blank=False, null=True)
     blue = models.IntegerField(blank=False, null=True)
