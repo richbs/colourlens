@@ -77,10 +77,10 @@ def leeds_record_fields(record):
             break
 
     if image_service_url:
-        image_url = '%s/full/!100,100/0/default.jpg' % image_service_url.rstrip('/')
+        image_url = '%s/full/!200,200/0/default.jpg' % image_service_url.rstrip('/')
     elif image_url and '/full/' in image_url:
         image_service_url = image_url.rsplit('/full/', 1)[0]
-        image_url = '%s/full/!100,100/0/default.jpg' % image_service_url.rstrip('/')
+        image_url = '%s/full/!200,200/0/default.jpg' % image_service_url.rstrip('/')
 
     record_url = None
     for subject in record.get('subject_of', []):

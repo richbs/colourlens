@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}Colour Lens{% endblock title %}
 
@@ -30,7 +30,7 @@
       <p id="institution-nav">
         <a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
         {% for i in institutions %}
-        <a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution|urlencode }}">{{ i.institution|upper }}</a>
+        <a class="{% if institution == i.institution %}selected{% endif %}" href="{% url 'colour_index' %}{{ i.institution|urlencode }}">{{ i.institution|upper }}</a>
       {% endfor %}</p>
     </div>
     <ul class="explorerWorks explorerGrid">

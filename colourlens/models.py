@@ -139,7 +139,8 @@ class ColourDistance(models.Model):
 
 
 def artwork_proportions(sender, instance, **kwargs):
-    if instance.colourdistance_set.count() > 0:
+
+    if instance.pk and instance.colourdistance_set.count() > 0:
         total_area = reduce(
             lambda x, y: x+y,
             [cd.prominence for cd in instance.colourdistance_set.all()]
@@ -158,6 +159,8 @@ def calculate_colour_presence(sender, instance, **kwargs):
     Calculates colour "presence" in image. This is distance as
     a factor of colour area
     """
+    if instance.pk is None:
+        return
     if instance.prominence < 0.01:
         instance.prominence = 0.01
     if instance.distance and instance.prominence:

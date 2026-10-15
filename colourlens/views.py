@@ -127,6 +127,5 @@ def index(request, institution=False):
         'institutions': institutions,
         'req_colours': req_colours,
     }
-    c = RequestContext(request, context_data)
 
-    return HttpResponse(t.render(c))
+    return HttpResponse(t.render(context_data, request))
