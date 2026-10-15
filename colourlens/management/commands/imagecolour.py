@@ -6,9 +6,8 @@ import os
 import re
 from urllib.parse import urlencode
 from urllib.request import urlopen
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from colourlens.models import Artwork
-from optparse import make_option
 import io
 
 
@@ -34,39 +33,101 @@ def itunes_rss_color(rss_url):
         aw.save()
 
 
+def leeds_record_fields(record):
+    """Extract the fields needed to create an Artwork from a Leeds record."""
+    identifiers = []
+    title = record.get('_label')
+    for identified in record.get('identified_by', []):
+        labels = {
+            classification.get('_label')
+            for classification in identified.get('classified_as', [])
+        }
+        content = identified.get('content')
+        if identified.get('type') == 'Identifier' and content:
+            if 'Accession Number' in labels:
+                identifiers.insert(0, content)
+            elif 'Local Number' in labels:
+                identifiers.append(content)
+        elif identified.get('type') == 'Name' and content and 'Primary Name' in labels:
+            title = content
+
+    accession_number = next(
+        (identifier for identifier in identifiers if identifier),
+        record.get('id', '').rstrip('/').rsplit('/', 1)[-1],
+    )
+
+    image_service_url = None
+    image_url = None
+    for representation in record.get('representation', []):
+        for visual_item in representation.get('digitally_shown_by', []):
+            for access_point in visual_item.get('access_point', []):
+                image_url = access_point.get('id')
+                if image_url:
+                    break
+            for service in visual_item.get('digitally_available_via', []):
+                for access_point in service.get('access_point', []):
+                    image_service_url = access_point.get('id')
+                    if image_service_url:
+                        break
+                if image_service_url:
+                    break
+            if image_url:
+                break
+        if image_url:
+            break
+
+    if image_service_url:
+        image_url = '%s/full/!100,100/0/default.jpg' % image_service_url.rstrip('/')
+    elif image_url and '/full/' in image_url:
+        image_service_url = image_url.rsplit('/full/', 1)[0]
+        image_url = '%s/full/!100,100/0/default.jpg' % image_service_url.rstrip('/')
+
+    record_url = None
+    for subject in record.get('subject_of', []):
+        for digital_object in subject.get('digitally_carried_by', []):
+            is_web_page = any(
+                classification.get('_label') == 'Web Page'
+                for classification in digital_object.get('classified_as', [])
+            )
+            if is_web_page:
+                record_url = next(
+                    (point.get('id') for point in digital_object.get('access_point', [])
+                     if point.get('id')),
+                    None,
+                )
+                if record_url:
+                    break
+        if record_url:
+            break
+
+    return {
+        'accession_number': accession_number,
+        'title': title or accession_number,
+        'image_url': image_url,
+        'url': record_url,
+    }
+
+
 class Command(BaseCommand):
     help = "Image colour palettes from open data CSV or directory of files"
 
-    option_list = BaseCommand.option_list + (
-        make_option("-f", "--filename",
-                    dest="filedata",
-                    type="string",
-                    action="store",
-                    help="Image data file/list",
-                    default=None,
-                    ),
-        make_option("-d", "--dir",
-                    dest="input_dir",
-                    type="string",
-                    action="store",
-                    default=None,
-                    help="Directory brimful of images or json"
-                    ),
-        make_option("-i", "--institution",
-                    dest="institution",
-                    type="string",
-                    action="store",
-                    default="TATE",
-                    help="Institution"
-                    ),
-        make_option("-a", "--apikey",
-                    dest="apikey",
-                    type="string",
-                    action="store",
-                    default="",
-                    help="The API Key from this institution"
-                    ),
-    )
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "-f", "--filename", dest="filedata",
+            help="Image data file/list",
+        )
+        parser.add_argument(
+            "-d", "--dir", dest="input_dir",
+            help="Directory brimful of images or JSON",
+        )
+        parser.add_argument(
+            "-i", "--institution", dest="institution", default="TATE",
+            help="Institution",
+        )
+        parser.add_argument(
+            "-a", "--apikey", dest="apikey", default="",
+            help="The API key from this institution",
+        )
 
     def get_acno(self, filename):
         urlre = re.compile(r'^.*?([A-z0-9]+?)(?:_[0-9]+)?.jpg$')
@@ -77,10 +138,12 @@ class Command(BaseCommand):
             return "Foo"
 
     def handle(self, *args, **options):
-        print('Images')
         input_dir = options['input_dir']
         institution = options['institution']
         api_key = options['apikey']
+        if not options['filedata'] and not input_dir and institution == "TATE":
+            raise CommandError("Provide an image source with --filename or --dir.")
+        print('Images')
         if institution == "HARVARD":
 
             offset = 0
@@ -310,6 +373,7 @@ class Command(BaseCommand):
                     if full_im.endswith('.jpg') or full_im.endswith('.png'):
                         aw = Artwork.from_file(acno, institution, full_im)
                     elif full_im.endswith('.json'):
+                        print("Processing JSON file:", full_im)
                         f = open(full_im)
                         json_data = f.read()
                         pdata = json.loads(json_data)
@@ -337,7 +401,24 @@ class Command(BaseCommand):
                                 acno
                             )
                             aw.save()
-
+                        elif institution == "LEEDS":
+                            fields = leeds_record_fields(pdata)
+                            if not fields['image_url']:
+                                self.stderr.write(
+                                    "Skipping Leeds record without an image: %s" % full_im
+                                )
+                                continue
+                            aw = Artwork.from_url(
+                                fields['accession_number'],
+                                institution,
+                                fields['image_url'],
+                            )
+                            if not aw:
+                                continue
+                            aw.title = fields['title']
+                            if fields['url']:
+                                aw.url = fields['url']
+                            aw.save()
 
 def url_to_imagefile(url):
 
