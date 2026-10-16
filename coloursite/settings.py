@@ -84,9 +84,7 @@ SECRET_KEY = '4v_ti^y#9&b^)nz9epc%in6%7swg_0^wngs1u%@shhz)00ck7q'
 
 # List of callables that know how to import templates from various sources.
 MIDDLEWARE = (
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -94,6 +92,13 @@ MIDDLEWARE = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+if not DEBUG:
+    MIDDLEWARE = (
+        'django.middleware.cache.UpdateCacheMiddleware',
+    ) + MIDDLEWARE + (
+        'django.middleware.cache.FetchFromCacheMiddleware',
+    )
 
 ROOT_URLCONF = 'coloursite.urls'
 

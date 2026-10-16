@@ -1,6 +1,5 @@
 Django<5
  -e git+https://github.com/richbs/RoyGBiv.git#egg=roygbiv
-#-e git+https://github.com/richbs/py-cooperhewitt-swatchbook.git#egg=cooperhewitt
 cooperhewitt-swatchbook @ git+https://github.com/cooperhewitt/py-cooperhewitt-swatchbook.git
 django-debug-toolbar
 feedparser
