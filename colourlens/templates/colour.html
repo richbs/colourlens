@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}Colour Lens{% endblock title %}
 
@@ -12,14 +12,14 @@
   <div class="section">
     <div id="colour-page">
     {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
-      <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
+      <a href="{{ request.path }}?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}colour={{ c.hex_value|urlencode }}">{{ c.artwork__count }}</a>
     </div>{% endfor %}
     </div>
   </div>
   <div class="section active">
     <div id="colour-list">
       {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
-        <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&amp;{% else %}?{% endif %}colour={{c.hex_value|urlencode}}">{{ c.artwork__count }}</a>
+        <a href="{{ request.path }}?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}colour={{ c.hex_value|urlencode }}">{{ c.artwork__count }}</a>
         {% if c.hex_value in req_colours %}<span class="selected" style="width:100%; height:3px; margin:6px auto 0 auto; background-color:{{ c.hex_value }};"></span>{% else %}{% endif %}  
       </div>{% endfor %}
     </div>
@@ -30,7 +30,7 @@
       <p id="institution-nav">
         <a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
         {% for i in institutions %}
-        <a class="{% ifequal institution i.institution %}selected{% endifequal %}" href="{% url 'colour_index' %}{{ i.institution|urlencode }}">{{ i.institution|upper }}</a>
+        <a class="{% if institution == i.institution %}selected{% endif %}" href="{% url 'colour_index' %}{{ i.institution|urlencode }}">{{ i.institution|upper }}</a>
       {% endfor %}</p>
     </div>
     <ul class="explorerWorks explorerGrid">
@@ -49,11 +49,13 @@
       </li>
       {% endfor %}
     </ul>
+    {% if artworks|length <= 24 %}{% include "pagination.html" %}{% endif %}
     <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
   </div>
+  {% if artworks|length > 24 %}
   <div class="section">
     <ul class="explorerWorks explorerGrid">
-      {% for a in artworks|slice:"16:48" %}
+      {% for a in artworks|slice:"24:48" %}
       <li class="grid-work">
         <div class="grid-work-image">
           <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
@@ -67,8 +69,10 @@
       </li>
       {% endfor %}
     </ul>
+    {% include "pagination.html" %}
     <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
-  </div>    
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
 {% block extrascript %}
@@ -231,6 +235,15 @@ p.signature {
 
 .tableCell {
   vertical-align: top;
+}
+
+#page-nav a {
+  color: #666;
+  font-weight: 800;
+  text-decoration: none;
+  padding-bottom: 3px;
+  margin-right: 20px;
+  border-bottom: 3px solid #666;
 }
 </style>
 {% endblock extrahead %}

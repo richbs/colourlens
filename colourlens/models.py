@@ -2,10 +2,11 @@ from django.db import models
 from django.db.models.signals import pre_save
 from decimal import Decimal
 import math
-import urllib
+from urllib.request import urlopen
 import io
 import json
-from roygbiv import Roygbiv
+from functools import reduce
+from roygbiv import *
 from colourlens.utils import ArtColour
 
 TWOPLACES = Decimal(10) ** -2
@@ -23,8 +24,8 @@ class Colour(models.Model):
     hue = models.IntegerField(blank=True, null=True, db_index=True)
     elite = models.BooleanField(default=False)
 
-    def __unicode__(self):
-        return u"%s" % (self.name)
+    def __str__(self):
+        return "%s" % (self.name)
 
 
 class Artwork(models.Model):
@@ -52,10 +53,10 @@ class Artwork(models.Model):
     @classmethod
     def from_url(cls, accession_number, institution, image_url):
         try:
-            response = urllib.urlopen(image_url)
+            response = urlopen(image_url)
             im_bytes = response.read()
-        except IOError, e:
-            print e
+        except IOError as e:
+            print(e)
             return None
         aw = Artwork.from_file(
             accession_number,
@@ -79,8 +80,8 @@ class Artwork(models.Model):
         aw.image_url = "file://%s" % filename
         try:
             roy_im = Roygbiv(filename)
-        except IOError, e:
-            print e
+        except IOError as e:
+            print(e)
             return None
         p = roy_im.get_palette()
         for palette_colour in p.colors:
@@ -109,16 +110,16 @@ class Artwork(models.Model):
         aw.save()
         return aw
 
-    def __unicode__(self):
-        return u"%s" % (self.accession_number)
+    def __str__(self):
+        return "%s" % (self.accession_number)
 
 
 class ColourDistance(models.Model):
     """
     Join Model with distance field added to show proximity to colour
     """
-    artwork = models.ForeignKey(Artwork)
-    colour = models.ForeignKey(Colour)
+    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
+    colour = models.ForeignKey(Colour, on_delete=models.CASCADE)
     red = models.IntegerField(blank=False, null=True)
     green = models.IntegerField(blank=False, null=True)
     blue = models.IntegerField(blank=False, null=True)
@@ -132,13 +133,14 @@ class ColourDistance(models.Model):
     class Meta:
         unique_together = ('artwork', 'colour')
 
-    def __unicode__(self):
-        return u"s%s %s d:%s p:%s" % (self.artwork, self.colour,
-                                      self.distance, self.prominence)
+    def __str__(self):
+        return "%s %s d:%s p:%s" % (self.artwork, self.colour,
+                                    self.distance, self.prominence)
 
 
 def artwork_proportions(sender, instance, **kwargs):
-    if instance.colourdistance_set.count() > 0:
+
+    if instance.pk and instance.colourdistance_set.count() > 0:
         total_area = reduce(
             lambda x, y: x+y,
             [cd.prominence for cd in instance.colourdistance_set.all()]
@@ -157,6 +159,8 @@ def calculate_colour_presence(sender, instance, **kwargs):
     Calculates colour "presence" in image. This is distance as
     a factor of colour area
     """
+    if instance.pk is None:
+        return
     if instance.prominence < 0.01:
         instance.prominence = 0.01
     if instance.distance and instance.prominence:

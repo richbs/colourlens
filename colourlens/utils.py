@@ -51,7 +51,7 @@ class ArtColour:
 
         self.rgb = (r, g, b)
         self.prominence = prominence
-        (self.red, self.blue, self.green) = (r, g, b)
+        (self.red, self.green, self.blue) = (r, g, b)
         self.hsv = self.rgb_to_hsv(r, g, b)
         (self.hue, self.sat, self.val) = \
             (self.hsv[0], self.hsv[1], self.hsv[2])
@@ -80,7 +80,7 @@ class ArtColour:
     def rgb_reduce(self, r, g, b):
 
         reduced_rgb = [int(6 * float(val) / 256)
-                       * (256/6) for val in (r, g, b)]
+                       * (256//6) for val in (r, g, b)]
         return tuple(reduced_rgb)
 
     def spin(self, deg):
@@ -98,7 +98,7 @@ class ArtColour:
         self.shortest_distance = 100
         chosen_name = None
         for color_dict in (COLOURS, GREYSCALE):
-            for name, color in color_dict.iteritems():
+            for name, color in color_dict.items():
                 desired_rgb = color[0]
 
                 target = RGBColor(*desired_rgb)

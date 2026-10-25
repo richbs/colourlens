@@ -4,16 +4,16 @@ import feedparser
 import json
 import os
 import re
-import urllib
-from django.core.management.base import BaseCommand
+from urllib.parse import urlencode
+from urllib.request import urlopen
+from django.core.management.base import BaseCommand, CommandError
 from colourlens.models import Artwork
-from optparse import make_option
 import io
 
 
 def itunes_rss_color(rss_url):
 
-    print rss_url
+    print(rss_url)
     d = feedparser.parse(rss_url)
     for e in d.entries:
         html_doc = e['content'][0]['value']
@@ -33,39 +33,101 @@ def itunes_rss_color(rss_url):
         aw.save()
 
 
+def leeds_record_fields(record):
+    """Extract the fields needed to create an Artwork from a Leeds record."""
+    identifiers = []
+    title = record.get('_label')
+    for identified in record.get('identified_by', []):
+        labels = {
+            classification.get('_label')
+            for classification in identified.get('classified_as', [])
+        }
+        content = identified.get('content')
+        if identified.get('type') == 'Identifier' and content:
+            if 'Accession Number' in labels:
+                identifiers.insert(0, content)
+            elif 'Local Number' in labels:
+                identifiers.append(content)
+        elif identified.get('type') == 'Name' and content and 'Primary Name' in labels:
+            title = content
+
+    accession_number = next(
+        (identifier for identifier in identifiers if identifier),
+        record.get('id', '').rstrip('/').rsplit('/', 1)[-1],
+    )
+
+    image_service_url = None
+    image_url = None
+    for representation in record.get('representation', []):
+        for visual_item in representation.get('digitally_shown_by', []):
+            for access_point in visual_item.get('access_point', []):
+                image_url = access_point.get('id')
+                if image_url:
+                    break
+            for service in visual_item.get('digitally_available_via', []):
+                for access_point in service.get('access_point', []):
+                    image_service_url = access_point.get('id')
+                    if image_service_url:
+                        break
+                if image_service_url:
+                    break
+            if image_url:
+                break
+        if image_url:
+            break
+
+    if image_service_url:
+        image_url = '%s/full/!200,200/0/default.jpg' % image_service_url.rstrip('/')
+    elif image_url and '/full/' in image_url:
+        image_service_url = image_url.rsplit('/full/', 1)[0]
+        image_url = '%s/full/!200,200/0/default.jpg' % image_service_url.rstrip('/')
+
+    record_url = None
+    for subject in record.get('subject_of', []):
+        for digital_object in subject.get('digitally_carried_by', []):
+            is_web_page = any(
+                classification.get('_label') == 'Web Page'
+                for classification in digital_object.get('classified_as', [])
+            )
+            if is_web_page:
+                record_url = next(
+                    (point.get('id') for point in digital_object.get('access_point', [])
+                     if point.get('id')),
+                    None,
+                )
+                if record_url:
+                    break
+        if record_url:
+            break
+
+    return {
+        'accession_number': accession_number,
+        'title': title or accession_number,
+        'image_url': image_url,
+        'url': record_url,
+    }
+
+
 class Command(BaseCommand):
     help = "Image colour palettes from open data CSV or directory of files"
 
-    option_list = BaseCommand.option_list + (
-        make_option("-f", "--filename",
-                    dest="filedata",
-                    type="string",
-                    action="store",
-                    help="Image data file/list",
-                    default=None,
-                    ),
-        make_option("-d", "--dir",
-                    dest="input_dir",
-                    type="string",
-                    action="store",
-                    default=None,
-                    help="Directory brimful of images or json"
-                    ),
-        make_option("-i", "--institution",
-                    dest="institution",
-                    type="string",
-                    action="store",
-                    default="TATE",
-                    help="Institution"
-                    ),
-        make_option("-a", "--apikey",
-                    dest="apikey",
-                    type="string",
-                    action="store",
-                    default="",
-                    help="The API Key from this institution"
-                    ),
-    )
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "-f", "--filename", dest="filedata",
+            help="Image data file/list",
+        )
+        parser.add_argument(
+            "-d", "--dir", dest="input_dir",
+            help="Directory brimful of images or JSON",
+        )
+        parser.add_argument(
+            "-i", "--institution", dest="institution", default="TATE",
+            help="Institution",
+        )
+        parser.add_argument(
+            "-a", "--apikey", dest="apikey", default="",
+            help="The API key from this institution",
+        )
 
     def get_acno(self, filename):
         urlre = re.compile(r'^.*?([A-z0-9]+?)(?:_[0-9]+)?.jpg$')
@@ -76,10 +138,12 @@ class Command(BaseCommand):
             return "Foo"
 
     def handle(self, *args, **options):
-        print 'Images'
         input_dir = options['input_dir']
         institution = options['institution']
         api_key = options['apikey']
+        if not options['filedata'] and not input_dir and institution == "TATE":
+            raise CommandError("Provide an image source with --filename or --dir.")
+        print('Images')
         if institution == "HARVARD":
 
             offset = 0
@@ -93,9 +157,9 @@ class Command(BaseCommand):
 
             while offset < 400:
                 params['from'] = offset
-                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
-                print req_url
-                req = urllib.urlopen(req_url)
+                req_url = "%s?%s" % (api_url, urlencode(params))
+                print(req_url)
+                req = urlopen(req_url)
                 response = json.load(req)
                 for rec in response['records']:
                     if 'primaryimageurl' not in rec:
@@ -104,7 +168,7 @@ class Command(BaseCommand):
                         continue
                     image_url = rec['primaryimageurl'].split('?')[0] + \
                         "?width=255&height=255"
-                    print image_url
+                    print(image_url)
                     object_number = rec['objectnumber']
                     aw = Artwork.from_url(
                         object_number,
@@ -139,16 +203,16 @@ class Command(BaseCommand):
             while page < 200:
                 page += 1
                 params['p'] = page
-                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
-                print req_url
-                req = urllib.urlopen(req_url)
+                req_url = "%s?%s" % (api_url, urlencode(params))
+                print(req_url)
+                req = urlopen(req_url)
                 response = json.load(req)
                 for rec in response['artObjects']:
                     object_id = rec['objectNumber']
                     if not rec['webImage']:
                         continue
                     image_url = rec['webImage']['url'].replace('=s0', '=s300')
-                    print image_url
+                    print(image_url)
                     aw = Artwork.from_url(
                         object_id,
                         institution,
@@ -187,8 +251,8 @@ class Command(BaseCommand):
                     rss_url = rss_base % (l, c)
                     try:
                         itunes_rss_color(rss_url)
-                    except Exception, e:
-                        print e
+                    except Exception as e:
+                        print(e)
                         continue
 
 
@@ -208,9 +272,9 @@ class Command(BaseCommand):
             while page < 200:
                 page += 1
                 params['Page'] = page
-                req_url = "%s?%s" % (api_url, urllib.urlencode(params))
-                print req_url
-                req = urllib.urlopen(req_url)
+                req_url = "%s?%s" % (api_url, urlencode(params))
+                print(req_url)
+                req = urlopen(req_url)
                 response = json.load(req)
                 for rec in response['Items']:
                     object_id = rec['ObjectNumber']
@@ -231,7 +295,7 @@ class Command(BaseCommand):
                         aw.artist = rec['Creator']
                     if rec['DateBeginYear']:
                         aw.year = rec['DateBeginYear']
-                    print aw.image_url
+                    print(aw.image_url)
                     aw.save()
 
         if options['filedata']:
@@ -244,7 +308,7 @@ class Command(BaseCommand):
 
                     if row['thumbnailUrl']:
                         image_url = row['thumbnailUrl']
-                        print image_url
+                        print(image_url)
                         aw = Artwork.from_url(
                             row['accession_number'],
                             institution,
@@ -268,7 +332,7 @@ class Command(BaseCommand):
                         url = "http://collection.mam.org/details.php?id=%s" % (acno)
                         jpg = fields[25]
                         image_url = "http://collection.mam.org/vmedia/thumbnails/%s" % (jpg)
-                        print acno, image_url
+                        print(acno, image_url)
                         aw = Artwork.from_url(
                             acno,
                             institution,
@@ -290,7 +354,7 @@ class Command(BaseCommand):
                         acno = fields[1]
                         url = "http://%s" % (fields[2].rstrip())
                         image_url = "http://%s" % (fields[1])
-                        print image_url
+                        print(image_url)
                         aw = Artwork.from_url(
                             acno,
                             institution,
@@ -309,6 +373,7 @@ class Command(BaseCommand):
                     if full_im.endswith('.jpg') or full_im.endswith('.png'):
                         aw = Artwork.from_file(acno, institution, full_im)
                     elif full_im.endswith('.json'):
+                        print("Processing JSON file:", full_im)
                         f = open(full_im)
                         json_data = f.read()
                         pdata = json.loads(json_data)
@@ -331,15 +396,32 @@ class Command(BaseCommand):
                             aw.title = title
                             aw.image_url = image_url
                             aw.year = year
-                            print title, acno, year
+                            print(title, acno, year)
                             aw.url = 'http://collections.vam.ac.uk/item/%s' % (
                                 acno
                             )
                             aw.save()
-
+                        elif institution == "LEEDS":
+                            fields = leeds_record_fields(pdata)
+                            if not fields['image_url']:
+                                self.stderr.write(
+                                    "Skipping Leeds record without an image: %s" % full_im
+                                )
+                                continue
+                            aw = Artwork.from_url(
+                                fields['accession_number'],
+                                institution,
+                                fields['image_url'],
+                            )
+                            if not aw:
+                                continue
+                            aw.title = fields['title']
+                            if fields['url']:
+                                aw.url = fields['url']
+                            aw.save()
 
 def url_to_imagefile(url):
 
-    response = urllib.urlopen(url)
+    response = urlopen(url)
     im_bytes = response.read()
     return io.BytesIO(im_bytes)

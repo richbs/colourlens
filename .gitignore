@@ -1,3 +1,4 @@
+.venv
 .DS_Store
 *.lnk
 *.db
@@ -12,3 +13,6 @@ src
 *.sqlite
 *.bak
 *~
+*.swp
+*.sqlite3
+colourlens/venv/

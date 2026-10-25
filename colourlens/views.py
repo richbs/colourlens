@@ -1,10 +1,13 @@
 from django.db.models import Avg, Sum, Count
+from django.conf import settings
 from django import forms
 from django.forms.widgets import Input
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from django.views.decorators.cache import cache_page
+from django.views.decorators.cache import cache_page, never_cache
+from django.core.paginator import Paginator
 from colourlens.models import Artwork, Colour
+from functools import reduce
 
 PROM_ATTRS = {'min': '0', 'max': '100', 'step': '5'}
 DIST_ATTRS = {'min': '0', 'max': '50', 'step': '1'}
@@ -22,7 +25,7 @@ class ColourForm(forms.Form):
         """
         super(ColourForm, self).__init__(*args, **kwargs)
 
-        for k, v in self.fields.iteritems():
+        for k, v in self.fields.items():
             if v.widget.__class__ == forms.CheckboxInput:
                 v.widget.attrs['class'] = 'colourbox'
             elif v.widget.__class__ == RangeInput:
@@ -53,7 +56,10 @@ class ColourForm(forms.Form):
     submitted = forms.CharField(widget=forms.HiddenInput())
 
 
-@cache_page(60 * 60)
+cache_index = cache_page(60 * 60) if not settings.DEBUG else never_cache
+
+
+@cache_index
 def index(request, institution=False):
     """
     Search and browse colours
@@ -113,10 +119,16 @@ def index(request, institution=False):
         )
         colour_width = 99.4 / colour_count
 
+    page_obj = Paginator(artworks, 48).get_page(request.GET.get('page'))
+    pagination_params = request.GET.copy()
+    pagination_params.pop('page', None)
+
     institutions = Artwork.objects.all().values('institution').distinct()
     t = loader.get_template("colour.html")
     context_data = {
-        'artworks': artworks[:40],
+        'artworks': page_obj.object_list,
+        'page_obj': page_obj,
+        'pagination_query': pagination_params.urlencode(),
         'colours': colours,
         'colour_count': colour_count,
         'colour_width': colour_width,
@@ -126,6 +138,5 @@ def index(request, institution=False):
         'institutions': institutions,
         'req_colours': req_colours,
     }
-    c = RequestContext(request, context_data)
 
-    return HttpResponse(t.render(c))
+    return HttpResponse(t.render(context_data, request))
