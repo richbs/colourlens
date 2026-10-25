@@ -2,7 +2,6 @@ import json
 import os
 import shutil
 import tempfile
-import unittest
 from decimal import Decimal
 
 from django.core.cache import cache
@@ -63,8 +62,6 @@ class ArtColourTests(TestCase):
         self.assertEqual(ArtColour(0, 0, 255, 1).color, 'BLUE')
         self.assertEqual(ArtColour(0, 0, 0, 1).color, 'BLACK')
 
-    # Known bug: __init__ unpacks (r, g, b) into (red, blue, green)
-    @unittest.expectedFailure
     def test_channel_attributes(self):
         c = ArtColour(1, 2, 3, 1)
         self.assertEqual((c.red, c.green, c.blue), (1, 2, 3))
@@ -134,10 +131,14 @@ class ModelSignalTests(TestCase):
         self.assertIn('#0000ff', hexes)
         self.assertTrue(aw.colour_parts())
 
-    # Known bug: models define __unicode__, which Python 3 never calls
-    @unittest.expectedFailure
     def test_str(self):
+        cd = ColourDistance.objects.create(
+            artwork=self.artwork, colour=self.red,
+            distance=Decimal('4.00'), prominence=Decimal('0.50')
+        )
         self.assertEqual(str(self.red), 'red')
+        self.assertEqual(str(self.artwork), 'A1')
+        self.assertEqual(str(cd), 'A1 red d:4.00 p:0.50')
 
 
 @override_settings(CACHES=LOCMEM_CACHE)

@@ -24,8 +24,8 @@ class Colour(models.Model):
     hue = models.IntegerField(blank=True, null=True, db_index=True)
     elite = models.BooleanField(default=False)
 
-    def __unicode__(self):
-        return u"%s" % (self.name)
+    def __str__(self):
+        return "%s" % (self.name)
 
 
 class Artwork(models.Model):
@@ -110,8 +110,8 @@ class Artwork(models.Model):
         aw.save()
         return aw
 
-    def __unicode__(self):
-        return u"%s" % (self.accession_number)
+    def __str__(self):
+        return "%s" % (self.accession_number)
 
 
 class ColourDistance(models.Model):
@@ -133,9 +133,9 @@ class ColourDistance(models.Model):
     class Meta:
         unique_together = ('artwork', 'colour')
 
-    def __unicode__(self):
-        return u"s%s %s d:%s p:%s" % (self.artwork, self.colour,
-                                      self.distance, self.prominence)
+    def __str__(self):
+        return "%s %s d:%s p:%s" % (self.artwork, self.colour,
+                                    self.distance, self.prominence)
 
 
 def artwork_proportions(sender, instance, **kwargs):

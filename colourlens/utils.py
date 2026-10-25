@@ -51,7 +51,7 @@ class ArtColour:
 
         self.rgb = (r, g, b)
         self.prominence = prominence
-        (self.red, self.blue, self.green) = (r, g, b)
+        (self.red, self.green, self.blue) = (r, g, b)
         self.hsv = self.rgb_to_hsv(r, g, b)
         (self.hue, self.sat, self.val) = \
             (self.hsv[0], self.hsv[1], self.hsv[2])
