@@ -17,3 +17,5 @@ Pre-requisites: Assuming use of virtualenv. Also need libjpeg-dev and python-dev
 9. `python manage.py runserver`
 10. Hit `http://127.0.0.1:8000/` in your browser.
 
+
+Remaining modernisation work is listed in [TODO.md](TODO.md).
