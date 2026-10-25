@@ -13,3 +13,6 @@ src
 *.sqlite
 *.bak
 *~
+*.swp
+*.sqlite3
+colourlens/venv/
