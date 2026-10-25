@@ -5,14 +5,18 @@
 {% block title %}Colour Lens{% endblock title %}
 
 {% block body_id %}colour-browse{% endblock %}
-{% block body_class %}colour-browser{% endblock  %}
+{% block body_class %}full-page-colour{% endblock  %}
 
 {% block content %}
-<div id="colour-page">
-    {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100%; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
+<div id="fullpage">
+  <div class="section">
+    <div id="colour-page">
+    {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
       <a href="{{ request.path }}?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}colour={{ c.hex_value|urlencode }}">{{ c.artwork__count }}</a>
     </div>{% endfor %}
-</div>
+    </div>
+  </div>
+  <div class="section active">
     <div id="colour-list">
       {% for c in colours %}<div style="width: {{ colour_width|floatformat:2 }}%; height:100px; margin:0; padding:0; background-color:{{ c.hex_value}}; display:inline-block;">
         <a href="{{ request.path }}?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}colour={{ c.hex_value|urlencode }}">{{ c.artwork__count }}</a>
@@ -22,17 +26,15 @@
     <div id="header">
       <h1 id="colour_me_bad">Colour Lens</h1>
       <p>An experiment in visualisation as navigation</p>
-      <em>{{ found }} results</em>
-      <h2>{{ colour_count }} colours in this set</h2>
-      <span class="page-status" aria-live="polite">Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ found }}</span>
+      <em>{{found}} results</em><h2>{{ colour_count }} colours in this set</h2>
       <p id="institution-nav">
         <a class="{% if not institution %}selected{% endif %}" href="{% url 'colour_index' %}">ALL</a>
         {% for i in institutions %}
         <a class="{% if institution == i.institution %}selected{% endif %}" href="{% url 'colour_index' %}{{ i.institution|urlencode }}">{{ i.institution|upper }}</a>
       {% endfor %}</p>
     </div>
-    <ul id="work-grid" class="explorerWorks explorerGrid">
-      {% for a in artworks %}
+    <ul class="explorerWorks explorerGrid">
+      {% for a in artworks|slice:":24" %}
       <li class="grid-work">
         <div class="grid-work-image">
           <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
@@ -47,25 +49,39 @@
       </li>
       {% endfor %}
     </ul>
-    <nav class="pagination" aria-label="Artwork pages">
-      {% if page_obj.has_previous %}
-      <a class="previous-page" rel="prev" href="?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}page={{ page_obj.previous_page_number }}">Previous</a>
-      {% else %}
-      <span class="disabled previous-page">Previous</span>
-      {% endif %}
-      <span class="page-number" aria-live="polite">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-      {% if page_obj.has_next %}
-      <a id="load-more" class="load-more" rel="next" href="?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}page={{ page_obj.next_page_number }}">Load more</a>
-      {% else %}
-      <span class="disabled">Next</span>
-      {% endif %}
-    </nav>
+    {% if artworks|length <= 24 %}{% include "pagination.html" %}{% endif %}
     <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  {% if artworks|length > 24 %}
+  <div class="section">
+    <ul class="explorerWorks explorerGrid">
+      {% for a in artworks|slice:"24:48" %}
+      <li class="grid-work">
+        <div class="grid-work-image">
+          <a title="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" href="{{ a.url }}"  style="background-image: url({{ a.image_url }});">
+            <img alt="{{ a.institution }}: {{ a.artist }}: {{ a.title }} {{ a.year }}" src="{{ a.image_url }}" />
+          </a>    
+        </div>
+        <h3>{{ a.title|truncatechars:25 }}</h3>
+        <span class="institution">{{ a.institution }}</span>    
+        <p class="artist"><em>{{ a.artist|truncatechars:25 }}</em></p>
+        <p class="signature">{% for h, pc in a.colour_parts %}<span style="width: {{ pc|floatformat:2 }}%; background-color:{{ h }};"></span>{% endfor %}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% include "pagination.html" %}
+    <p>Inspired by and created at <a href="http://metalab.harvard.edu/2014/01/beautiful-data-a-summer-institute-for-telling-stories-with-open-art-collections/">metaLAB</a>, featuring Public Domain images from the Rijksmuseum and the Walters Art Museum, others with permission from the Wolfsonian-FIU, and code from Tate and the Cooper-Hewitt. <a href="http://github.com/richbs/colourlens">Fork me on Github</a>.</p>
+  </div>
+  {% endif %}
+</div>
 {% endblock %}
 {% block extrascript %}
+<script src="{% static 'vendors/jquery.easings.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery.fullPage.min.js' %}"></script>
 <script type="text/javascript">
 
 $(document).ready(function() {
+    var total_palette = {{ total_palette }};
     $('#colour-list div a').each(function(i, ele){
       var h = $(ele).text();
       var log = Math.log(h) * 20;
@@ -73,88 +89,20 @@ $(document).ready(function() {
       $(ele).css('visibility', 'visible');
       ele.innerHTML = '';  
     });
+    // /$('.section').css('height', $( window ).height())
+    $('#colour-page div a').each(function(i, ele){
+      var h = $(ele).height();
+      var sqrt = Math.log(h) * 10;
+      $(ele).parent().css('height', $( window ).height());
+      ele.innerHTML = '';  
+    });
     $('.explorerGrid h3, .explorerGrid p.artist, .explorerGrid span.institution').hide();
-
-    const loadMore = document.getElementById('load-more');
-    if (loadMore && 'IntersectionObserver' in window && window.fetch) {
-      const grid = document.getElementById('work-grid');
-      const pageNumber = document.querySelector('.page-number');
-      const pageStatus = document.querySelector('.page-status');
-      const previousPage = document.querySelector('.previous-page');
-      let loading = false;
-
-      if (previousPage) {
-        previousPage.hidden = true;
-      }
-
-      const observer = new IntersectionObserver(function(entries) {
-        if (entries.some(function(entry) { return entry.isIntersecting; })) {
-          loadNextPage();
-        }
-      }, { rootMargin: '500px 0px' });
-
-      async function loadNextPage() {
-        if (loading || !loadMore.isConnected) {
-          return;
-        }
-        loading = true;
-        loadMore.textContent = 'Loading…';
-        loadMore.setAttribute('aria-busy', 'true');
-
-        try {
-          const response = await fetch(loadMore.href, {
-            credentials: 'same-origin',
-            headers: { 'Accept': 'text/html' }
-          });
-          if (!response.ok) {
-            throw new Error('Could not load the next page');
-          }
-
-          const responseHtml = await response.text();
-          const nextDocument = new DOMParser().parseFromString(responseHtml, 'text/html');
-          const nextItems = nextDocument.querySelectorAll('#work-grid .grid-work');
-          nextItems.forEach(function(item) {
-            const appendedItem = document.importNode(item, true);
-            appendedItem.querySelectorAll('h3, p.artist, span.institution').forEach(function(label) {
-              label.hidden = true;
-            });
-            grid.appendChild(appendedItem);
-          });
-
-          const nextPageLink = nextDocument.querySelector('.pagination [rel="next"]');
-          const nextStatus = nextDocument.querySelector('.page-status');
-          const nextPageNumber = nextDocument.querySelector('.page-number');
-          if (nextStatus) {
-            pageStatus.textContent = nextStatus.textContent;
-          }
-          if (nextPageNumber) {
-            pageNumber.textContent = nextPageNumber.textContent;
-          }
-          if (nextPageLink) {
-            loadMore.href = new URL(nextPageLink.getAttribute('href'), response.url).href;
-            loadMore.textContent = 'Load more';
-          } else {
-            observer.unobserve(loadMore);
-            loadMore.outerHTML = '<span class="disabled">All results loaded</span>';
-          }
-        } catch (error) {
-          loadMore.textContent = 'Could not load more. Retry';
-        } finally {
-          loading = false;
-          loadMore.removeAttribute('aria-busy');
-        }
-      }
-
-      loadMore.addEventListener('click', function(event) {
-        event.preventDefault();
-        loadNextPage();
-      });
-      observer.observe(loadMore);
-    }
+    $('#fullpage').fullpage();
 });
 </script>
 {% endblock %}
 {% block extrahead %}
+<link rel="stylesheet" href="{% static 'jquery.fullPage.css' %}" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
 <style type="text/css">
 * {
@@ -171,12 +119,6 @@ body {
 #content {
   max-width: 1228px;
   margin: 0px auto;
-  padding: 0 16px;
-}
-
-#colour-page {
-  min-height: 240px;
-  height: 100vh;
 }
 
 #colour-list {
@@ -295,32 +237,13 @@ p.signature {
   vertical-align: top;
 }
 
-.page-status {
-  font-size: 0.9em;
-}
-
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.pagination a,
-.pagination .disabled {
-  border: 1px solid #888;
-  border-radius: 3px;
-  padding: 0.5rem 0.8rem;
+#page-nav a {
+  color: #666;
+  font-weight: 800;
   text-decoration: none;
-}
-
-.pagination a {
-  color: #444;
-}
-
-.pagination .disabled {
-  color: #aaa;
+  padding-bottom: 3px;
+  margin-right: 20px;
+  border-bottom: 3px solid #666;
 }
 </style>
 {% endblock extrahead %}

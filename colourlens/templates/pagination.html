@@ -1,0 +1,4 @@
+{% if page_obj.has_other_pages %}<p id="page-nav">
+  {% if page_obj.has_previous %}<a rel="prev" href="?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}page={{ page_obj.previous_page_number }}">Previous</a>{% endif %}
+  {% if page_obj.has_next %}<a rel="next" href="?{% if pagination_query %}{{ pagination_query }}&amp;{% endif %}page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+</p>{% endif %}

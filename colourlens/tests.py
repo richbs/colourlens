@@ -176,6 +176,7 @@ class IndexViewTests(TestCase):
         self.assertTemplateUsed(response, 'colour.html')
         self.assertIn('page_obj', response.context)
         self.assertEqual(self.accessions(response), {'A1'})
+        self.assertNotContains(response, 'id="page-nav"')
 
     def test_institution(self):
         self.make_artwork('A1', institution='LEEDS')
@@ -205,12 +206,19 @@ class IndexViewTests(TestCase):
         self.assertEqual(self.accessions(response), {'MID'})
 
     def test_pagination(self):
-        for i in range(30):
+        for i in range(50):
             self.make_artwork('A%02d' % i)
+        response = self.client.get(reverse('colour_index'))
+        self.assertEqual(len(response.context['artworks']), 48)
+        self.assertContains(response, 'rel="next"')
+        self.assertNotContains(response, 'rel="prev"')
+
         response = self.client.get(
             reverse('colour_index'), {'page': 2, 'startyear': ''}
         )
         self.assertEqual(response.context['page_obj'].number, 2)
-        self.assertEqual(len(response.context['artworks']), 6)
+        self.assertEqual(len(response.context['artworks']), 2)
+        self.assertContains(response, 'rel="prev"')
+        self.assertNotContains(response, 'rel="next"')
         self.assertNotIn('page', response.context['pagination_query'])
         self.assertIn('startyear', response.context['pagination_query'])

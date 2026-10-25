@@ -119,7 +119,7 @@ def index(request, institution=False):
         )
         colour_width = 99.4 / colour_count
 
-    page_obj = Paginator(artworks, 24).get_page(request.GET.get('page'))
+    page_obj = Paginator(artworks, 48).get_page(request.GET.get('page'))
     pagination_params = request.GET.copy()
     pagination_params.pop('page', None)
 
