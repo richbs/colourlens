@@ -20,8 +20,6 @@ In `coloursite/settings.py`:
 -----------------
 - `colourlens/models.py` uses `from roygbiv import *`. Only `Roygbiv` is
   needed, so import that explicitly.
-- The README setup steps are out of date: `syncdb` is now `migrate`, and
-  `virtualenv --distribute` is now `python -m venv`.
 - The `red`, `green` and `blue` columns on `Colour` and `ColourDistance` are
   never filled in. Either populate them on import or drop them.
 
