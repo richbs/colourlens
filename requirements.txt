@@ -1,6 +1,8 @@
 Django<5
  -e git+https://github.com/richbs/RoyGBiv.git#egg=roygbiv
 cooperhewitt-swatchbook @ git+https://github.com/cooperhewitt/py-cooperhewitt-swatchbook.git
+colormath<2
+webcolors<25
 django-debug-toolbar
 feedparser
 beautifulsoup4
